@@ -1,10 +1,10 @@
-name: Bagisto API Tests
+name: Run Bagisto API Tests
 
 on:
   push:
-    branches: [ Bianca_Fernandez ]
+    branches:
+      - main
   pull_request:
-    branches: [ Bianca_Fernandez ]
 
 jobs:
   test:
@@ -12,11 +12,12 @@ jobs:
 
     services:
       bagisto:
-        image: bagisto/bagisto-docker
+        image: webkul/bagisto:2.3.0
         ports:
-          - 8000:8000
+          - 8000:80
         options: >-
-          --health-cmd="curl --fail http://localhost:8000/api/v1 || exit 1"
+          --name bagisto
+          --health-cmd="curl --fail http://localhost:8000 || exit 1"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=10
@@ -25,24 +26,51 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.12
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Wait for Bagisto to be ready
+      - name: Wait for Bagisto container to start
         run: |
-          for i in {1..20}; do
-            curl -s http://localhost:8000/api/v1/admin/customers && break
-            echo "Esperando que Bagisto esté listo..."
+          echo "⏳ Esperando a que Bagisto esté listo..."
+          for i in {1..30}; do
+            if curl -s http://localhost:8000 >/dev/null; then
+              echo "✅ Bagisto está en línea"
+              break
+            fi
             sleep 5
           done
 
+      - name: Install Bagisto REST API inside container
+        run: |
+          echo "⚙️ Instalando Bagisto REST API dentro del contenedor..."
+          docker exec bagisto bash -c "
+            cd /var/www/html && \
+            composer require bagisto/rest-api && \
+            echo 'SANCTUM_STATEFUL_DOMAINS=http://localhost:8000' >> .env && \
+            php artisan bagisto-rest-api:install && \
+            php artisan optimize:clear
+          "
+          echo "✅ Bagisto REST API instalada"
+
+      - name: Wait for REST API to respond
+        run: |
+          echo "⏳ Esperando que la API responda..."
+          for i in {1..20}; do
+            if curl -fs http://localhost:8000/api/admin/documentation >/dev/null; then
+              echo "✅ API de Bagisto lista"
+              break
+            fi
+            sleep 5
+          done
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
       - name: Run API tests
         env:
-          BASE_URL: "http://localhost:8000/api/v1"
+          BASE_URL: "http://localhost:8000/api/v1/admin"
           API_TOKEN: "2|m5piiDHgwkUPy5KGgP2JUBuqgYgPXa5wxZItzt0D34cf6765"
-        run: pytest
+        run: pytest -v --maxfail=1 --disable-warnings
