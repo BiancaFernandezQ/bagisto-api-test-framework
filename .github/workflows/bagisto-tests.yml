@@ -1,12 +1,10 @@
-name: Run Bagisto API Tests bsfq
+name: Bagisto API Tests
 
 on:
   push:
-    branches:
-      - Bianca_Fernandez
+    branches: [ Bianca_Fernandez ]
   pull_request:
-    branches:
-      - Bianca_Fernandez
+    branches: [ Bianca_Fernandez ]
 
 jobs:
   test:
@@ -19,48 +17,10 @@ jobs:
           - 8000:80
         options: >-
           --name bagisto
-          --health-cmd="curl --fail http://localhost:8000 || exit 1"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=10
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Wait for Bagisto container to start
-        run: |
-          echo "⏳ Esperando a que Bagisto esté listo..."
-          for i in {1..30}; do
-            if curl -s http://localhost:8000 >/dev/null; then
-              echo "✅ Bagisto está en línea"
-              break
-            fi
-            sleep 5
-          done
-
-      - name: Install Bagisto REST API inside container
-        run: |
-          echo "⚙️ Instalando Bagisto REST API dentro del contenedor..."
-          docker exec bagisto bash -c "
-            cd /var/www/html && \
-            composer require bagisto/rest-api && \
-            echo 'SANCTUM_STATEFUL_DOMAINS=http://localhost:8000' >> .env && \
-            php artisan bagisto-rest-api:install && \
-            php artisan optimize:clear
-          "
-          echo "✅ Bagisto REST API instalada"
-
-      - name: Wait for REST API to respond
-        run: |
-          echo "⏳ Esperando que la API responda..."
-          for i in {1..20}; do
-            if curl -fs http://localhost:8000/api/admin/documentation >/dev/null; then
-              echo "✅ API de Bagisto lista"
-              break
-            fi
-            sleep 5
-          done
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -69,10 +29,25 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          pip install pytest requests
 
-      - name: Run API tests
+      # 🔹 Espera activa: no avanza hasta que Bagisto esté disponible
+      - name: Wait for Bagisto to be ready
+        run: |
+          echo "⏳ Esperando que Bagisto esté listo..."
+          until $(curl --output /dev/null --silent --head --fail http://localhost:8000); do
+            printf '.'
+            sleep 5
+          done
+          echo ""
+          echo "✅ Bagisto está en línea. Continuando con los tests."
+
+      # 🔹 Ejecuta los tests Pytest
+      - name: Run API Tests
         env:
-          BASE_URL: "http://localhost:8000/api/v1/admin"
-          API_TOKEN: "2|m5piiDHgwkUPy5KGgP2JUBuqgYgPXa5wxZItzt0D34cf6765"
-        run: pytest -v --maxfail=1 --disable-warnings
+          BASE_URL: http://localhost:8000/api/v1
+          TOKEN: ${{ secrets.BAGISTO_TOKEN }}
+        run: |
+          pytest -v --maxfail=1 --disable-warnings
+
