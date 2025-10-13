@@ -10,14 +10,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    services:
-      bagisto:
-        image: webkul/bagisto:2.3.0
-        ports:
-          - 8000:80
-        options: >-
-          --name bagisto
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -32,7 +24,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 🔹 Espera activa: no avanza hasta que Bagisto esté disponible
+      - name: Start Bagisto container
+        run: |
+          echo "🚀 Iniciando Bagisto..."
+          docker run -d -p 8000:80 --name bagisto webkul/bagisto:2.3.0
+
       - name: Wait for Bagisto to be ready
         run: |
           echo "⏳ Esperando que Bagisto esté listo..."
@@ -41,7 +37,8 @@ jobs:
             sleep 5
           done
           echo ""
-          echo "✅ Bagisto está en línea. Continuando con los tests."
+          echo "✅ Bagisto está en línea."
+
       - name: Enable Bagisto REST API inside container
         run: |
           echo "⚙️ Instalando REST API dentro del contenedor..."
@@ -53,11 +50,9 @@ jobs:
           "
           echo "✅ REST API instalada correctamente."
 
-      # 🔹 Ejecuta los tests Pytest
       - name: Run API Tests
         env:
           BASE_URL: http://localhost:8000/api/v1
           TOKEN: "2|m5piiDHgwkUPy5KGgP2JUBuqgYgPXa5wxZItzt0D34cf6765"
         run: |
           pytest -v --maxfail=1 --disable-warnings
-
