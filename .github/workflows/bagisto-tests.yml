@@ -1,0 +1,48 @@
+name: Bagisto API Tests
+
+on:
+  push:
+    branches: [ Bianca_Fernandez ]
+  pull_request:
+    branches: [ Bianca_Fernandez ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      bagisto:
+        image: bagisto/bagisto-docker
+        ports:
+          - 8000:8000
+        options: >-
+          --health-cmd="curl --fail http://localhost:8000/api/v1 || exit 1"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Wait for Bagisto to be ready
+        run: |
+          for i in {1..20}; do
+            curl -s http://localhost:8000/api/v1/admin/customers && break
+            echo "Esperando que Bagisto esté listo..."
+            sleep 5
+          done
+
+      - name: Run API tests
+        env:
+          BASE_URL: "http://localhost:8000/api/v1"
+          API_TOKEN: "2|m5piiDHgwkUPy5KGgP2JUBuqgYgPXa5wxZItzt0D34cf6765"
+        run: pytest
