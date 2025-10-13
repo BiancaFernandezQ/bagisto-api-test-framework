@@ -42,12 +42,22 @@ jobs:
           done
           echo ""
           echo "✅ Bagisto está en línea. Continuando con los tests."
+      - name: Enable Bagisto REST API inside container
+        run: |
+          echo "⚙️ Instalando REST API dentro del contenedor..."
+          docker exec bagisto bash -c "
+            cd /var/www/html && \
+            composer require bagisto/rest-api && \
+            echo 'SANCTUM_STATEFUL_DOMAINS=http://localhost:8000' >> .env && \
+            php artisan bagisto-rest-api:install
+          "
+          echo "✅ REST API instalada correctamente."
 
       # 🔹 Ejecuta los tests Pytest
       - name: Run API Tests
         env:
           BASE_URL: http://localhost:8000/api/v1
-          TOKEN: ${{ secrets.BAGISTO_TOKEN }}
+          TOKEN: "2|m5piiDHgwkUPy5KGgP2JUBuqgYgPXa5wxZItzt0D34cf6765"
         run: |
           pytest -v --maxfail=1 --disable-warnings
 
