@@ -1,10 +1,12 @@
-name: Run Bagisto API Tests
+name: Run Bagisto API Tests bsfq
 
 on:
   push:
     branches:
-      - main
+      - Bianca_Fernandez
   pull_request:
+    branches:
+      - Bianca_Fernandez
 
 jobs:
   test:
