@@ -10,6 +10,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      bagisto:
+        image: webkul/bagisto:2.3.0
+        ports:
+          - 8000:80
+        options: >-
+          --health-cmd "curl -f http://localhost || exit 1"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -24,25 +35,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Start Bagisto container
+      - name: Esperar a que Bagisto esté listo
         run: |
-          echo "🚀 Iniciando Bagisto..."
-          docker run -d -p 8000:80 --name bagisto webkul/bagisto:2.3.0
-
-      - name: Wait for Bagisto to be ready
-        run: |
-          echo "⏳ Esperando que Bagisto esté listo..."
-          until $(curl --output /dev/null --silent --head --fail http://localhost:8000); do
-            printf '.'
+          echo "⏳ Esperando que Bagisto responda en localhost:8000..."
+          for i in {1..30}; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8000)
+            if [ "$STATUS" == "200" ]; then
+              echo "✅ Bagisto está en línea."
+              break
+            fi
+            echo "Intento $i: Bagisto aún no responde (status $STATUS)..."
             sleep 5
           done
-          echo ""
-          echo "✅ Bagisto está en línea."
 
-      - name: Enable Bagisto REST API inside container
+      - name: Habilitar REST API en el servicio
         run: |
-          echo "⚙️ Instalando REST API dentro del contenedor..."
-          docker exec bagisto bash -c "
+          echo "⚙️ Instalando Bagisto REST API..."
+          docker exec $(docker ps --filter "ancestor=webkul/bagisto:2.3.0" -q) bash -c "
             cd /var/www/html && \
             composer require bagisto/rest-api && \
             echo 'SANCTUM_STATEFUL_DOMAINS=http://localhost:8000' >> .env && \
@@ -50,7 +59,7 @@ jobs:
           "
           echo "✅ REST API instalada correctamente."
 
-      - name: Run API Tests
+      - name: Ejecutar tests con pytest
         env:
           BASE_URL: http://localhost:8000/api/v1
           TOKEN: "2|m5piiDHgwkUPy5KGgP2JUBuqgYgPXa5wxZItzt0D34cf6765"

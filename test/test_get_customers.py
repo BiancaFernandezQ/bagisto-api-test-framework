@@ -15,6 +15,11 @@ def test_get_admin_customers():
 
     response = requests.get(url, headers=headers)
     print('Response:', response.text)  # Depuración adicional
+    print("URL:", url)
+    print("Headers:", headers)
+    print("Status:", response.status_code)
+    print("Response:", response.text[:500])  # solo los primeros 500 caracteres
+
     # Verificaciones básicas
     assert response.status_code == 200, f"Status inesperado: {response.status_code}"
     json_data = response.json()
