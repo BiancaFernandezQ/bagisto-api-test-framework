@@ -19,7 +19,7 @@ def test_get_admin_customers():
     print("Headers:", headers)
     print("Status:", response.status_code)
     print("Response:", response.text[:500])  # solo los primeros 500 caracteres
-
+    print("Response text (truncated):", response.text[:1500])
     # Verificaciones básicas
     assert response.status_code == 200, f"Status inesperado: {response.status_code}"
     json_data = response.json()

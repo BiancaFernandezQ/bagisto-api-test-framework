@@ -48,16 +48,23 @@ jobs:
             sleep 5
           done
 
-      - name: Habilitar REST API en el servicio
+      - name: Configurar e inicializar Bagisto
         run: |
-          echo "⚙️ Instalando Bagisto REST API..."
-          docker exec $(docker ps --filter "ancestor=webkul/bagisto:2.3.0" -q) bash -c "
+          echo "⚙️ Configurando entorno de Bagisto..."
+          CONTAINER_ID=$(docker ps --filter "ancestor=webkul/bagisto:2.3.0" -q)
+
+          docker exec $CONTAINER_ID bash -c "
             cd /var/www/html && \
+            cp .env.example .env && \
+            php artisan key:generate && \
+            php artisan migrate --force && \
+            php artisan db:seed --force && \
             composer require bagisto/rest-api && \
             echo 'SANCTUM_STATEFUL_DOMAINS=http://localhost:8000' >> .env && \
             php artisan bagisto-rest-api:install
           "
-          echo "✅ REST API instalada correctamente."
+
+          echo "✅ REST API y base de datos configuradas correctamente."
 
       - name: Ejecutar tests con pytest
         env:
