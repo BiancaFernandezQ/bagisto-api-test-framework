@@ -11,12 +11,34 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: bagisto
+          MYSQL_USER: bagisto
+          MYSQL_PASSWORD: bagisto
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
       bagisto:
         image: webkul/bagisto:2.3.0
         ports:
           - 8000:80
+        env:
+          DB_CONNECTION: mysql
+          DB_HOST: mysql
+          DB_PORT: 3306
+          DB_DATABASE: bagisto
+          DB_USERNAME: bagisto
+          DB_PASSWORD: bagisto
         options: >-
-          --health-cmd "curl -f http://localhost || exit 1"
+          --health-cmd="curl -f http://localhost || exit 1"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=10
@@ -35,38 +57,29 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Esperar a que Bagisto esté listo
+      - name: Esperar a que Bagisto y MySQL estén listos
         run: |
-          echo "⏳ Esperando que Bagisto responda en localhost:8000..."
-          for i in {1..30}; do
-            STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8000)
-            if [ "$STATUS" == "200" ]; then
-              echo "✅ Bagisto está en línea."
-              break
-            fi
-            echo "Intento $i: Bagisto aún no responde (status $STATUS)..."
+          echo "⏳ Esperando que Bagisto y MySQL estén en línea..."
+          for i in {1..40}; do
+            curl -s http://localhost:8000 >/dev/null && echo "✅ Bagisto listo." && break
+            echo "⏳ Intento $i: esperando servicios..."
             sleep 5
           done
 
-      - name: Configurar e inicializar Bagisto
+      - name: Instalar REST API en Bagisto
         run: |
-          echo "⚙️ Configurando entorno de Bagisto..."
-          CONTAINER_ID=$(docker ps --filter "ancestor=webkul/bagisto:2.3.0" -q)
-
-          docker exec $CONTAINER_ID bash -c "
+          echo "⚙️ Instalando REST API..."
+          docker exec $(docker ps --filter "ancestor=webkul/bagisto:2.3.0" -q) bash -c "
             cd /var/www/html && \
-            cp .env.example .env && \
-            php artisan key:generate && \
-            php artisan migrate --force && \
-            php artisan db:seed --force && \
             composer require bagisto/rest-api && \
             echo 'SANCTUM_STATEFUL_DOMAINS=http://localhost:8000' >> .env && \
+            php artisan migrate && \
+            php artisan db:seed && \
             php artisan bagisto-rest-api:install
           "
+          echo "✅ REST API lista para pruebas."
 
-          echo "✅ REST API y base de datos configuradas correctamente."
-
-      - name: Ejecutar tests con pytest
+      - name: Ejecutar tests
         env:
           BASE_URL: http://localhost:8000/api/v1
           TOKEN: "2|m5piiDHgwkUPy5KGgP2JUBuqgYgPXa5wxZItzt0D34cf6765"
