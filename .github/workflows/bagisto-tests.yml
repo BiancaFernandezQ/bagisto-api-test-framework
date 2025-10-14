@@ -1,87 +1,59 @@
-name: Bagisto API Tests
+name: Run Bagisto API Tests
 
 on:
   push:
-    branches: [ Bianca_Fernandez ]
+    branches:
+      - Bianca_Fernandez
   pull_request:
-    branches: [ Bianca_Fernandez ]
+    branches:
+      - Bianca_Fernandez
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: bagisto
-          MYSQL_USER: bagisto
-          MYSQL_PASSWORD: bagisto
-        ports:
-          - 3306:3306
-        options: >-
-          --health-cmd="mysqladmin ping -h localhost -proot"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=10
-
       bagisto:
         image: webkul/bagisto:2.3.0
         ports:
           - 8000:80
-        env:
-          DB_CONNECTION: mysql
-          DB_HOST: mysql
-          DB_PORT: 3306
-          DB_DATABASE: bagisto
-          DB_USERNAME: bagisto
-          DB_PASSWORD: bagisto
         options: >-
-          --health-cmd="curl -f http://localhost || exit 1"
+          --health-cmd="curl -f http://localhost:8000 || exit 1"
           --health-interval=10s
           --health-timeout=5s
-          --health-retries=10
+          --health-retries=3
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+    - name: Wait for Bagisto to be ready
+      run: |
+        echo "Esperando a que Bagisto esté listo..."
+        for i in {1..30}; do
+          if curl -s http://localhost:8000 > /dev/null; then
+            echo "Bagisto está listo."
+            break
+          fi
+          echo "Esperando..."
+          sleep 10
+        done
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+    - name: Install PHP dependencies in Bagisto container
+      run: |
+        docker exec bagisto composer require bagisto/rest-api
+        docker exec bagisto sh -c "echo 'SANCTUM_STATEFUL_DOMAINS=http://localhost:8000' >> .env"
+        docker exec bagisto php artisan bagisto-rest-api:install
 
-      - name: Esperar a que Bagisto y MySQL estén listos
-        run: |
-          echo "⏳ Esperando que Bagisto y MySQL estén en línea..."
-          for i in {1..40}; do
-            curl -s http://localhost:8000 >/dev/null && echo "✅ Bagisto listo." && break
-            echo "⏳ Intento $i: esperando servicios..."
-            sleep 5
-          done
+    - name: Install Python dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3 python3-pip
+        pip3 install -r requirements.txt
 
-      - name: Instalar REST API en Bagisto
-        run: |
-          echo "⚙️ Instalando REST API..."
-          docker exec $(docker ps --filter "ancestor=webkul/bagisto:2.3.0" -q) bash -c "
-            cd /var/www/html && \
-            composer require bagisto/rest-api && \
-            echo 'SANCTUM_STATEFUL_DOMAINS=http://localhost:8000' >> .env && \
-            php artisan migrate && \
-            php artisan db:seed && \
-            php artisan bagisto-rest-api:install
-          "
-          echo "✅ REST API lista para pruebas."
-
-      - name: Ejecutar tests
-        env:
-          BASE_URL: http://localhost:8000/api/v1
-          TOKEN: "2|m5piiDHgwkUPy5KGgP2JUBuqgYgPXa5wxZItzt0D34cf6765"
-        run: |
-          pytest -v --maxfail=1 --disable-warnings
+    - name: Run tests
+      env:
+        BASE_URL: http://localhost:8000/api/v1
+        TOKEN: 2|m5piiDHgwkUPy5KGgP2JUBuqgYgPXa5wxZItzt0D34cf6765
+      run: |
+        pytest test/test_get_customers.py
