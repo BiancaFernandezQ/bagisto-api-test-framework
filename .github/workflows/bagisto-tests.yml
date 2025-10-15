@@ -53,6 +53,5 @@ jobs:
       - name: Run API Tests
         env:
           BASE_URL: http://localhost:8000/api/v1
-          TOKEN: "2|m5piiDHgwkUPy5KGgP2JUBuqgYgPXa5wxZItzt0D34cf6765"
         run: |
           pytest -v --maxfail=1 --disable-warnings
