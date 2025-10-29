@@ -1,20 +1,21 @@
-import os
 import pytest
 import requests
-from dotenv import load_dotenv
-
-load_dotenv()
+from config.config import BASE_URI, ADMIN_EMAIL, ADMIN_PASSWORD, DEVICE_NAME
 
 @pytest.fixture(scope="session")
-def base_url():
-    return os.getenv("BASE_URL", "http://localhost:9000/api")
-
-@pytest.fixture(scope="session")
-def admin_token(base_url):
+def get_token():
+    #login, obtener token y retornarlo
+    login_url = f"{BASE_URI}/admin/login"
     payload = {
-        "email": os.getenv("ADMIN_EMAIL"),
-        "password": os.getenv("ADMIN_PASSWORD")
+        "email": ADMIN_EMAIL,
+        "password": ADMIN_PASSWORD,
+        "device_name": DEVICE_NAME
     }
-    response = requests.post(f"{base_url}/admin/login", json=payload)
-    response.raise_for_status()
-    return response.json()["token"]
+
+    response = requests.post(login_url, json=payload)
+    assert response.status_code == 200, f"Error al hacer login: {response.text}"
+
+    token = response.json().get("token")
+    print("Token obtenido:", token)
+    assert token, "No se recibió token en la respuesta"
+    return token

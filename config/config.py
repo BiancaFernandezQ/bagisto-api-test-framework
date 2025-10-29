@@ -1,0 +1,4 @@
+BASE_URI = "http://localhost:8000/api/v1"
+ADMIN_EMAIL = "admin@example.com"
+ADMIN_PASSWORD = "admin123"
+DEVICE_NAME = "ci-test"
