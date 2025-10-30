@@ -1,11 +1,13 @@
 import pytest
 import requests
-from config.config import BASE_URI, ADMIN_EMAIL, ADMIN_PASSWORD, DEVICE_NAME
+from config.config import ADMIN_EMAIL, ADMIN_PASSWORD, DEVICE_NAME
+from src.bagisto_api.endpoint import Endpoint
+from src.helpers.customer_helper import CustomerHelper
 
 @pytest.fixture(scope="session")
 def get_token():
     #login, obtener token y retornarlo
-    login_url = f"{BASE_URI}/admin/login"
+    login_url = Endpoint.BASE_LOGIN.value
     payload = {
         "email": ADMIN_EMAIL,
         "password": ADMIN_PASSWORD,
@@ -19,3 +21,10 @@ def get_token():
     print("Token obtenido:", token)
     assert token, "No se recibió token en la respuesta"
     return token
+
+@pytest.fixture(scope="session")
+def create_15_customers(get_token):
+    responses = CustomerHelper.create_multiple_random_customers(get_token, 15)
+    for i, response in enumerate(responses):
+        assert response.status_code == 200, f"Fallo al crear el cliente #{i+1}. Status: {response.status_code}, Body: {response.text}"
+    return responses
