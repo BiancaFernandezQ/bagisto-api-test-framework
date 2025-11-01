@@ -11,7 +11,7 @@ from src.assertions.customer.response_assertions import assert_valid_schema, ass
 from src.bagisto_api.endpoint import Endpoint
 from src.helpers.customer_helper import CustomerHelper
 
-# Validar que el endpoint devuelve correctamente el detalle de un cliente existente por su ID. ALTA
+# Validar que el endpoint devuelve correctamente el detalle de un cliente existente por su ID
 @pytest.mark.positivas
 @pytest.mark.humo
 def test_consultar_cliente_por_id_return_200(get_token):
@@ -25,6 +25,7 @@ def test_consultar_cliente_por_id_return_200(get_token):
     response = BagistoRequest.get(url, headers=headers)
     json_response = response.json()
     assert_status_code_200(response)
+    assert response.headers["Content-Type"] == "application/json", f"Se esperaba 'application/json' pero se obtuvo '{response.headers['Content-Type']}'"
     assert "data" in json_response, "No se encontró el campo 'data'"
     assert json_response["data"]["id"] == cliente_id, f"El ID del cliente no coincide con el solicitado ({cliente_id})"
     assert_valid_schema(json_response, CUSTOMER_SCHEMA_IND)

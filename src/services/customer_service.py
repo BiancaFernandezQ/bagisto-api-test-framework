@@ -7,4 +7,4 @@ class CustomerService:
     def create_customer(token, customer_data):
         url = Endpoint.BASE_CUSTOMER.value
         headers = {"Authorization": f"Bearer {token}"}
-        return BagistoRequest.post(url, headers=headers, json_data=customer_data)
+        return BagistoRequest.post(url, headers=headers, json=customer_data)

@@ -2,8 +2,8 @@ import logging
 import os
 from logging.handlers import RotatingFileHandler
 
-
-def setup_logger(name, log_file='logs/combined.log', level=logging.INFO):
+#ver menos detalles de logger level debe ser igual a 
+def setup_logger(name, log_file='logs/combined.log', level=logging.WARNING):
     os.makedirs(os.path.dirname(log_file), exist_ok=True)
 
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')

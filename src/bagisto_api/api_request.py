@@ -19,10 +19,10 @@ class BagistoRequest:
             raise
 
     @staticmethod
-    def post(url, headers, data=None, json_data=None):
+    def post(url, headers, data=None, json=None):
         try:
-            logger.info(f"POST Request URL: {url} | Headers: {headers} | JSON: {json_data}")
-            response = requests.post(url, headers=headers, data=data, json=json_data)
+            logger.info(f"POST Request URL: {url} | Headers: {headers} | JSON: {json}")
+            response = requests.post(url, headers=headers, data=data, json=json)
             logger.info(f"Response Status Code: {response.status_code}")
             logger.info(f"Response: {response.text}")
             return response
@@ -31,10 +31,10 @@ class BagistoRequest:
             raise
 
     @staticmethod
-    def put(url, headers, data):
+    def put(url, headers, json=None):
         try:
             logger.info(f"PUT Request URL: {url} | {headers}")
-            response = requests.put(url, headers=headers, data=data)
+            response = requests.put(url, headers=headers, json=json)
             logger.info(f"Response Status Code: {response.status_code}")
             logger.info(f"Response: {response.text}")
             return response

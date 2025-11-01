@@ -27,7 +27,6 @@ def test_autenticado_obtener_clientes_return_200(get_token, create_15_customers)
     assert_response_contiene_data_y_meta(json_data)
     assert isinstance(json_data["data"], list), "'data' no es una lista"
     assert "total" in json_data["meta"], "No se encontró el campo 'meta.total'"
-    
     print("Respuesta JSON completa:", json_data)
     assert_valid_schema(json_data, CUSTOMER_SCHEMA)
 

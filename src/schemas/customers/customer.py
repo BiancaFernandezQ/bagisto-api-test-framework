@@ -184,7 +184,7 @@ CUSTOMER_SCHEMA_IND= {
         "data": {
             "oneOf": [
                 {
-                    "type": "array",
+                    "type": ["null", "string"],
                     "items": {
                         "type": "object",
                         "properties": {
@@ -297,3 +297,155 @@ CUSTOMER_SCHEMA_IND= {
         }
     }
 }
+
+CUSTOMER_POST_RESPONSE_SCHEMA = {
+    "type": "object",
+        "required": [
+            "data",
+            "message"
+        ],
+        "properties": {
+            "data": {
+                "type": "object",
+                "required": [
+                    "email",
+                    "first_name",
+                    "gender",
+                    "last_name",
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "gender": {
+                        "type": "string"
+                    },
+                    "date_of_birth": {
+                        "type": ["null" , "string"]
+                    },
+                    "phone": {
+                        "type": ["null", "integer"]
+                    },
+                    "status": {
+                        "type": "null"
+                    },
+                    "group": {
+                        "type": "object",
+                        "required": [
+                            "created_at",
+                            "id",
+                            "name",
+                            "updated_at"
+                        ],
+                        "properties": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "created_at": {
+                                "type": "null"
+                            },
+                            "updated_at": {
+                                "type": "null"
+                            }
+                        }
+                    },
+                    "notes": {
+                        "type": "array"
+                    },
+                    "created_at": {
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "type": "string"
+                    }
+                }
+            },
+            "message": {
+                "type": "string"
+            }
+        }
+}
+
+CUSTOMER_PAYLOAD_SCHEMA = {
+    "type": "object",
+    "required": [
+        "customer_group_id",
+        "email",
+        "first_name",
+        "gender",
+        "last_name"
+    ],
+    "properties": {
+        "first_name": {
+            "type": "string"
+        },
+        "last_name": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string"
+        },
+        "gender": {
+            "type": "string"
+        },
+        "date_of_birth": {
+            "type": ["string", "null"]
+        },
+        "phone": {
+            "type": ["integer","null"]
+        },
+        "customer_group_id": {
+            "type": "integer"
+        }
+    }
+}
+
+CUSTOMER_EDIT_PAYLOAD_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "first_name": {
+            "type": ["string", "null"]
+        },
+        "last_name": {
+            "type": ["string", "null"]
+        },
+        "email": {
+            "type": ["string", "null"]
+        },
+        "gender": {
+            "type": ["string", "null"]
+        },
+        "date_of_birth": {
+            "type": ["string", "null"]
+        },
+        "status": {
+            "type": ["integer", "null"]
+        },
+        "is_suspended": {
+            "type": ["integer", "null"]
+        },
+        "phone": {
+            "type": ["integer", "null"]
+        },
+        "customer_group_id": {
+            "type": ["integer", "null"]
+        }
+    }
+}
+
+

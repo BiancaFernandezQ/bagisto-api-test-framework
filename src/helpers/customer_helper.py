@@ -1,6 +1,8 @@
 from faker import Faker
 from src.services.customer_service import CustomerService
 Faker.locale = 'es_ES'
+import json
+import time
 
 class CustomerHelper:
 
@@ -10,7 +12,7 @@ class CustomerHelper:
             "first_name" : Faker().first_name(),
             "last_name" : Faker().last_name(), 
             "email" : Faker().email(),
-            "gender" : Faker().random_element(['Male', 'Female']),
+            "gender" : Faker().random_element(['Male', 'Female', 'Other']),
             "customer_group_id" : 1,
         }
         return CustomerService.create_customer(token, customer_data)
@@ -22,3 +24,26 @@ class CustomerHelper:
             response = CustomerHelper.create_random_customer(token)
             responses.append(response)
         return responses
+    
+    @staticmethod
+    def create_customer_data(first_name, last_name, email, gender, customer_group_id=1,
+                             date_of_birth=None, phone=None):
+        unique_suffix = str(int(time.time() * 1000))
+        #"email": email or f"{Faker().user_name()}_{unique_suffix}@example.com",
+        #"phone": phone or Faker().phone_number()_{unique_suffix},
+        customer_data = {
+            "first_name" : first_name or Faker().first_name(),
+            "last_name" : last_name or Faker().last_name(),
+            "email" : email or Faker().email(),
+            "gender": gender or Faker().random_element(['Male', 'Female', 'Other']),
+            #"date_of_birth" : date_of_birth or Faker().date_of_birth(minimum_age=18, maximum_age=90).isoformat(),
+            #"phone" : phone or Faker().phone_number(),
+            "customer_group_id" : customer_group_id,
+        }
+        #campos opcionales
+        if date_of_birth is not None:
+            customer_data["date_of_birth"] = date_of_birth or Faker().date_of_birth(minimum_age=18, maximum_age=90).isoformat()
+        if phone is not None:
+            #customer_data["phone"] = phone or Faker().phone_number()
+            customer_data["phone"] = phone or Faker().random_number(digits=10, fix_len=True)
+        return customer_data
