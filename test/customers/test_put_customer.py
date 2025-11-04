@@ -154,3 +154,4 @@ def test_actualizar_usuario_email_duplicado_return_400(get_token):
     }
     response = BagistoRequest.put(url, headers=headers, json=update_data)
     assert_status_code_400(response)
+

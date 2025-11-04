@@ -21,3 +21,12 @@ class GroupHelper:
             response = GroupHelper.create_random_group(token)
             responses.append(response)
         return responses
+
+    @staticmethod
+    def create_grupo_data(name=None, code=None):
+        unique_suffix = str(int(time.time() * 1000))
+        grupo_data = {
+            "name": name or Faker().company(),
+            "code": code or Faker().unique.word().capitalize(),
+        }
+        return grupo_data

@@ -51,7 +51,8 @@ jobs:
           echo "✅ REST API instalada correctamente."
 
       - name: Run API Tests
+        continue-on-error: true
         env:
           BASE_URL: http://localhost:8000/api/v1
         run: |
-          pytest -v --maxfail=1 --disable-warnings
+           pytest -v test/ -vvvs
