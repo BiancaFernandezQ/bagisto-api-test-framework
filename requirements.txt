@@ -3,3 +3,6 @@ requests
 python-dotenv
 jsonschema
 faker
+pytest-html
+allure-pytest
+allure-python-commons
