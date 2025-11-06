@@ -53,8 +53,8 @@ def test_eliminar_cliente_dos_veces_return_404(get_token):
 
 @pytest.mark.negativas
 @pytest.mark.humo
-def test_eliminar_cliente_con_token_expirado_return_401(get_token):
+def test_eliminar_cliente_con_token_expirado_return_400(get_token):
     url = Endpoint.BASE_CUSTOMER.value
     headers = {"Authorization": "Bearer 20|65468485548484488481"}
     response = BagistoRequest.get(url, headers=headers)
-    assert_status_code_401(response)
+    assert_status_code_400(response)

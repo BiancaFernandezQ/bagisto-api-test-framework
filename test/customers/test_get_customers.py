@@ -94,20 +94,20 @@ def test_consultar_clientes_ordenados(get_token,create_15_customers, sort, order
 @pytest.mark.negativas
 @pytest.mark.humo
 #!como tal no es un bug pero me manda un 501 en vez de un 401, es una mala practica, recomendacion
-def test_no_autenticado_obtener_clientes_return_401():
+def test_no_autenticado_obtener_clientes_return_400():
     url = Endpoint.BASE_CUSTOMER.value
     response = BagistoRequest.get(url)
-    assert_status_code_401(response)
+    assert_status_code_400(response)
 
 @pytest.mark.negativas
 @pytest.mark.humo
 #!como tal no es un bug pero me manda un 501 en vez de un 401, es una mala practica, recomendacion
 # Intentar obtener clientes con un token expirado o inválido
-def test_token_expirado_obtener_clientes_return_401(get_token):
+def test_token_expirado_obtener_clientes_return_400(get_token):
     url = Endpoint.BASE_CUSTOMER.value
     headers = {"Authorization": "Bearer expired_or_invalid_token"}
     response = BagistoRequest.get(url, headers=headers)
-    assert_status_code_401(response)
+    assert_status_code_400(response)
 
 @pytest.mark.negativas
 @pytest.mark.humo

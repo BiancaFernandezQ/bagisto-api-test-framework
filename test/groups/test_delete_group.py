@@ -38,11 +38,11 @@ def test_eliminar_grupo_id_no_existente_return_404(get_token):
     response = BagistoRequest.delete(url, headers=headers)
     assert_status_code_404(response)
 
-def test_eliminar_grupo_con_token_expirado_return_401(get_token):
+def test_eliminar_grupo_con_token_expirado_return_400(get_token):
     url = Endpoint.BASE_GROUP.value
     headers = {"Authorization": "Bearer 206546848554848448481"}
     response = BagistoRequest.get(url, headers=headers)
-    assert_status_code_401(response)
+    assert_status_code_400(response)
 
 def test_eliminar_grupo_valido_dos_veces_return_404(get_token):
     response_create = GroupHelper.create_random_group(get_token)

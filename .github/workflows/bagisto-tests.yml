@@ -27,29 +27,29 @@ jobs:
 
       - name: Start Bagisto container
         run: |
-          echo "🚀 Iniciando Bagisto..."
+          echo "Iniciando Bagisto..."
           docker run -d -p 8000:80 --name bagisto webkul/bagisto:2.3.0
 
       - name: Wait for Bagisto to be ready
         run: |
-          echo "⏳ Esperando que Bagisto esté listo..."
+          echo "Esperando que Bagisto esté listo..."
           until $(curl --output /dev/null --silent --head --fail http://localhost:8000); do
             printf '.'
             sleep 5
           done
           echo ""
-          echo "✅ Bagisto está en línea."
+          echo "Bagisto está en línea."
 
       - name: Enable Bagisto REST API inside container
         run: |
-          echo "⚙️ Instalando REST API dentro del contenedor..."
+          echo "Instalando REST API dentro del contenedor..."
           docker exec bagisto bash -c "
             cd /var/www/html && \
             composer require bagisto/rest-api && \
             echo 'SANCTUM_STATEFUL_DOMAINS=http://localhost:8000' >> .env && \
             php artisan bagisto-rest-api:install
           "
-          echo "✅ REST API instalada correctamente."
+          echo "REST API instalada correctamente."
 
       - name: Run API Tests -v
         continue-on-error: true

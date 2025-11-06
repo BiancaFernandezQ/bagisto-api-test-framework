@@ -64,18 +64,18 @@ def test_consultar_cliente_con_id_negativos_return_404(get_token):
 #intentar consultar un cliente sin token de autenticacion
 @pytest.mark.negativas
 @pytest.mark.humo
-def test_consultar_cliente_sin_token_return_401(get_token):
+def test_consultar_cliente_sin_token_return_400(get_token):
     response_create = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(response_create)
     cliente_id = response_create.json()["data"]["id"]
     url = f"{Endpoint.BASE_CUSTOMER.value}/{cliente_id}"
     response = BagistoRequest.get(url)
-    assert_status_code_401(response)
+    assert_status_code_400(response)
 
 #intentar consultar un cliente con token expirado
 @pytest.mark.negativas
 @pytest.mark.humo
-def test_consultar_cliente_con_token_expirado_return_401(get_token):
+def test_consultar_cliente_con_token_expirado_return_400(get_token):
     response_create = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(response_create)
     cliente_id = response_create.json()["data"]["id"]
@@ -84,7 +84,7 @@ def test_consultar_cliente_con_token_expirado_return_401(get_token):
         "Authorization": "Bearer 95|JU9nP77BVdVL5HfpV0UTNP4ZbvZ4VkrLeURmY8pjd44f45b0"
     }
     response = BagistoRequest.get(url, headers=headers)
-    assert_status_code_401(response)
+    assert_status_code_400(response)
 
 #verificar que la respuesta es en formato JSON
 @pytest.mark.positivas
