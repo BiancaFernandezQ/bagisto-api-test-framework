@@ -56,7 +56,7 @@ jobs:
         env:
           BASE_URL: http://localhost:8000/api/v1
         run: |
-           pytest -v test/ -vvvv
+           pytest -v test/ --alluredir=allure-results
       
       - name: Install Java for Allure
         run: |
