@@ -123,7 +123,6 @@ def test_actualizar_usuario_last_name_invalido_excede_255_return_400(get_token):
     print(response.json())
     assert_status_code_400(response)
 
-@pytest.mark.prueba
 def test_actualizar_usuario_grupo_inexistente_return_400(get_token):
     response_create = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(response_create)

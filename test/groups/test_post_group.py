@@ -135,7 +135,6 @@ def test_verificar_id_se_autogenera_al_crear_grupo_return_200(get_token):
     assert_valid_schema(json_response, CREATE_BODY_GROUP_SCHEMA)
     assert json_response["data"]["id"] is not None, "El campo 'id' no se generó automáticamente"
 
-@pytest.mark.prueba
 def test_verificar_name_acepta_numeros_return_200(get_token):
     grupo = GroupHelper.create_grupo_data(name=int(time.time()), code=None)
     url = Endpoint.BASE_GROUP.value

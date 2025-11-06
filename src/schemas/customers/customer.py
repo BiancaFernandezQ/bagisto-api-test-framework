@@ -449,3 +449,93 @@ CUSTOMER_EDIT_PAYLOAD_SCHEMA = {
 }
 
 
+CUSTOMERS_BODY_PAGINATION_0 = {
+    "type": "object",
+    "required": [
+        "data"
+    ],
+    "properties": {
+        "data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": ["string", "integer", "null"]
+                    },
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "gender": {
+                        "type": "string"
+                    },
+                    "date_of_birth": {
+                        "type": [ "null","string"]
+                    },
+                    "phone": {
+                        "type": [ "null", "string" ]
+                    },
+                    "status": {
+                        "type": "integer"
+                    },
+                    "group": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "created_at": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "updated_at": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "created_at",
+                            "id",
+                            "name",
+                            "updated_at"
+                        ]
+                    },
+                    "notes": {
+                        "type": ["array", "null"]
+                    },
+                    "created_at": {
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "created_at",
+                    "email",
+                    "first_name",
+                    "gender",
+                    "id",
+                    "last_name",
+                    "updated_at"
+                ]
+            }
+        }
+    }
+}

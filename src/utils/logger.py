@@ -6,7 +6,7 @@ def setup_logger(name, log_file='logs/combinado.log', level=logging.INFO):
     
     os.makedirs(os.path.dirname(log_file), exist_ok=True)
 
-    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(name)s - error en: %(funcName)s:%(lineno)d - %(message)s')
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(name)s - en: %(funcName)s:%(lineno)d - %(message)s')
     
     logger = logging.getLogger(name)
     if not logger.handlers:

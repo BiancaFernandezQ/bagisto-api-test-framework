@@ -211,3 +211,60 @@ def test_crear_cliente_email_duplicado_return_400(get_token): #! me retorna una 
     payload_duplicado = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=payload_inicial["email"], gender=None, customer_group_id=1)
     response_duplicado = BagistoRequest.post(url, json=payload_duplicado, headers=headers)
     assert_status_code_400(response_duplicado)
+
+def test_verificar_creacion_cliente_con_email_invalido_return_400(get_token):
+    url = Endpoint.BASE_CUSTOMER.value
+    payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email="emailinvalido", gender=None, customer_group_id=1)
+    headers = {
+        "Authorization": f"Bearer {get_token}"
+    }
+    response = BagistoRequest.post(url, json=payload, headers=headers)
+    json_response = response.json()
+    assert_status_code_400(response)
+
+@pytest.mark.negativas
+def test_crear_cliente_con_grupo_invalido_return_400(get_token):
+    grupo_invalido_id = 999999
+    url = Endpoint.BASE_CUSTOMER.value
+    payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=grupo_invalido_id)
+    headers = {
+        "Authorization": f"Bearer {get_token}"
+    }
+    response = BagistoRequest.post(url, json=payload, headers=headers)
+    assert_status_code_400(response)
+
+@pytest.mark.negativas
+def test_campos_obligatorios_vacios_return_400(get_token):
+    url = Endpoint.BASE_CUSTOMER.value
+    payload = {
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "gender": "",
+        "customer_group_id": ""
+    }
+    headers = {
+        "Authorization": f"Bearer {get_token}"
+    }
+    response = BagistoRequest.post(url, json=payload, headers=headers)
+    assert_status_code_400(response)
+
+def test_crear_clientes_payload_valido_esquema(get_token):
+    url = Endpoint.BASE_CUSTOMER.value
+    payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=1)
+    headers = {
+        "Authorization": f"Bearer {get_token}"
+    }
+    assert_valid_schema(payload, CUSTOMER_PAYLOAD_SCHEMA)
+    response = BagistoRequest.post(url, json=payload, headers=headers)
+    assert_status_code_200(response)
+
+def test_validar_payload_crear_cliente_con_campos_opcionales(get_token):
+    url = Endpoint.BASE_CUSTOMER.value
+    payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, date_of_birth=None, phone=None, customer_group_id=1)
+    headers = {
+        "Authorization": f"Bearer {get_token}"
+    }
+    assert_valid_schema(payload, CUSTOMER_PAYLOAD_SCHEMA)
+    response = BagistoRequest.post(url, json=payload, headers=headers)
+    assert_status_code_200(response)
