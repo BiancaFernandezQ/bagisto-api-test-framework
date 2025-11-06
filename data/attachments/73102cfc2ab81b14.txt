@@ -1,7 +1,0 @@
-2025-11-06 00:11:21,304 - INFO - customer_helper - error en: create_random_customer:21 - Creando cliente aleatorio con email: inguyen@example.net
-2025-11-06 00:11:21,304 - INFO - api_request - error en: post:24 - POST Request URL: http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|3KvGtmEA1iqhYP79XlAyIFpyivkBmtUYittCxo4Y2ea9feaf'} | JSON: {'first_name': 'Robert', 'last_name': 'Mcgrath', 'email': 'inguyen@example.net', 'gender': 'Male', 'customer_group_id': 1}
-2025-11-06 00:11:21,440 - INFO - api_request - error en: post:26 - Response Status Code: 200
-2025-11-06 00:11:21,441 - INFO - api_request - error en: post:27 - Response: {"data":{"id":1,"email":"inguyen@example.net","name":"Robert Mcgrath","first_name":"Robert","last_name":"Mcgrath","gender":"Male","date_of_birth":null,"phone":null,"status":null,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-06T00:11:21.000000Z","updated_at":"2025-11-06T00:11:21.000000Z"},"message":"Customer have been successfully added."}
-2025-11-06 00:11:22,441 - INFO - api_request - error en: delete:48 - DELETE Request URL: http://localhost:8000/api/v1/admin/customers/1 | {'Authorization': 'Bearer 1|3KvGtmEA1iqhYP79XlAyIFpyivkBmtUYittCxo4Y2ea9feaf'}
-2025-11-06 00:11:22,512 - INFO - api_request - error en: delete:50 - Response Status Code: 200
-2025-11-06 00:11:22,512 - INFO - api_request - error en: delete:51 - Response: {"message":"Customer successfully deleted"}

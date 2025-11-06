@@ -1,6 +1,0 @@
-2025-11-06 00:11:41,183 - INFO - api_request - error en: post:24 - POST Request URL: http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|3KvGtmEA1iqhYP79XlAyIFpyivkBmtUYittCxo4Y2ea9feaf'} | JSON: {'code': 'School', 'name': 'James, Gates and Rubio'}
-2025-11-06 00:11:41,224 - INFO - api_request - error en: post:26 - Response Status Code: 200
-2025-11-06 00:11:41,224 - INFO - api_request - error en: post:27 - Response: {"data":{"id":6,"name":"James, Gates and Rubio","created_at":"2025-11-06T00:11:41.000000Z","updated_at":"2025-11-06T00:11:41.000000Z"},"message":"Customer group have been successfully added."}
-2025-11-06 00:11:43,224 - INFO - api_request - error en: get:12 - GET Request URL: http://localhost:8000/api/v1/admin/customers/groups/6 | Headers: {'Authorization': 'Bearer 1|3KvGtmEA1iqhYP79XlAyIFpyivkBmtUYittCxo4Y2ea9feaf'} | Params: None
-2025-11-06 00:11:43,280 - INFO - api_request - error en: get:14 - Response Status Code: 200
-2025-11-06 00:11:43,280 - INFO - api_request - error en: get:15 - Response: {"data":{"id":6,"name":"James, Gates and Rubio","created_at":"2025-11-06T00:11:41.000000Z","updated_at":"2025-11-06T00:11:41.000000Z"}}

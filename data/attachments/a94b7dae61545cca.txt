@@ -1,0 +1,10 @@
+INFO     api_request:api_request.py:24 POST Request URL: http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|mywJDuWRxn7DlzWN1wxT2b1bFhLHEMyz5l4brEVhaa227e3c'} | JSON: {'code': 'Front', 'name': 'Jackson Ltd'}
+INFO     api_request:api_request.py:26 Response Status Code: 200
+INFO     api_request:api_request.py:27 Response: {"data":{"id":6,"name":"Jackson Ltd","created_at":"2025-11-06T01:21:03.000000Z","updated_at":"2025-11-06T01:21:03.000000Z"},"message":"Customer group have been successfully added."}
+INFO     customer_helper:customer_helper.py:54 Construyendo cliente aleatorio con email: melissa19@example.org
+INFO     api_request:api_request.py:24 POST Request URL: http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|mywJDuWRxn7DlzWN1wxT2b1bFhLHEMyz5l4brEVhaa227e3c', 'Content-Type': 'application/json'} | JSON: {'first_name': 'Jillian', 'last_name': 'Curry', 'email': 'melissa19@example.org', 'gender': 'Other', 'customer_group_id': 6}
+INFO     api_request:api_request.py:26 Response Status Code: 200
+INFO     api_request:api_request.py:27 Response: {"data":{"id":46,"email":"melissa19@example.org","name":"Jillian Curry","first_name":"Jillian","last_name":"Curry","gender":"Other","date_of_birth":null,"phone":null,"status":null,"group":{"id":6,"name":"Jackson Ltd","created_at":"2025-11-06T01:21:03.000000Z","updated_at":"2025-11-06T01:21:03.000000Z"},"notes":[],"created_at":"2025-11-06T01:21:03.000000Z","updated_at":"2025-11-06T01:21:03.000000Z"},"message":"Customer have been successfully added."}
+INFO     api_request:api_request.py:48 DELETE Request URL: http://localhost:8000/api/v1/admin/customers/groups/6 | {'Authorization': 'Bearer 1|mywJDuWRxn7DlzWN1wxT2b1bFhLHEMyz5l4brEVhaa227e3c', 'Content-Type': 'application/json'}
+INFO     api_request:api_request.py:50 Response Status Code: 400
+INFO     api_request:api_request.py:51 Response: {"message":"This resource groups is getting used in Customers."}

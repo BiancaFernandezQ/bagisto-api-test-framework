@@ -1,6 +1,0 @@
-INFO     api_request:api_request.py:24 POST Request URL: http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|3KvGtmEA1iqhYP79XlAyIFpyivkBmtUYittCxo4Y2ea9feaf'} | JSON: {'code': 'Same', 'name': 'Lewis, Brown and Guerra'}
-INFO     api_request:api_request.py:26 Response Status Code: 200
-INFO     api_request:api_request.py:27 Response: {"data":{"id":22,"name":"Lewis, Brown and Guerra","created_at":"2025-11-06T00:11:46.000000Z","updated_at":"2025-11-06T00:11:46.000000Z"},"message":"Customer group have been successfully added."}
-INFO     api_request:api_request.py:36 PUT Request URL: http://localhost:8000/api/v1/admin/customers/groups/22 | {'Authorization': 'Bearer 1|3KvGtmEA1iqhYP79XlAyIFpyivkBmtUYittCxo4Y2ea9feaf'}
-INFO     api_request:api_request.py:38 Response Status Code: 200
-INFO     api_request:api_request.py:39 Response: {"data":{"id":22,"name":"Morris-Hall","created_at":"2025-11-06T00:11:46.000000Z","updated_at":"2025-11-06T00:11:46.000000Z"},"message":"Customer group updated successfully."}

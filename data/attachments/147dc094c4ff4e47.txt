@@ -1,0 +1,4 @@
+INFO     customer_helper:customer_helper.py:54 Construyendo cliente aleatorio con email: owilliams@example.org
+INFO     api_request:api_request.py:24 POST Request URL: http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|mywJDuWRxn7DlzWN1wxT2b1bFhLHEMyz5l4brEVhaa227e3c'} | JSON: {'first_name': 'Catherine', 'last_name': 'Smith', 'email': 'owilliams@example.org', 'gender': 'Other', 'customer_group_id': 1}
+INFO     api_request:api_request.py:26 Response Status Code: 200
+INFO     api_request:api_request.py:27 Response: {"data":{"id":26,"email":"owilliams@example.org","name":"Catherine Smith","first_name":"Catherine","last_name":"Smith","gender":"Other","date_of_birth":null,"phone":null,"status":null,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-06T01:20:51.000000Z","updated_at":"2025-11-06T01:20:51.000000Z"},"message":"Customer have been successfully added."}
