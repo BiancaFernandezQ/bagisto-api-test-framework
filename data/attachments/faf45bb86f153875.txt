@@ -1,0 +1,6 @@
+2025-11-06 00:11:48,626 - INFO - api_request - error en: post:24 - POST Request URL: http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|3KvGtmEA1iqhYP79XlAyIFpyivkBmtUYittCxo4Y2ea9feaf'} | JSON: {'code': 'Hot', 'name': 'Guerrero PLC'}
+2025-11-06 00:11:48,665 - INFO - api_request - error en: post:26 - Response Status Code: 200
+2025-11-06 00:11:48,666 - INFO - api_request - error en: post:27 - Response: {"data":{"id":24,"name":"Guerrero PLC","created_at":"2025-11-06T00:11:48.000000Z","updated_at":"2025-11-06T00:11:48.000000Z"},"message":"Customer group have been successfully added."}
+2025-11-06 00:11:50,668 - INFO - api_request - error en: put:36 - PUT Request URL: http://localhost:8000/api/v1/admin/customers/groups/24 | {'Authorization': 'Bearer 1|3KvGtmEA1iqhYP79XlAyIFpyivkBmtUYittCxo4Y2ea9feaf'}
+2025-11-06 00:11:50,724 - INFO - api_request - error en: put:38 - Response Status Code: 200
+2025-11-06 00:11:50,724 - INFO - api_request - error en: put:39 - Response: {"data":{"id":24,"name":"Nelson-Murray","created_at":"2025-11-06T00:11:48.000000Z","updated_at":"2025-11-06T00:11:50.000000Z"},"message":"Customer group updated successfully."}
