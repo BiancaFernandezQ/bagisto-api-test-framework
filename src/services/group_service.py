@@ -1,10 +1,14 @@
 from src.bagisto_api.api_request import BagistoRequest
 from src.bagisto_api.endpoint import Endpoint
+from src.utils.auth import get_auth_headers
 
 class GroupService:
     #Servicio de capa para interactuar con los endpoints de la API de grupos.
     @staticmethod
     def create_group(token, group_data):
         url = Endpoint.BASE_GROUP.value
-        headers = {"Authorization": f"Bearer {token}"}
-        return BagistoRequest.post(url, headers=headers, json=group_data)
+        return BagistoRequest.post(url, headers=get_auth_headers(token), json=group_data)
+    
+    def delete_group(token, group_id):
+        url = f"{Endpoint.BASE_GROUP.value}/{group_id}"
+        return BagistoRequest.delete(url, headers=get_auth_headers(token))

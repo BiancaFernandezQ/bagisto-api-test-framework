@@ -33,23 +33,21 @@ class CustomerHelper:
     def create_customer_data(first_name, last_name, email, gender, customer_group_id=1,
                              date_of_birth=None, phone=None):
         unique_suffix = str(int(time.time() * 1000))
-        #"email": email or f"{Faker().user_name()}_{unique_suffix}@example.com",
-        #"phone": phone or Faker().phone_number()_{unique_suffix},
         customer_data = {
             "first_name" : first_name or Faker().first_name(),
             "last_name" : last_name or Faker().last_name(),
             "email" : email or Faker().email(),
             "gender": gender or Faker().random_element(['Male', 'Female', 'Other']),
-            #"date_of_birth" : date_of_birth or Faker().date_of_birth(minimum_age=18, maximum_age=90).isoformat(),
-            #"phone" : phone or Faker().phone_number(),
             "customer_group_id" : customer_group_id,
         }
-        #campos opcionales
         if date_of_birth is not None:
             customer_data["date_of_birth"] = date_of_birth or Faker().date_of_birth(minimum_age=18, maximum_age=90).isoformat()
         if phone is not None:
-            #customer_data["phone"] = phone or Faker().phone_number()
             customer_data["phone"] = phone or Faker().random_number(digits=10, fix_len=True)
         
         logger.info(f"Construyendo cliente aleatorio con email: {customer_data['email']}")
         return customer_data
+
+    def delete_customer(token, customer_id):
+        logger.info(f"Eliminando cliente con ID: {customer_id}")
+        return CustomerService.delete_customer(token, customer_id)
