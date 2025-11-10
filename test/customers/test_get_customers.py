@@ -107,13 +107,14 @@ def test_solicitar_page_inexistente_return_data_vacia(get_token, create_15_custo
 
 @pytest.mark.negativas
 @pytest.mark.humo
-def test_solicitar_limit_cero_return_400(get_token):
+def test_solicitar_limit_cero_return_200(get_token):
     url = Endpoint.BASE_CUSTOMER.value
     params = {
         "limit": 0
     }
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token), params=params)
-    assert_status_code_400(response)
+    assert_status_code_200(response)
+    assert_valid_schema(response.json(), CUSTOMER_SCHEMA)
 
 #verificar respuesta con valor invalido negativo en el parametro de limit
 @pytest.mark.negativas

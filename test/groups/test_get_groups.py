@@ -84,13 +84,15 @@ def test_obtener_grupos_limite_valido(get_token, create_5_groups):
     assert response.json()["meta"]["per_page"] == params["limit"], f"El campo 'meta.per_page' ({response.json()['meta']['per_page']}) no coincide con el limit ({params['limit']})"
     assert_valid_schema(json_response, GROUPS_SCHEMA_BODY)
 
-def test_solicitar_limit_cero_return_400(get_token):
+
+def test_solicitar_limit_cero_return_200(get_token):
     url = Endpoint.BASE_GROUP.value
     params = {
         "limit": 0
     }
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token), params=params)
-    assert_status_code_400(response)
+    assert_status_code_200(response)
+    assert_valid_schema(response.json(), GROUPS_SCHEMA_BODY)
 
 @pytest.mark.negativas
 @pytest.mark.humo
