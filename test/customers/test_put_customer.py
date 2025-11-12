@@ -10,7 +10,7 @@ import pytest
 from src.utils.auth import get_auth_headers
 import time
 
-
+@pytest.mark.actualizar_cliente
 def test_actualizar_usuario_con_todos_los_campos_validos_return_200(get_token, customer_teardown):
     response_create = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(response_create)
@@ -32,6 +32,7 @@ def test_actualizar_usuario_con_todos_los_campos_validos_return_200(get_token, c
     assert_content_type_es_json(response)
     assert_valid_schema(json_response, CUSTOMER_SCHEMA_IND)
 
+@pytest.mark.actualizar_cliente
 def test_actualizar_usuario_id_no_existente_return_404(get_token):
     id_inexistente = 999999
     update_data = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=1)
@@ -39,6 +40,7 @@ def test_actualizar_usuario_id_no_existente_return_404(get_token):
     response = BagistoRequest.put(url, headers=get_auth_headers(get_token), json=update_data)
     assert_status_code_404(response)
 
+@pytest.mark.actualizar_cliente
 def test_actualizar_usuario_con_datos_validos_verificar_que_created_up_se_actualice(get_token, customer_teardown):
     response_create = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(response_create)
@@ -55,6 +57,7 @@ def test_actualizar_usuario_con_datos_validos_verificar_que_created_up_se_actual
     assert updated_at_antes != updated_at_despues, "El campo updated_at debería actualizarse después de la actualización"
     assert_content_type_es_json(response)
 
+@pytest.mark.actualizar_cliente
 def test_actualizar_usuario_con_datos_validos_verificar_que_created_at_no_se_actualice(get_token, customer_teardown):
     response_create = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(response_create)
@@ -71,6 +74,7 @@ def test_actualizar_usuario_con_datos_validos_verificar_que_created_at_no_se_act
     assert created_at_antes == created_at_despues, "El campo created_at no debería cambiar después de la actualización"
     assert_content_type_es_json(response)
 
+@pytest.mark.actualizar_cliente
 def test_actualizar_usuario_first_name_invalido_excede_255_return_400(get_token):
     response_create = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(response_create)
@@ -81,6 +85,7 @@ def test_actualizar_usuario_first_name_invalido_excede_255_return_400(get_token)
     assert_valid_schema(response.json(), CUSTOMER_EDIT_PAYLOAD_SCHEMA)
     assert_status_code_400(response)
 
+@pytest.mark.actualizar_cliente
 def test_actualizar_usuario_last_name_invalido_excede_255_return_400(get_token):
     response_create = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(response_create)
@@ -91,6 +96,7 @@ def test_actualizar_usuario_last_name_invalido_excede_255_return_400(get_token):
     assert_valid_schema(response.json(), CUSTOMER_EDIT_PAYLOAD_SCHEMA)
     assert_status_code_400(response)
 
+@pytest.mark.actualizar_cliente
 def test_actualizar_usuario_grupo_inexistente_return_404(get_token):
     response_create = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(response_create)
@@ -101,10 +107,10 @@ def test_actualizar_usuario_grupo_inexistente_return_404(get_token):
     response = BagistoRequest.put(url, headers=get_auth_headers(get_token), json=actualizar_data)
     assert_status_code_404(response)
 
+@pytest.mark.actualizar_cliente
 def test_actualizar_usuario_email_duplicado_return_400(get_token):
     cliente1 = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(cliente1)
-    id_cliente1 = cliente1.json()["data"]["id"]
     email_cliente1 = cliente1.json()["data"]["email"]
 
     cliente2 = CustomerHelper.create_random_customer(get_token)

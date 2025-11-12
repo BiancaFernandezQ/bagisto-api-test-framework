@@ -10,6 +10,7 @@ import requests
 import pytest
 import time
 
+@pytest.mark.listar_grupos
 def test_autenticado_obtener_grupos_return_200(get_token, create_5_groups):
     url = Endpoint.BASE_GROUP.value
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token))
@@ -20,6 +21,7 @@ def test_autenticado_obtener_grupos_return_200(get_token, create_5_groups):
     assert len(json_response["data"]) 
     assert_valid_schema(json_response, GROUPS_SCHEMA_BODY)
 
+@pytest.mark.listar_grupos
 def test_obtener_todos_grupos_si_pagination_es_0(get_token, create_5_groups):
     url = Endpoint.BASE_GROUP.value
     response_total = BagistoRequest.get(url, headers=get_auth_headers(get_token))
@@ -35,6 +37,7 @@ def test_obtener_todos_grupos_si_pagination_es_0(get_token, create_5_groups):
     assert len(json_response.get("data", [])) == total_grupos, f"Se esperaba {total_grupos} grupos, pero se obtuvieron {len(json_response.get('data', []))}."
     assert_valid_schema(json_response, GROUPS_BODY_PAGINATION_0)
 
+@pytest.mark.listar_grupos
 def test_solicitar_page_inexistente_return_data_vacia(get_token, create_5_groups):
     url = Endpoint.BASE_GROUP.value
     params = {
@@ -46,6 +49,7 @@ def test_solicitar_page_inexistente_return_data_vacia(get_token, create_5_groups
     json_response = response.json()
     assert len(json_response.get("data", [])) == 0, "Se esperaba una lista vacía de grupos para una página inexistente"
 
+@pytest.mark.listar_grupos
 @pytest.mark.parametrize("sort, order", [
     ("id", "asc"),
     ("id", "desc"),
@@ -59,6 +63,7 @@ def test_consultar_grupos_ordenados(get_token,create_5_groups, sort, order):
     grupos = response.json()["data"]
     assert grupos == sorted(grupos, key=lambda x: x["id"], reverse=(order == "desc"))
 
+@pytest.mark.listar_grupos
 @pytest.mark.negativas
 @pytest.mark.humo
 def test_solicitar_order_invalido_return_400(get_token, create_5_groups):
@@ -66,11 +71,13 @@ def test_solicitar_order_invalido_return_400(get_token, create_5_groups):
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token))
     assert_status_code_400(response)
 
+@pytest.mark.listar_grupos
 def test_solicitar_sort_campo_inexistente_return_400(get_token, create_5_groups):
     url = f"{Endpoint.BASE_GROUP.value}?sort=no_valido&order=asc"
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token))
     assert_status_code_400(response)
 
+@pytest.mark.listar_grupos
 def test_obtener_grupos_limite_valido(get_token, create_5_groups):
     url = Endpoint.BASE_GROUP.value
     params = {
@@ -84,7 +91,7 @@ def test_obtener_grupos_limite_valido(get_token, create_5_groups):
     assert response.json()["meta"]["per_page"] == params["limit"], f"El campo 'meta.per_page' ({response.json()['meta']['per_page']}) no coincide con el limit ({params['limit']})"
     assert_valid_schema(json_response, GROUPS_SCHEMA_BODY)
 
-
+@pytest.mark.listar_grupos
 def test_solicitar_limit_cero_return_200(get_token):
     url = Endpoint.BASE_GROUP.value
     params = {
@@ -94,6 +101,7 @@ def test_solicitar_limit_cero_return_200(get_token):
     assert_status_code_200(response)
     assert_valid_schema(response.json(), GROUPS_SCHEMA_BODY)
 
+@pytest.mark.listar_grupos
 @pytest.mark.negativas
 @pytest.mark.humo
 def test_solicitar_limit_negativo_return_400(get_token):
@@ -102,6 +110,7 @@ def test_solicitar_limit_negativo_return_400(get_token):
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token), params=params)
     assert_status_code_400(response)
 
+@pytest.mark.listar_grupos
 @pytest.mark.positivas
 @pytest.mark.humo
 def test_solicitar_limit_minimo_return_1_grupo(get_token, create_5_groups):
@@ -116,7 +125,7 @@ def test_solicitar_limit_minimo_return_1_grupo(get_token, create_5_groups):
     assert tam_grupos == 1, f"El tamaño de la lista de grupos ({tam_grupos}) no coincide con el limit (1)"
     assert_valid_schema(json_response, GROUPS_SCHEMA_BODY)
 
-
+@pytest.mark.listar_grupos
 @pytest.mark.positivas
 @pytest.mark.humo
 def test_solicitar_limit_maximo_return_todos_grupos(get_token, create_5_groups):

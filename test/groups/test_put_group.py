@@ -13,6 +13,7 @@ from src.bagisto_api.endpoint import Endpoint
 from src.helpers.groups_helper import GroupHelper
 from src.utils.auth import get_auth_headers
 
+@pytest.mark.actualizar_grupo
 def test_actulizar_grupo_existente_valido_return_200(get_token, group_teardown):
     grupo_creado = GroupHelper.create_random_group(get_token)
     assert_status_code_200(grupo_creado)
@@ -31,6 +32,7 @@ def test_actulizar_grupo_existente_valido_return_200(get_token, group_teardown):
     assert json_response["data"]["name"] == grupo_datos["name"]
     assert_content_type_es_json(response)
 
+@pytest.mark.actualizar_grupo
 def test_actualizar_grupo_id_no_existente_return_404(get_token):
     id_inexistente = 999999
     grupo_datos = GroupHelper.create_grupo_data(name=None, code=None)
@@ -38,6 +40,7 @@ def test_actualizar_grupo_id_no_existente_return_404(get_token):
     response = BagistoRequest.put(url, headers=get_auth_headers(get_token), json=grupo_datos)
     assert_status_code_404(response)
 
+@pytest.mark.actualizar_grupo
 def test_verificar_updated_at_se_actualice_al_actualizar_grupo(get_token, group_teardown):
     grupo_creado = GroupHelper.create_random_group(get_token)
     assert_status_code_200(grupo_creado)
@@ -58,6 +61,7 @@ def test_verificar_updated_at_se_actualice_al_actualizar_grupo(get_token, group_
     assert updated_at_antes != updated_at_despues, "El campo updated_at no se actualizó correctamente"
     assert_content_type_es_json(response)
 
+@pytest.mark.actualizar_grupo
 def test_verificar_created_at_no_se_actualice_al_actualizar_grupo(get_token, group_teardown):
     grupo_creado = GroupHelper.create_random_group(get_token) #crear grupo primero
     assert_status_code_200(grupo_creado)
@@ -78,9 +82,8 @@ def test_verificar_created_at_no_se_actualice_al_actualizar_grupo(get_token, gro
     assert created_at_antes == created_at_despues, "El campo created_at se modificó al actualizar el grupo"
     assert_content_type_es_json(response)
 
-
+@pytest.mark.actualizar_grupo
 def test_actualizar_grupo_payload_vacio_return_400(get_token, group_teardown):
-    #crear grupo primero
     grupo_creado = GroupHelper.create_random_group(get_token)
     assert_status_code_200(grupo_creado)
     grupo_id = grupo_creado.json()["data"]["id"]
@@ -90,6 +93,7 @@ def test_actualizar_grupo_payload_vacio_return_400(get_token, group_teardown):
     response = BagistoRequest.put(url, headers=get_auth_headers(get_token), json=grupo_datos)
     assert_status_code_400(response)
 
+@pytest.mark.actualizar_grupo
 def test_verificar_que_no_se_actualice_grupo_si_falta_name(get_token, group_teardown):
     grupo_creado = GroupHelper.create_random_group(get_token)
     assert_status_code_200(grupo_creado)
@@ -103,6 +107,7 @@ def test_verificar_que_no_se_actualice_grupo_si_falta_name(get_token, group_tear
     response = BagistoRequest.put(url, headers=get_auth_headers(get_token), json=grupo_datos)
     assert_status_code_400(response)
 
+@pytest.mark.actualizar_grupo
 def test_verificar_que_no_se_actualice_grupo_si_falta_code(get_token, group_teardown):
     grupo_creado = GroupHelper.create_random_group(get_token)
     assert_status_code_200(grupo_creado)

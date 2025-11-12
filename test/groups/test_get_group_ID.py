@@ -13,6 +13,7 @@ from src.bagisto_api.endpoint import Endpoint
 from src.helpers.groups_helper import GroupHelper
 from src.utils.auth import get_auth_headers
 
+@pytest.mark.listar_grupo_especifico
 @pytest.mark.positivas
 @pytest.mark.humo
 def test_consultar_grupo_por_id_return_200(get_token, create_group):
@@ -26,6 +27,7 @@ def test_consultar_grupo_por_id_return_200(get_token, create_group):
     assert json_response["data"]["id"] == grupo_id, f"El ID del grupo no coincide con el solicitado ({grupo_id})"
     assert_valid_schema(json_response, GROUP_SCHEMA_IND)
 
+@pytest.mark.listar_grupo_especifico
 @pytest.mark.negativas
 @pytest.mark.humo
 def test_consultar_grupo_con_id_inexistente_return_404(get_token):
@@ -34,6 +36,7 @@ def test_consultar_grupo_con_id_inexistente_return_404(get_token):
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token))
     assert_status_code_404(response)
 
+@pytest.mark.listar_grupo_especifico
 @pytest.mark.negativas
 @pytest.mark.regresion
 def test_consultar_grupo_con_id_no_entero_return_400(get_token):
@@ -42,6 +45,7 @@ def test_consultar_grupo_con_id_no_entero_return_400(get_token):
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token))
     assert_status_code_400(response)
 
+@pytest.mark.listar_grupo_especifico
 @pytest.mark.negativas
 @pytest.mark.regresion
 def test_consultar_grupo_con_id_negativos_return_404(get_token):
@@ -50,6 +54,7 @@ def test_consultar_grupo_con_id_negativos_return_404(get_token):
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token))
     assert_status_code_404(response)
 
+@pytest.mark.listar_grupo_especifico
 @pytest.mark.negativas
 @pytest.mark.humo
 def test_consultar_grupo_sin_token_return_401(create_group):
@@ -58,6 +63,7 @@ def test_consultar_grupo_sin_token_return_401(create_group):
     response = BagistoRequest.get(url)
     assert_status_code_401(response)
 
+@pytest.mark.listar_grupo_especifico
 @pytest.mark.negativas
 @pytest.mark.humo
 def test_consultar_grupo_con_token_expirado_return_401(create_group):
@@ -66,6 +72,7 @@ def test_consultar_grupo_con_token_expirado_return_401(create_group):
     response = BagistoRequest.get(url, headers=get_auth_headers("95|JU9nP77BVdVL5HfpV0UTNP4ZbvZ4VkrLeURmY8pjd"))
     assert_status_code_401(response)
 
+@pytest.mark.listar_grupo_especifico
 @pytest.mark.positivas
 @pytest.mark.humo
 def test_consultar_grupo_por_id_response_json(get_token, create_group):

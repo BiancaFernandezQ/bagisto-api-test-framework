@@ -12,9 +12,9 @@ from src.assertions.customer.response_assertions import assert_valid_schema, ass
 from src.bagisto_api.endpoint import Endpoint
 from src.utils.auth import get_auth_headers
 
+@pytest.mark.listar_clientes
 @pytest.mark.positivas
 @pytest.mark.humo
-# Verificar que un usuario autenticado pueda obtener la lista de clientes 
 def test_autenticado_obtener_clientes_return_200(get_token, create_15_customers):
     url = Endpoint.BASE_CUSTOMER.value
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token))
@@ -26,9 +26,9 @@ def test_autenticado_obtener_clientes_return_200(get_token, create_15_customers)
     assert_response_total_en_meta(json_data)
     assert_valid_schema(json_data, CUSTOMER_SCHEMA)
 
+@pytest.mark.listar_clientes
 @pytest.mark.positivas
 @pytest.mark.humo
-#Verificar que la API devuelva una lista de clientes sin ningún filtro ni paginación.
 def test_obtener_todos_clientes_sin_filtros_ni_paginacion(get_token, create_15_customers):
     url = Endpoint.BASE_CUSTOMER.value
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token))    
@@ -41,9 +41,9 @@ def test_obtener_todos_clientes_sin_filtros_ni_paginacion(get_token, create_15_c
     assert_current_page_es(json_response, 1)
     assert_current_page_actual_es_1_por_defecto(json_response)
 
+@pytest.mark.listar_clientes
 @pytest.mark.positivas
 @pytest.mark.humo
-# verificar que la API soporte paginacion cuando se proporciona el parametro page
 def test_obtener_clientes_con_paginacion(get_token, create_15_customers):
     url = Endpoint.BASE_CUSTOMER.value
     params = {
@@ -60,10 +60,9 @@ def test_obtener_clientes_con_paginacion(get_token, create_15_customers):
     assert tam_clientes == params["limit"], f"El tamaño de la lista de clientes ({tam_clientes}) no coincide con el limit ({params['limit']})"
     assert json_response["meta"]["current_page"] == params["page"], f"La página respuesta no coincide con la solicitada ({params['page']})"
 
-# Consultar clientes ordenados por ID y en orden ascendente
-# Consultar clientes ordenados por ID y en orden descendente (pre establecido)
 @pytest.mark.positivas
 @pytest.mark.humo
+@pytest.mark.listar_clientes
 @pytest.mark.parametrize("sort, order", [
     ("id", "asc"),
     ("id", "desc"),
@@ -76,9 +75,9 @@ def test_consultar_clientes_ordenados(get_token,create_15_customers, sort, order
     assert clientes == sorted(clientes, key=lambda x: x["id"], reverse=(order == "desc"))
     
 
-# Intentar obtener clientes sin token de autenticación
 @pytest.mark.negativas
 @pytest.mark.humo
+@pytest.mark.listar_clientes
 def test_no_autenticado_obtener_clientes_return_401():
     url = Endpoint.BASE_CUSTOMER.value
     response = BagistoRequest.get(url)
@@ -86,7 +85,7 @@ def test_no_autenticado_obtener_clientes_return_401():
 
 @pytest.mark.negativas
 @pytest.mark.humo
-# Intentar obtener clientes con un token expirado o inválido
+@pytest.mark.listar_clientes
 def test_token_expirado_obtener_clientes_return_401(get_token):
     url = Endpoint.BASE_CUSTOMER.value
     response = BagistoRequest.get(url, headers=get_auth_headers("Bearer expired_or_invalid_token"))
@@ -94,6 +93,7 @@ def test_token_expirado_obtener_clientes_return_401(get_token):
 
 @pytest.mark.negativas
 @pytest.mark.humo
+@pytest.mark.listar_clientes
 def test_solicitar_page_inexistente_return_data_vacia(get_token, create_15_customers):
     url = Endpoint.BASE_CUSTOMER.value
     params = {
@@ -107,6 +107,7 @@ def test_solicitar_page_inexistente_return_data_vacia(get_token, create_15_custo
 
 @pytest.mark.negativas
 @pytest.mark.humo
+@pytest.mark.listar_clientes
 def test_solicitar_limit_cero_return_200(get_token):
     url = Endpoint.BASE_CUSTOMER.value
     params = {
@@ -116,9 +117,9 @@ def test_solicitar_limit_cero_return_200(get_token):
     assert_status_code_200(response)
     assert_valid_schema(response.json(), CUSTOMER_SCHEMA)
 
-#verificar respuesta con valor invalido negativo en el parametro de limit
 @pytest.mark.negativas
 @pytest.mark.humo
+@pytest.mark.listar_clientes
 def test_solicitar_limit_negativo_return_400(get_token):
     url = Endpoint.BASE_CUSTOMER.value
     params = { "limit": -5 }
@@ -127,6 +128,7 @@ def test_solicitar_limit_negativo_return_400(get_token):
 
 @pytest.mark.positivas
 @pytest.mark.humo
+@pytest.mark.listar_clientes
 def test_solicitar_limit_minimo_return_1_cliente(get_token, create_15_customers):
     url = Endpoint.BASE_CUSTOMER.value
     params = {
@@ -140,6 +142,7 @@ def test_solicitar_limit_minimo_return_1_cliente(get_token, create_15_customers)
 
 @pytest.mark.positivas
 @pytest.mark.humo
+@pytest.mark.listar_clientes
 def test_solicitar_limit_maximo_return_todos_clientes(get_token, create_15_customers):
     url = Endpoint.BASE_CUSTOMER.value
     params = {
@@ -153,9 +156,9 @@ def test_solicitar_limit_maximo_return_todos_clientes(get_token, create_15_custo
     assert tam_clientes == json_response["meta"]["total"], f"El tamaño de la lista de clientes ({tam_clientes}) no coincide con el total de clientes"
 
 
-# verificar respuesta con valor invalido en el parametro de order
 @pytest.mark.negativas
 @pytest.mark.humo
+@pytest.mark.listar_clientes
 def test_solicitar_order_invalido_return_400(get_token, create_15_customers):
     url = f"{Endpoint.BASE_CUSTOMER.value}?sort=id&order=invalid_order"
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token))
@@ -163,7 +166,7 @@ def test_solicitar_order_invalido_return_400(get_token, create_15_customers):
 
 @pytest.mark.negativas
 @pytest.mark.humo
-# TC: Verificar respuesta con campo invalido en el parametro de sort 
+@pytest.mark.listar_clientes
 def test_solicitar_sort_campo_inexistente_return_400(get_token, create_15_customers):
     url = f"{Endpoint.BASE_CUSTOMER.value}?sort=no_valido&order=asc"
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token))
@@ -172,7 +175,7 @@ def test_solicitar_sort_campo_inexistente_return_400(get_token, create_15_custom
 
 @pytest.mark.positivas
 @pytest.mark.regresion
-#Verificar que meta.total es consistente y refleja el total real de registros
+@pytest.mark.listar_clientes
 def test_validar_consistencia_meta_total(get_token, create_15_customers):
     url = Endpoint.BASE_CUSTOMER.value    
     total_clientes = 0
@@ -197,6 +200,7 @@ def test_validar_consistencia_meta_total(get_token, create_15_customers):
     meta_total = page_uno.json()["meta"]["total"]
     assert total_clientes == meta_total, f"Total real ({total_clientes}) no coincide con meta.total ({meta_total})"
 
+@pytest.mark.listar_clientes
 def test_obtener_todos_clientes_si_pagination_es_0(get_token,  create_15_customers):
     url = Endpoint.BASE_CUSTOMER.value
     response_total = BagistoRequest.get(url, headers=get_auth_headers(get_token))
@@ -212,7 +216,7 @@ def test_obtener_todos_clientes_si_pagination_es_0(get_token,  create_15_custome
     assert len(json_response.get("data", [])) == total_clientes, f"Se esperaba {total_clientes} clientes, pero se obtuvieron {len(json_response.get('data', []))}."
     assert_valid_schema(json_response, CUSTOMERS_BODY_PAGINATION_0)
 
-
+@pytest.mark.listar_clientes
 @pytest.mark.parametrize("sort, order", [
     ("first_name", "asc"),
     ("first_name", "desc"),
@@ -228,6 +232,7 @@ def test_ordenar_clientes_por_first_name(get_token, create_15_customers, sort, o
         else:
             assert clientes[i]["first_name"] <= clientes[i-1]["first_name"], "Los clientes no están ordenados correctamente en orden descendente por first_name"
 
+@pytest.mark.listar_clientes
 @pytest.mark.parametrize("sort, order", [
     ("email", "asc"),
     ("email", "desc"),
@@ -243,7 +248,7 @@ def test_ordenar_clientes_por_email(get_token, create_15_customers, sort, order)
         else:
             assert clientes[i]["email"] <= clientes[i-1]["email"], "Los clientes no están ordenados correctamente en orden descendente por email"
 
-
+@pytest.mark.listar_clientes
 def test_verificar_calculo_de_last_page(get_token, create_15_customers):
     limite_por_pagina = 5
     url = Endpoint.BASE_CUSTOMER.value

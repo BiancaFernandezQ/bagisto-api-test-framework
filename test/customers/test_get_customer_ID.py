@@ -14,6 +14,7 @@ from src.utils.auth import get_auth_headers
 
 @pytest.mark.positivas
 @pytest.mark.humo
+@pytest.mark.listar_cliente_especifico
 def test_consultar_cliente_por_id_return_200(get_token, create_customer):
     cliente_id = create_customer["data"]["id"]
     url = f"{Endpoint.BASE_CUSTOMER.value}/{cliente_id}"
@@ -28,6 +29,7 @@ def test_consultar_cliente_por_id_return_200(get_token, create_customer):
 
 @pytest.mark.negativas
 @pytest.mark.humo
+@pytest.mark.listar_cliente_especifico
 def test_consultar_cliente_con_id_inexistente_return_404(get_token):
     id_inexistente = 999999
     url = f"{Endpoint.BASE_CUSTOMER.value}/{id_inexistente}"
@@ -36,6 +38,7 @@ def test_consultar_cliente_con_id_inexistente_return_404(get_token):
 
 @pytest.mark.negativas
 @pytest.mark.regresion
+@pytest.mark.listar_cliente_especifico
 def test_consultar_cliente_con_id_no_entero_return_400(get_token):
     id_invalido = "abc#"
     url = f"{Endpoint.BASE_CUSTOMER.value}/{id_invalido}"
@@ -44,6 +47,7 @@ def test_consultar_cliente_con_id_no_entero_return_400(get_token):
 
 @pytest.mark.negativas
 @pytest.mark.regresion
+@pytest.mark.listar_cliente_especifico
 def test_consultar_cliente_con_id_negativos_return_404(get_token):
     id_invalido = -10
     url = f"{Endpoint.BASE_CUSTOMER.value}/{id_invalido}"
@@ -52,6 +56,7 @@ def test_consultar_cliente_con_id_negativos_return_404(get_token):
 
 @pytest.mark.negativas
 @pytest.mark.humo
+@pytest.mark.listar_cliente_especifico
 def test_consultar_cliente_sin_token_return_401(create_customer):
     cliente_id = create_customer["data"]["id"]
     url = f"{Endpoint.BASE_CUSTOMER.value}/{cliente_id}"
@@ -60,6 +65,7 @@ def test_consultar_cliente_sin_token_return_401(create_customer):
 
 @pytest.mark.negativas
 @pytest.mark.humo
+@pytest.mark.listar_cliente_especifico
 def test_consultar_cliente_con_token_expirado_return_401(create_customer):
     cliente_id = create_customer["data"]["id"]
     url = f"{Endpoint.BASE_CUSTOMER.value}/{cliente_id}"
