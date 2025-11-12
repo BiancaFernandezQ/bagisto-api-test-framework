@@ -1,0 +1,11 @@
+2025-11-12 04:11:25,559 - INFO - group_helper - en: create_random_group:19 - Creando grupo aleatorio con code: Glass
+2025-11-12 04:11:25,559 - INFO - api_request - en: post:24 - POST Request URL: http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|d9eoyZvDnyQ1jm8MWeqBCJSiCvgsUAiStBCNC63ye8f075da'} | JSON: {'code': 'Glass', 'name': 'Boyer PLC'}
+2025-11-12 04:11:25,601 - INFO - api_request - en: post:26 - Response Status Code: 200
+2025-11-12 04:11:25,601 - INFO - api_request - en: post:27 - Response: {"data":{"id":6,"name":"Boyer PLC","created_at":"2025-11-12T04:11:25.000000Z","updated_at":"2025-11-12T04:11:25.000000Z"},"message":"Customer group have been successfully added."}
+2025-11-12 04:11:25,605 - INFO - customer_helper - en: create_customer_data:48 - Construyendo cliente aleatorio con email: bcisneros@example.org
+2025-11-12 04:11:25,605 - INFO - api_request - en: post:24 - POST Request URL: http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|d9eoyZvDnyQ1jm8MWeqBCJSiCvgsUAiStBCNC63ye8f075da'} | JSON: {'first_name': 'Richard', 'last_name': 'Henderson', 'email': 'bcisneros@example.org', 'gender': 'Female', 'customer_group_id': 6}
+2025-11-12 04:11:25,712 - INFO - api_request - en: post:26 - Response Status Code: 200
+2025-11-12 04:11:25,712 - INFO - api_request - en: post:27 - Response: {"data":{"id":45,"email":"bcisneros@example.org","name":"Richard Henderson","first_name":"Richard","last_name":"Henderson","gender":"Female","date_of_birth":null,"phone":null,"status":null,"group":{"id":6,"name":"Boyer PLC","created_at":"2025-11-12T04:11:25.000000Z","updated_at":"2025-11-12T04:11:25.000000Z"},"notes":[],"created_at":"2025-11-12T04:11:25.000000Z","updated_at":"2025-11-12T04:11:25.000000Z"},"message":"Customer have been successfully added."}
+2025-11-12 04:11:27,712 - INFO - api_request - en: delete:48 - DELETE Request URL: http://localhost:8000/api/v1/admin/customers/groups/6 | {'Authorization': 'Bearer 1|d9eoyZvDnyQ1jm8MWeqBCJSiCvgsUAiStBCNC63ye8f075da'}
+2025-11-12 04:11:27,778 - INFO - api_request - en: delete:50 - Response Status Code: 400
+2025-11-12 04:11:27,778 - INFO - api_request - en: delete:51 - Response: {"message":"This resource groups is getting used in Customers."}

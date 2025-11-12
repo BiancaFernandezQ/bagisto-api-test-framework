@@ -1,0 +1,13 @@
+2025-11-12 04:11:16,090 - INFO - customer_helper - en: create_customer_data:48 - Construyendo cliente aleatorio con email: stephanieferguson@example.com
+2025-11-12 04:11:16,090 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-12 04:11:16,093 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-12 04:11:16,093 - INFO - api_request - en: post:24 - POST Request URL: http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|d9eoyZvDnyQ1jm8MWeqBCJSiCvgsUAiStBCNC63ye8f075da'} | JSON: {'first_name': 'Thomas', 'last_name': 'Porter', 'email': 'stephanieferguson@example.com', 'gender': 'Male', 'customer_group_id': 1}
+2025-11-12 04:11:16,206 - INFO - api_request - en: post:26 - Response Status Code: 200
+2025-11-12 04:11:16,206 - INFO - api_request - en: post:27 - Response: {"data":{"id":36,"email":"stephanieferguson@example.com","name":"Thomas Porter","first_name":"Thomas","last_name":"Porter","gender":"Male","date_of_birth":null,"phone":null,"status":null,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-12T04:11:16.000000Z","updated_at":"2025-11-12T04:11:16.000000Z"},"message":"Customer have been successfully added."}
+2025-11-12 04:11:16,207 - INFO - conftest - en: customer_teardown:69 - Iniciando teardown: Eliminando clientes creados durante la prueba
+2025-11-12 04:11:16,207 - INFO - conftest - en: customer_teardown:71 - Eliminando cliente con ID: 36
+2025-11-12 04:11:16,207 - INFO - customer_helper - en: delete_customer:52 - Eliminando cliente con ID: 36
+2025-11-12 04:11:16,207 - INFO - api_request - en: delete:48 - DELETE Request URL: http://localhost:8000/api/v1/admin/customers/36 | {'Authorization': 'Bearer 1|d9eoyZvDnyQ1jm8MWeqBCJSiCvgsUAiStBCNC63ye8f075da'}
+2025-11-12 04:11:16,250 - INFO - api_request - en: delete:50 - Response Status Code: 200
+2025-11-12 04:11:16,250 - INFO - api_request - en: delete:51 - Response: {"message":"Customer successfully deleted"}
+2025-11-12 04:11:16,250 - INFO - conftest - en: customer_teardown:73 - Teardown completado: Clientes eliminados

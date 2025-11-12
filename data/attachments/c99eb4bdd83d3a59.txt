@@ -1,9 +1,0 @@
-INFO     group_helper:groups_helper.py:19 Creando grupo aleatorio con code: Firm
-INFO     api_request:api_request.py:24 POST Request URL: http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|CG7Rf7dg4jS5p2MPbhkJzlpcxMax2ufxQvARUNmoc394349d'} | JSON: {'code': 'Firm', 'name': 'Marquez, Garcia and Kennedy'}
-INFO     api_request:api_request.py:26 Response Status Code: 200
-INFO     api_request:api_request.py:27 Response: {"data":{"id":4,"name":"Marquez, Garcia and Kennedy","created_at":"2025-11-09T23:14:07.000000Z","updated_at":"2025-11-09T23:14:07.000000Z"},"message":"Customer group have been successfully added."}
-INFO     api_request:api_request.py:48 DELETE Request URL: http://localhost:8000/api/v1/admin/customers/groups/4 | {'Authorization': 'Bearer 1|CG7Rf7dg4jS5p2MPbhkJzlpcxMax2ufxQvARUNmoc394349d'}
-INFO     api_request:api_request.py:50 Response Status Code: 200
-INFO     api_request:api_request.py:51 Response: {"message":"Customer group successfully deleted"}
-INFO     assertions:response_assertions.py:42 Verificando la presencia del campo 'message'.
-INFO     assertions:response_assertions.py:22 Verificando que el Content-Type sea 'application/json'.
