@@ -1,9 +1,0 @@
-INFO     conftest:conftest.py:25 200
-INFO     customer_helper:customer_helper.py:21 Creando cliente aleatorio con email: tyler90@example.org
-INFO     api_request:api_request.py:24 POST Request URL: http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|d9eoyZvDnyQ1jm8MWeqBCJSiCvgsUAiStBCNC63ye8f075da'} | JSON: {'first_name': 'Michael', 'last_name': 'Matthews', 'email': 'tyler90@example.org', 'gender': 'Male', 'customer_group_id': 1}
-INFO     api_request:api_request.py:26 Response Status Code: 200
-INFO     api_request:api_request.py:27 Response: {"data":{"id":1,"email":"tyler90@example.org","name":"Michael Matthews","first_name":"Michael","last_name":"Matthews","gender":"Male","date_of_birth":null,"phone":null,"status":null,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-12T04:11:03.000000Z","updated_at":"2025-11-12T04:11:03.000000Z"},"message":"Customer have been successfully added."}
-INFO     api_request:api_request.py:48 DELETE Request URL: http://localhost:8000/api/v1/admin/customers/1 | {'Authorization': 'Bearer 1|d9eoyZvDnyQ1jm8MWeqBCJSiCvgsUAiStBCNC63ye8f075da'}
-INFO     api_request:api_request.py:50 Response Status Code: 200
-INFO     api_request:api_request.py:51 Response: {"message":"Customer successfully deleted"}
-INFO     assertions:response_assertions.py:42 Verificando la presencia del campo 'message'.

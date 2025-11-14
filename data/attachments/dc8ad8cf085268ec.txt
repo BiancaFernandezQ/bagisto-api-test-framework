@@ -1,0 +1,13 @@
+2025-11-14 05:54:58,085 - INFO - group_helper - en: create_grupo_data:38 - Construyendo grupo aleatorio con code: Agency_1763099698083
+2025-11-14 05:54:58,086 - INFO - api_request - en: post:24 - POST Request URL: http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|rTasWDAVkilnkOKX7SXn5ayu3CpeVAKNiHQLpJuJff882613'} | JSON: {'name': 'Smith, Delgado and Moore_1763099698083', 'code': 'Agency_1763099698083'}
+2025-11-14 05:54:58,142 - INFO - api_request - en: post:26 - Response Status Code: 200
+2025-11-14 05:54:58,143 - INFO - api_request - en: post:27 - Response: {"data":{"id":19,"name":"Smith, Delgado and Moore_1763099698083","created_at":"2025-11-14T05:54:58.000000Z","updated_at":"2025-11-14T05:54:58.000000Z"},"message":"Customer group have been successfully added."}
+2025-11-14 05:54:58,143 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-14 05:54:58,145 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-14 05:54:58,146 - INFO - conftest - en: group_teardown:114 - Iniciando teardown: Eliminando grupos creados durante la prueba
+2025-11-14 05:54:58,146 - INFO - conftest - en: group_teardown:116 - Eliminando grupo con ID: 19
+2025-11-14 05:54:58,146 - INFO - group_helper - en: delete_group:42 - Eliminando grupo con ID: 19
+2025-11-14 05:54:58,146 - INFO - api_request - en: delete:48 - DELETE Request URL: http://localhost:8000/api/v1/admin/customers/groups/19 | {'Authorization': 'Bearer 1|rTasWDAVkilnkOKX7SXn5ayu3CpeVAKNiHQLpJuJff882613'}
+2025-11-14 05:54:58,189 - INFO - api_request - en: delete:50 - Response Status Code: 200
+2025-11-14 05:54:58,189 - INFO - api_request - en: delete:51 - Response: {"message":"Customer group successfully deleted"}
+2025-11-14 05:54:58,189 - INFO - conftest - en: group_teardown:118 - Teardown completado: Grupos eliminados
