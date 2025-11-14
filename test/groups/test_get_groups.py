@@ -10,6 +10,8 @@ import requests
 import pytest
 import time
 
+@pytest.mark.positivas
+@pytest.mark.humo
 @pytest.mark.listar_grupos
 def test_autenticado_obtener_grupos_return_200(get_token, create_5_groups):
     url = Endpoint.BASE_GROUP.value
@@ -21,6 +23,8 @@ def test_autenticado_obtener_grupos_return_200(get_token, create_5_groups):
     assert len(json_response["data"]) 
     assert_valid_schema(json_response, GROUPS_SCHEMA_BODY)
 
+@pytest.mark.positivas
+@pytest.mark.humo
 @pytest.mark.listar_grupos
 def test_obtener_todos_grupos_si_pagination_es_0(get_token, create_5_groups):
     url = Endpoint.BASE_GROUP.value
@@ -37,6 +41,8 @@ def test_obtener_todos_grupos_si_pagination_es_0(get_token, create_5_groups):
     assert len(json_response.get("data", [])) == total_grupos, f"Se esperaba {total_grupos} grupos, pero se obtuvieron {len(json_response.get('data', []))}."
     assert_valid_schema(json_response, GROUPS_BODY_PAGINATION_0)
 
+@pytest.mark.negativas
+@pytest.mark.regresion
 @pytest.mark.listar_grupos
 def test_solicitar_page_inexistente_return_data_vacia(get_token, create_5_groups):
     url = Endpoint.BASE_GROUP.value
@@ -49,6 +55,8 @@ def test_solicitar_page_inexistente_return_data_vacia(get_token, create_5_groups
     json_response = response.json()
     assert len(json_response.get("data", [])) == 0, "Se esperaba una lista vacía de grupos para una página inexistente"
 
+@pytest.mark.positivas
+@pytest.mark.humo
 @pytest.mark.listar_grupos
 @pytest.mark.parametrize("sort, order", [
     ("id", "asc"),
@@ -65,18 +73,22 @@ def test_consultar_grupos_ordenados(get_token,create_5_groups, sort, order):
 
 @pytest.mark.listar_grupos
 @pytest.mark.negativas
-@pytest.mark.humo
+@pytest.mark.regresion
 def test_solicitar_order_invalido_return_400(get_token, create_5_groups):
     url = f"{Endpoint.BASE_GROUP.value}?sort=id&order=invalid_order"
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token))
     assert_status_code_400(response)
 
+@pytest.mark.negativas
+@pytest.mark.regresion
 @pytest.mark.listar_grupos
 def test_solicitar_sort_campo_inexistente_return_400(get_token, create_5_groups):
     url = f"{Endpoint.BASE_GROUP.value}?sort=no_valido&order=asc"
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token))
     assert_status_code_400(response)
 
+@pytest.mark.positivas
+@pytest.mark.humo
 @pytest.mark.listar_grupos
 def test_obtener_grupos_limite_valido(get_token, create_5_groups):
     url = Endpoint.BASE_GROUP.value
@@ -91,6 +103,8 @@ def test_obtener_grupos_limite_valido(get_token, create_5_groups):
     assert response.json()["meta"]["per_page"] == params["limit"], f"El campo 'meta.per_page' ({response.json()['meta']['per_page']}) no coincide con el limit ({params['limit']})"
     assert_valid_schema(json_response, GROUPS_SCHEMA_BODY)
 
+@pytest.mark.negativas
+@pytest.mark.regresion
 @pytest.mark.listar_grupos
 def test_solicitar_limit_cero_return_200(get_token):
     url = Endpoint.BASE_GROUP.value
@@ -103,7 +117,7 @@ def test_solicitar_limit_cero_return_200(get_token):
 
 @pytest.mark.listar_grupos
 @pytest.mark.negativas
-@pytest.mark.humo
+@pytest.mark.regresion
 def test_solicitar_limit_negativo_return_400(get_token):
     url = Endpoint.BASE_GROUP.value
     params = { "limit": -5 }
@@ -112,7 +126,7 @@ def test_solicitar_limit_negativo_return_400(get_token):
 
 @pytest.mark.listar_grupos
 @pytest.mark.positivas
-@pytest.mark.humo
+@pytest.mark.regresion
 def test_solicitar_limit_minimo_return_1_grupo(get_token, create_5_groups):
     url = Endpoint.BASE_GROUP.value
     params = {
@@ -127,7 +141,7 @@ def test_solicitar_limit_minimo_return_1_grupo(get_token, create_5_groups):
 
 @pytest.mark.listar_grupos
 @pytest.mark.positivas
-@pytest.mark.humo
+@pytest.mark.regresion
 def test_solicitar_limit_maximo_return_todos_grupos(get_token, create_5_groups):
     url = Endpoint.BASE_GROUP.value
     params = {

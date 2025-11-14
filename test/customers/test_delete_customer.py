@@ -10,6 +10,8 @@ import pytest
 from src.utils.auth import get_auth_headers
 import time
 
+@pytest.mark.positivas
+@pytest.mark.humo
 @pytest.mark.eliminar_cliente
 def test_eliminar_cliente_id_existente_return_200(get_token):
     response_create = CustomerHelper.create_random_customer(get_token)
@@ -24,6 +26,8 @@ def test_eliminar_cliente_id_existente_return_200(get_token):
     assert_response_contiene_campo(json_response, "message")
     assert json_response["message"] == "Customer successfully deleted"
 
+@pytest.mark.negativas
+@pytest.mark.regresion
 @pytest.mark.eliminar_cliente
 def test_eliminar_cliente_id_no_existente_return_404(get_token):
     id_inexistente = 999999
@@ -31,6 +35,8 @@ def test_eliminar_cliente_id_no_existente_return_404(get_token):
     response = BagistoRequest.delete(url, headers=get_auth_headers(get_token))
     assert_status_code_404(response)
 
+@pytest.mark.negativas
+@pytest.mark.humo
 @pytest.mark.eliminar_cliente
 def test_eliminar_cliente_dos_veces_return_404(get_token):
     response_create = CustomerHelper.create_random_customer(get_token)

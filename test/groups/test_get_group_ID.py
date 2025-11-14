@@ -74,7 +74,7 @@ def test_consultar_grupo_con_token_expirado_return_401(create_group):
 
 @pytest.mark.listar_grupo_especifico
 @pytest.mark.positivas
-@pytest.mark.humo
+@pytest.mark.regresion
 def test_consultar_grupo_por_id_response_json(get_token, create_group):
     grupo_id = create_group["data"]["id"]
     url = f"{Endpoint.BASE_GROUP.value}/{grupo_id}"

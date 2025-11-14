@@ -13,6 +13,8 @@ from src.bagisto_api.endpoint import Endpoint
 from src.helpers.groups_helper import GroupHelper
 from src.utils.auth import get_auth_headers
 
+@pytest.mark.positivas
+@pytest.mark.humo
 @pytest.mark.crear_grupo
 def test_crear_grupo_con_ambos_campos_validos_return_200(get_token, group_teardown):
     grupo = GroupHelper.create_grupo_data(name=None, code=None)
@@ -27,6 +29,8 @@ def test_crear_grupo_con_ambos_campos_validos_return_200(get_token, group_teardo
     assert_valid_schema(json_response, CREATE_BODY_GROUP_SCHEMA)
     assert json_response["data"]["name"] == grupo["name"], f"El nombre del grupo no coincide con el enviado ({grupo['name']})"
 
+@pytest.mark.humo
+@pytest.mark.positivas
 @pytest.mark.crear_grupo
 def test_verificar_created_at_y_updated_at_se_generen_return_200(get_token, group_teardown):
     grupo = GroupHelper.create_grupo_data(name=None, code=None)
@@ -39,6 +43,8 @@ def test_verificar_created_at_y_updated_at_se_generen_return_200(get_token, grou
     assert json_response["data"]["created_at"] is not None, "El campo 'created_at' es None"
     assert json_response["data"]["updated_at"] is not None, "El campo 'updated_at' es None"
 
+@pytest.mark.positivas
+@pytest.mark.humo
 @pytest.mark.crear_grupo
 def test_verificar_id_se_genere_automaticamente_return_200(get_token, group_teardown):
     grupo = GroupHelper.create_grupo_data(name=None, code=None)
@@ -50,6 +56,8 @@ def test_verificar_id_se_genere_automaticamente_return_200(get_token, group_tear
     assert_valid_schema(json_response, CREATE_BODY_GROUP_SCHEMA)
     assert json_response["data"]["id"] is not None, "El campo 'id' es None"
 
+@pytest.mark.negativas
+@pytest.mark.regresion
 @pytest.mark.crear_grupo
 def test_crear_grupo_solo_con_campo_name_return_400(get_token):
     grupo = GroupHelper.create_grupo_data(name=None, code=None)
@@ -59,6 +67,8 @@ def test_crear_grupo_solo_con_campo_name_return_400(get_token):
     response = BagistoRequest.post(url, headers=get_auth_headers(get_token), json=grupo)
     assert_status_code_400(response)
 
+@pytest.mark.positivas
+@pytest.mark.humo
 @pytest.mark.crear_grupo
 def test_verificar_id_se_autogenera_al_crear_grupo_return_200(get_token, group_teardown):
     grupo = GroupHelper.create_grupo_data(name=None, code=None)
@@ -70,6 +80,8 @@ def test_verificar_id_se_autogenera_al_crear_grupo_return_200(get_token, group_t
     assert_valid_schema(json_response, CREATE_BODY_GROUP_SCHEMA)
     assert json_response["data"]["id"] is not None, "El campo 'id' no se generó automáticamente"
 
+@pytest.mark.postivas
+@pytest.mark.regresion
 @pytest.mark.crear_grupo
 def test_verificar_name_acepta_numeros_return_200(get_token, group_teardown):
     grupo = GroupHelper.create_grupo_data(name=int(time.time()), code=None)
@@ -81,6 +93,8 @@ def test_verificar_name_acepta_numeros_return_200(get_token, group_teardown):
     assert_valid_schema(json_response, CREATE_BODY_GROUP_SCHEMA)
     assert json_response["data"]["name"] == grupo["name"]
 
+@pytest.mark.negativas
+@pytest.mark.regresion
 @pytest.mark.crear_grupo
 def test_crear_grupo_solo_con_campo_code_return_400(get_token):
     grupo = GroupHelper.create_grupo_data(name=None, code=None)
@@ -91,6 +105,8 @@ def test_crear_grupo_solo_con_campo_code_return_400(get_token):
     response = BagistoRequest.post(url, headers=get_auth_headers(get_token), json=grupo)
     assert_status_code_400(response)
 
+@pytest.mark.negativas
+@pytest.mark.regresion
 @pytest.mark.crear_grupo
 def test_crear_grupo_con_code_conteniendo_espacios_return_400(get_token):
     grupo = GroupHelper.create_grupo_data(name=f"Grupo con Espacios{int(time.time())}", code=f"code con spaces{int(time.time())}")
@@ -100,6 +116,8 @@ def test_crear_grupo_con_code_conteniendo_espacios_return_400(get_token):
     response = BagistoRequest.post(url, headers=get_auth_headers(get_token), json=grupo)    
     assert_status_code_400(response)
 
+@pytest.mark.positivas
+@pytest.mark.regresion
 @pytest.mark.crear_grupo
 def test_crear_grupo_con_code_conteniendo_guion_bajo_return_200(get_token, group_teardown):
     grupo = GroupHelper.create_grupo_data(name=f"Grupo Underscore{int(time.time())}", code=f"code_con_underscore{int(time.time())}")
@@ -110,6 +128,8 @@ def test_crear_grupo_con_code_conteniendo_guion_bajo_return_200(get_token, group
     assert_valid_schema(response.json(), CREATE_BODY_GROUP_SCHEMA)
     assert_response_contiene_data(response.json())
 
+@pytest.mark.negativas
+@pytest.mark.humo
 @pytest.mark.crear_grupo
 def test_crear_grupo_con_code_duplicado_no_unico_return_400(get_token, group_teardown):
     grupo_original = GroupHelper.create_grupo_data(name=None, code=None)

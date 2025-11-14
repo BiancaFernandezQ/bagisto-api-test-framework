@@ -9,6 +9,8 @@ import requests
 from src.utils.auth import get_auth_headers
 import pytest
 
+@pytest.mark.positivas
+@pytest.mark.humo
 @pytest.mark.crear_cliente
 def test_crear_cliente_con_todos_los_campos_obligatorios_return_200(get_token, customer_teardown):
     url = Endpoint.BASE_CUSTOMER.value
@@ -34,6 +36,8 @@ def test_crear_cliente_con_todos_los_campos_obligatorios_return_200(get_token, c
     assert_content_type_es_json(response)
     assert_valid_schema(payload, CUSTOMER_PAYLOAD_SCHEMA)
 
+@pytest.mark.positivas
+@pytest.mark.humo
 @pytest.mark.crear_cliente
 def test_crear_cliente_con_todos_los_campos_return_200(get_token, customer_teardown):
     url = Endpoint.BASE_CUSTOMER.value
@@ -60,6 +64,8 @@ def test_crear_cliente_con_todos_los_campos_return_200(get_token, customer_teard
     assert_content_type_es_json(response)
     assert_valid_schema(payload, CUSTOMER_PAYLOAD_SCHEMA)
 
+
+@pytest.mark.humo
 @pytest.mark.crear_cliente
 @pytest.mark.parametrize("genero_valido", ["Male", "Female", "Other"])
 def test_crear_cliente_con_genero_valido_return_200(get_token, genero_valido, customer_teardown):
@@ -77,6 +83,8 @@ def test_crear_cliente_con_genero_valido_return_200(get_token, genero_valido, cu
     assert_content_type_es_json(response)
     assert_valid_schema(payload, CUSTOMER_PAYLOAD_SCHEMA)
 
+@pytest.mark.humo
+@pytest.mark.positivas
 @pytest.mark.crear_cliente
 def test_crear_cliente_first_name_valido_1_caracter_return_200(get_token, customer_teardown):
     url = Endpoint.BASE_CUSTOMER.value
@@ -93,6 +101,8 @@ def test_crear_cliente_first_name_valido_1_caracter_return_200(get_token, custom
     assert_content_type_es_json(response)
     assert_valid_schema(payload, CUSTOMER_PAYLOAD_SCHEMA)
 
+@pytest.mark.regresion
+@pytest.mark.positivas
 @pytest.mark.crear_cliente
 def test_crear_cliente_first_name_valido_255_caracteres_return_200(get_token, customer_teardown):
     url = Endpoint.BASE_CUSTOMER.value
@@ -109,6 +119,8 @@ def test_crear_cliente_first_name_valido_255_caracteres_return_200(get_token, cu
     assert_content_type_es_json(response)
     assert_valid_schema(payload, CUSTOMER_PAYLOAD_SCHEMA)
 
+@pytest.mark.regresion
+@pytest.mark.negativas
 @pytest.mark.crear_cliente
 def test_crear_cliente_first_name_excede_255_caracteres_return_400(get_token):
     url = Endpoint.BASE_CUSTOMER.value
@@ -117,6 +129,8 @@ def test_crear_cliente_first_name_excede_255_caracteres_return_400(get_token):
     json_response = response.json()
     assert_status_code_400(response)
 
+@pytest.mark.humo
+@pytest.mark.positivas
 @pytest.mark.crear_cliente
 def test_crear_cliente_last_name_valido_1_caracter_return_200(get_token, customer_teardown):
     url = Endpoint.BASE_CUSTOMER.value
@@ -135,6 +149,8 @@ def test_crear_cliente_last_name_valido_1_caracter_return_200(get_token, custome
     assert_content_type_es_json(response)
     assert_valid_schema(payload, CUSTOMER_PAYLOAD_SCHEMA)
 
+@pytest.mark.regresion
+@pytest.mark.positivas
 @pytest.mark.crear_cliente
 def test_crear_cliente_last_name_valido_255_caracteres_return_200(get_token, customer_teardown):
     url = Endpoint.BASE_CUSTOMER.value
@@ -151,6 +167,8 @@ def test_crear_cliente_last_name_valido_255_caracteres_return_200(get_token, cus
     assert_content_type_es_json(response)
     assert_valid_schema(payload, CUSTOMER_PAYLOAD_SCHEMA)
 
+@pytest.mark.regresion
+@pytest.mark.negativas
 @pytest.mark.crear_cliente
 def test_crear_cliente_last_name_excede_255_caracteres_return_400(get_token):
     url = Endpoint.BASE_CUSTOMER.value
@@ -159,6 +177,8 @@ def test_crear_cliente_last_name_excede_255_caracteres_return_400(get_token):
     json_response = response.json()
     assert_status_code_400(response)
 
+@pytest.mark.regresion
+@pytest.mark.positivas
 @pytest.mark.crear_cliente
 def test_validar_campo_name_se_genera_automaticamente_al_crear_cliente(get_token, customer_teardown):
     url = Endpoint.BASE_CUSTOMER.value
@@ -177,6 +197,7 @@ def test_validar_campo_name_se_genera_automaticamente_al_crear_cliente(get_token
     assert_content_type_es_json(response)
     assert_valid_schema(payload, CUSTOMER_PAYLOAD_SCHEMA)
 
+@pytest.mark.regresion
 @pytest.mark.crear_cliente
 @pytest.mark.negativas
 def test_crear_cliente_email_duplicado_return_400(get_token): 
@@ -189,6 +210,8 @@ def test_crear_cliente_email_duplicado_return_400(get_token):
     response_duplicado = BagistoRequest.post(url, json=payload_duplicado, headers=get_auth_headers(get_token))
     assert_status_code_400(response_duplicado)
 
+@pytest.mark.regresion
+@pytest.mark.negativas
 @pytest.mark.crear_cliente
 def test_verificar_creacion_cliente_con_email_invalido_return_400(get_token):
     url = Endpoint.BASE_CUSTOMER.value
@@ -196,6 +219,7 @@ def test_verificar_creacion_cliente_con_email_invalido_return_400(get_token):
     response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
     assert_status_code_400(response)
 
+@pytest.mark.regresion
 @pytest.mark.crear_cliente
 @pytest.mark.negativas
 def test_crear_cliente_con_grupo_inexistente_return_404(get_token):
@@ -205,6 +229,7 @@ def test_crear_cliente_con_grupo_inexistente_return_404(get_token):
     response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
     assert_status_code_404(response)
 
+@pytest.mark.humo
 @pytest.mark.crear_cliente
 @pytest.mark.negativas
 def test_campos_obligatorios_vacios_return_400(get_token):
@@ -219,7 +244,9 @@ def test_campos_obligatorios_vacios_return_400(get_token):
     response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
     assert_status_code_400(response)
 
+@pytest.mark.regresion
 @pytest.mark.crear_cliente
+@pytest.mark.negativas
 def test_crear_clientes_payload_valido_esquema(get_token, customer_teardown):
     url = Endpoint.BASE_CUSTOMER.value
     payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=1)
@@ -228,6 +255,8 @@ def test_crear_clientes_payload_valido_esquema(get_token, customer_teardown):
     assert_status_code_200(response)
     customer_teardown.append(response.json()["data"]["id"])
 
+@pytest.mark.humo
+@pytest.mark.positivas
 @pytest.mark.crear_cliente
 def test_validar_payload_crear_cliente_con_campos_opcionales(get_token, customer_teardown):
     url = Endpoint.BASE_CUSTOMER.value
