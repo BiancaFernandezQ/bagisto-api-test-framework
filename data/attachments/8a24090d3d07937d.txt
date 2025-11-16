@@ -1,0 +1,20 @@
+2025-11-16 06:43:35,515 - INFO - group_helper - en: create_grupo_data:38 - Construyendo grupo aleatorio con code: Run_1763275415513
+2025-11-16 06:43:35,516 - INFO - api_request - en: post:29 - Timestamp: 2025-11-16T06:43:35.516082+00:00
+2025-11-16 06:43:35,516 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-16 06:43:35,516 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616
+2025-11-16 06:43:35,516 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616'} | JSON: {'name': 'Morris-Gates_1763275415513', 'code': 'Run_1763275415513'}
+2025-11-16 06:43:35,557 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-16 06:43:35,557 - DEBUG - api_request - en: post:35 - Response Payload: {"data":{"id":19,"name":"Morris-Gates_1763275415513","created_at":"2025-11-16T06:43:35.000000Z","updated_at":"2025-11-16T06:43:35.000000Z"},"message":"Customer group have been successfully added."}
+2025-11-16 06:43:35,557 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-16 06:43:35,560 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-16 06:43:35,561 - INFO - conftest - en: group_teardown:114 - Iniciando teardown: Eliminando grupos creados durante la prueba
+2025-11-16 06:43:35,561 - INFO - conftest - en: group_teardown:116 - Eliminando grupo con ID: 19
+2025-11-16 06:43:35,561 - INFO - group_helper - en: delete_group:42 - Eliminando grupo con ID: 19
+2025-11-16 06:43:35,561 - INFO - group_service - en: delete_group:16 - Empezando el proceso para eliminar grupo con ID: 19
+2025-11-16 06:43:35,561 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-16T06:43:35.561805+00:00
+2025-11-16 06:43:35,561 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-16 06:43:35,561 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616
+2025-11-16 06:43:35,562 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/19 | Headers: {'Authorization': 'Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616'}
+2025-11-16 06:43:35,602 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-16 06:43:35,602 - DEBUG - api_request - en: delete:65 - Response Payload: {"message":"Customer group successfully deleted"}
+2025-11-16 06:43:35,603 - INFO - conftest - en: group_teardown:118 - Teardown completado: Grupos eliminados

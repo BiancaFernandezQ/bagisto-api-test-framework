@@ -1,0 +1,28 @@
+INFO     conftest:conftest.py:95 Creando grupo para la prueba
+INFO     group_helper:groups_helper.py:19 Creando grupo aleatorio con code: End
+INFO     group_service:group_service.py:11 Empezando el proceso para crear grupo con datos:{group_data}
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-16T06:43:32.502014+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616'} | JSON: {'code': 'End', 'name': 'Davis, Cervantes and French'}
+INFO     api_request:api_request.py:34 Status Code: 200
+DEBUG    api_request:api_request.py:35 Response Payload: {"data":{"id":7,"name":"Davis, Cervantes and French","created_at":"2025-11-16T06:43:32.000000Z","updated_at":"2025-11-16T06:43:32.000000Z"},"message":"Customer group have been successfully added."}
+INFO     conftest:conftest.py:100 Grupo creado con ID: 7
+INFO     api_request:api_request.py:14 Timestamp: 2025-11-16T06:43:32.542522+00:00
+INFO     api_request:api_request.py:15 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:16 Authentication: Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616
+DEBUG    api_request:api_request.py:17 Request URL: GET http://localhost:8000/api/v1/admin/customers/groups/7 | Headers: {'Authorization': 'Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616'} | Params: None
+INFO     api_request:api_request.py:19 Status Code: 200
+DEBUG    api_request:api_request.py:20 Response Payload: {"data":{"id":7,"name":"Davis, Cervantes and French","created_at":"2025-11-16T06:43:32.000000Z","updated_at":"2025-11-16T06:43:32.000000Z"}}
+INFO     assertions:response_assertions.py:22 Verificando que el Content-Type sea 'application/json'.
+INFO     assertions:response_assertions.py:38 Verificando la presencia del campo 'data'.
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.
+INFO     conftest:conftest.py:104 Iniciando teardown: Eliminando el grupo con ID: 7
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-16T06:43:32.584321+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/7 | Headers: {'Authorization': 'Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616'}
+INFO     api_request:api_request.py:64 Status Code: 200
+DEBUG    api_request:api_request.py:65 Response Payload: {"message":"Customer group successfully deleted"}
+INFO     conftest:conftest.py:107 Teardown completado: Grupo eliminado

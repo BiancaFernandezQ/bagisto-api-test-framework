@@ -1,9 +1,0 @@
-2025-11-14 05:54:30,912 - INFO - conftest - en: get_token:25 - 200
-2025-11-14 05:54:30,917 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: courtneypayne@example.org
-2025-11-14 05:54:30,917 - INFO - api_request - en: post:24 - POST Request URL: http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|rTasWDAVkilnkOKX7SXn5ayu3CpeVAKNiHQLpJuJff882613'} | JSON: {'first_name': 'Megan', 'last_name': 'Williams', 'email': 'courtneypayne@example.org', 'gender': 'Other', 'customer_group_id': 1}
-2025-11-14 05:54:31,056 - INFO - api_request - en: post:26 - Response Status Code: 200
-2025-11-14 05:54:31,056 - INFO - api_request - en: post:27 - Response: {"data":{"id":1,"email":"courtneypayne@example.org","name":"Megan Williams","first_name":"Megan","last_name":"Williams","gender":"Other","date_of_birth":null,"phone":null,"status":null,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-14T05:54:31.000000Z","updated_at":"2025-11-14T05:54:31.000000Z"},"message":"Customer have been successfully added."}
-2025-11-14 05:54:32,056 - INFO - api_request - en: delete:48 - DELETE Request URL: http://localhost:8000/api/v1/admin/customers/1 | {'Authorization': 'Bearer 1|rTasWDAVkilnkOKX7SXn5ayu3CpeVAKNiHQLpJuJff882613'}
-2025-11-14 05:54:32,124 - INFO - api_request - en: delete:50 - Response Status Code: 200
-2025-11-14 05:54:32,124 - INFO - api_request - en: delete:51 - Response: {"message":"Customer successfully deleted"}
-2025-11-14 05:54:32,124 - INFO - assertions - en: assert_response_contiene_campo:42 - Verificando la presencia del campo 'message'.

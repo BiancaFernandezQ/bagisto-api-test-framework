@@ -1,0 +1,31 @@
+2025-11-16 06:43:38,683 - INFO - group_helper - en: create_random_group:19 - Creando grupo aleatorio con code: Maintain
+2025-11-16 06:43:38,683 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos:{group_data}
+2025-11-16 06:43:38,683 - INFO - api_request - en: post:29 - Timestamp: 2025-11-16T06:43:38.683318+00:00
+2025-11-16 06:43:38,683 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-16 06:43:38,683 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616
+2025-11-16 06:43:38,683 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616'} | JSON: {'code': 'Maintain', 'name': 'Stewart Group'}
+2025-11-16 06:43:38,722 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-16 06:43:38,722 - DEBUG - api_request - en: post:35 - Response Payload: {"data":{"id":25,"name":"Stewart Group","created_at":"2025-11-16T06:43:38.000000Z","updated_at":"2025-11-16T06:43:38.000000Z"},"message":"Customer group have been successfully added."}
+2025-11-16 06:43:40,725 - INFO - group_helper - en: create_grupo_data:38 - Construyendo grupo aleatorio con code: Necessary_1763275420722
+2025-11-16 06:43:40,725 - INFO - api_request - en: put:44 - Timestamp: 2025-11-16T06:43:40.725205+00:00
+2025-11-16 06:43:40,725 - INFO - api_request - en: put:45 - Domain: http://localhost:8000
+2025-11-16 06:43:40,725 - DEBUG - api_request - en: put:46 - Authentication: Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616
+2025-11-16 06:43:40,725 - DEBUG - api_request - en: put:47 - Request URL: PUT http://localhost:8000/api/v1/admin/customers/groups/25 | Headers: {'Authorization': 'Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616'} | JSON: {'name': 'Brooks and Sons_1763275420722', 'code': 'Necessary_1763275420722'}
+2025-11-16 06:43:40,769 - INFO - api_request - en: put:49 - Status Code: 200
+2025-11-16 06:43:40,769 - DEBUG - api_request - en: put:50 - Response Payload: {"data":{"id":25,"name":"Brooks and Sons_1763275420722","created_at":"2025-11-16T06:43:38.000000Z","updated_at":"2025-11-16T06:43:40.000000Z"},"message":"Customer group updated successfully."}
+2025-11-16 06:43:40,769 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-16 06:43:40,770 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-16 06:43:40,770 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-16 06:43:40,773 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-16 06:43:40,773 - INFO - assertions - en: assert_content_type_es_json:22 - Verificando que el Content-Type sea 'application/json'.
+2025-11-16 06:43:40,774 - INFO - conftest - en: group_teardown:114 - Iniciando teardown: Eliminando grupos creados durante la prueba
+2025-11-16 06:43:40,774 - INFO - conftest - en: group_teardown:116 - Eliminando grupo con ID: 25
+2025-11-16 06:43:40,774 - INFO - group_helper - en: delete_group:42 - Eliminando grupo con ID: 25
+2025-11-16 06:43:40,774 - INFO - group_service - en: delete_group:16 - Empezando el proceso para eliminar grupo con ID: 25
+2025-11-16 06:43:40,774 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-16T06:43:40.774547+00:00
+2025-11-16 06:43:40,774 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-16 06:43:40,774 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616
+2025-11-16 06:43:40,774 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/25 | Headers: {'Authorization': 'Bearer 1|CqUOsOKVbeBRF7o0YPQqR0muic2RlJl19repKhOvdb95f616'}
+2025-11-16 06:43:40,815 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-16 06:43:40,816 - DEBUG - api_request - en: delete:65 - Response Payload: {"message":"Customer group successfully deleted"}
+2025-11-16 06:43:40,816 - INFO - conftest - en: group_teardown:118 - Teardown completado: Grupos eliminados
