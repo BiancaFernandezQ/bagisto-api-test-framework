@@ -80,7 +80,7 @@ def test_verificar_id_se_autogenera_al_crear_grupo_return_200(get_token, group_t
     assert_valid_schema(json_response, CREATE_BODY_GROUP_SCHEMA)
     assert json_response["data"]["id"] is not None, "El campo 'id' no se generó automáticamente"
 
-@pytest.mark.postivas
+@pytest.mark.positivas
 @pytest.mark.regresion
 @pytest.mark.crear_grupo
 def test_verificar_name_acepta_numeros_return_200(get_token, group_teardown):

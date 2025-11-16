@@ -127,8 +127,8 @@ Este framework utiliza `pytest` para ejecutar las pruebas y `allure-pytest` para
     Después de ejecutar las pruebas, puedes generar un informe HTML
     ```bash
     npm install -g allure-commandline --save-dev
-    allure generate allure-results --clean -o allure-report
-    allure open allure-report
+    python -m pytest --alluredir allure-results
+    allure serve allure-results
     ```
     * `npm install -g allure-commandline --save-dev` Transforma los resultados de la carpeta allure-results en un reporte HTML
     * `python -m pytest --alluredir allure-results` Ejecutar los Test Cases en Allure

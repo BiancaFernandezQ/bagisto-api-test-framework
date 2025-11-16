@@ -6,7 +6,7 @@ from src.assertions.status_code_assertion import assert_status_code_200, assert_
 import json
 import jsonschema
 import math
-from src.schemas.customers.customer import CUSTOMER_SCHEMA, CUSTOMERS_BODY_PAGINATION_0
+from src.schemas.customers.customer import CUSTOMER_SCHEMA, CUSTOMERS_BODY_PAGINATION_0, CUSTOMER_LIMIT_MAX
 from src.bagisto_api.api_request import BagistoRequest
 from src.assertions.customer.response_assertions import assert_valid_schema, assert_response_contiene_data_y_meta, assert_content_type_es_json, assert_data_es_una_lista, assert_response_total_en_meta, assert_response_contiene_meta, assert_current_page_actual_es_1_por_defecto, assert_current_page_es
 from src.bagisto_api.endpoint import Endpoint
@@ -37,9 +37,10 @@ def test_obtener_todos_clientes_sin_filtros_ni_paginacion(get_token, create_15_c
     json_response = response.json()
     assert_valid_schema(json_response, CUSTOMER_SCHEMA)
     assert_response_contiene_data_y_meta(json_response)
-    assert len(json_response.get("data", [])) <=10 # por defecto es 10
+    assert len(json_response.get("data", [])) <=10
     assert_current_page_es(json_response, 1)
     assert_current_page_actual_es_1_por_defecto(json_response)
+    assert_valid_schema(json_response, CUSTOMER_SCHEMA)
 
 @pytest.mark.listar_clientes
 @pytest.mark.positivas
@@ -108,7 +109,7 @@ def test_solicitar_page_inexistente_return_data_vacia(get_token, create_15_custo
 @pytest.mark.negativas
 @pytest.mark.regresion
 @pytest.mark.listar_clientes
-def test_solicitar_limit_cero_return_200(get_token):
+def test_solicitar_limit_cero_return_200(get_token, create_15_customers):
     url = Endpoint.BASE_CUSTOMER.value
     params = {
         "limit": 0
@@ -116,6 +117,9 @@ def test_solicitar_limit_cero_return_200(get_token):
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token), params=params)
     assert_status_code_200(response)
     assert_valid_schema(response.json(), CUSTOMER_SCHEMA)
+    #debe regresar todos los clientes
+    json_response = response.json()
+    assert len(json_response.get("data", [])) <= 15, "Se esperaba que se devolvieran clientes por defecto cuando limit es 0"
 
 @pytest.mark.negativas
 @pytest.mark.regresion
@@ -154,7 +158,7 @@ def test_solicitar_limit_maximo_return_todos_clientes(get_token, create_15_custo
     tam_clientes = len(json_response.get("data", []))
     #tam_clientes debe ser igual al total de meta
     assert tam_clientes == json_response["meta"]["total"], f"El tamaño de la lista de clientes ({tam_clientes}) no coincide con el total de clientes"
-
+    assert_valid_schema(json_response, CUSTOMER_LIMIT_MAX)
 
 @pytest.mark.negativas
 @pytest.mark.regresion
@@ -171,7 +175,6 @@ def test_solicitar_sort_campo_inexistente_return_400(get_token, create_15_custom
     url = f"{Endpoint.BASE_CUSTOMER.value}?sort=no_valido&order=asc"
     response = BagistoRequest.get(url, headers=get_auth_headers(get_token))
     assert_status_code_400(response)
-
 
 @pytest.mark.positivas
 @pytest.mark.regresion
@@ -199,6 +202,7 @@ def test_validar_consistencia_meta_total(get_token, create_15_customers):
     page_uno = BagistoRequest.get(url, headers=get_auth_headers(get_token), params={"limit": limit})
     meta_total = page_uno.json()["meta"]["total"]
     assert total_clientes == meta_total, f"Total real ({total_clientes}) no coincide con meta.total ({meta_total})"
+    assert_valid_schema(page_uno.json(), CUSTOMER_SCHEMA)
 
 @pytest.mark.positivas
 @pytest.mark.regresion
@@ -279,3 +283,4 @@ def test_verificar_calculo_de_last_page(get_token, create_15_customers):
     last_page_calculada = math.ceil(total_clientes / limite_por_pagina)
     
     assert last_page_recibida == last_page_calculada, f"Se esperaba que 'last_page' fuera {last_page_calculada}, pero se retorno {last_page_recibida}"
+    assert_valid_schema(json_response, CUSTOMER_SCHEMA)
