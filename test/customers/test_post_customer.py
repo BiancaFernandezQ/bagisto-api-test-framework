@@ -1,21 +1,16 @@
-from config.config import BASE_URI
 from src.assertions.status_code_assertion import assert_status_code_200, assert_status_code_401, assert_status_code_404, assert_status_code_400
 from src.schemas.customers.customer import CUSTOMER_SCHEMA, CUSTOMER_SCHEMA_IND, CUSTOMER_POST_RESPONSE_SCHEMA, CUSTOMER_PAYLOAD_SCHEMA
-from src.bagisto_api.api_request import BagistoRequest
-from src.assertions.customer.response_assertions import assert_valid_schema, assert_response_contiene_data_y_meta, assert_content_type_es_json, assert_data_es_una_lista, assert_response_total_en_meta, assert_response_contiene_meta, assert_current_page_actual_es_1_por_defecto, assert_current_page_es, assert_response_contiene_campo, assert_content_type_es_json, assert_created_at_en_response, assert_updated_at_en_response, assert_data_no_es_nulo
-from src.bagisto_api.endpoint import Endpoint
+from src.assertions.response_assertions import assert_valid_schema, assert_response_contiene_data_y_meta, assert_content_type_es_json, assert_data_es_una_lista, assert_response_total_en_meta, assert_response_contiene_meta, assert_current_page_actual_es_1_por_defecto, assert_current_page_es, assert_response_contiene_campo, assert_content_type_es_json, assert_created_at_en_response, assert_updated_at_en_response, assert_data_no_es_nulo
 from src.helpers.customer_helper import CustomerHelper
-import requests
-from src.utils.auth import get_auth_headers
+from src.services.customer_service import CustomerService
 import pytest
 
 @pytest.mark.positivas
 @pytest.mark.humo
 @pytest.mark.crear_cliente
 def test_crear_cliente_con_todos_los_campos_obligatorios_return_200(get_token, customer_teardown):
-    url = Endpoint.BASE_CUSTOMER.value
     payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=1)
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     json_response = response.json()
     assert_status_code_200(response)
     assert_valid_schema(json_response, CUSTOMER_POST_RESPONSE_SCHEMA)
@@ -40,9 +35,8 @@ def test_crear_cliente_con_todos_los_campos_obligatorios_return_200(get_token, c
 @pytest.mark.humo
 @pytest.mark.crear_cliente
 def test_crear_cliente_con_todos_los_campos_return_200(get_token, customer_teardown):
-    url = Endpoint.BASE_CUSTOMER.value
     payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, date_of_birth="", phone="", customer_group_id=1)
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     json_response = response.json()
     assert_status_code_200(response)
     assert_valid_schema(json_response, CUSTOMER_POST_RESPONSE_SCHEMA)
@@ -69,9 +63,8 @@ def test_crear_cliente_con_todos_los_campos_return_200(get_token, customer_teard
 @pytest.mark.crear_cliente
 @pytest.mark.parametrize("genero_valido", ["Male", "Female", "Other"])
 def test_crear_cliente_con_genero_valido_return_200(get_token, genero_valido, customer_teardown):
-    url = Endpoint.BASE_CUSTOMER.value
     payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=genero_valido, customer_group_id=1)
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     json_response = response.json()
     assert_status_code_200(response)
     customer_teardown.append(json_response["data"]["id"])
@@ -87,9 +80,8 @@ def test_crear_cliente_con_genero_valido_return_200(get_token, genero_valido, cu
 @pytest.mark.positivas
 @pytest.mark.crear_cliente
 def test_crear_cliente_first_name_valido_1_caracter_return_200(get_token, customer_teardown):
-    url = Endpoint.BASE_CUSTOMER.value
     payload = CustomerHelper.create_customer_data(first_name="A", last_name=None, email=None, gender=None, customer_group_id=1)
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     json_response = response.json()
     assert_status_code_200(response)
     customer_teardown.append(json_response["data"]["id"])
@@ -105,9 +97,8 @@ def test_crear_cliente_first_name_valido_1_caracter_return_200(get_token, custom
 @pytest.mark.positivas
 @pytest.mark.crear_cliente
 def test_crear_cliente_first_name_valido_255_caracteres_return_200(get_token, customer_teardown):
-    url = Endpoint.BASE_CUSTOMER.value
     payload = CustomerHelper.create_customer_data(first_name="A"*255, last_name=None, email=None, gender=None, customer_group_id=1) 
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     json_response = response.json()
     assert_status_code_200(response)
     customer_teardown.append(json_response["data"]["id"])
@@ -122,20 +113,19 @@ def test_crear_cliente_first_name_valido_255_caracteres_return_200(get_token, cu
 @pytest.mark.regresion
 @pytest.mark.negativas
 @pytest.mark.crear_cliente
-def test_crear_cliente_first_name_excede_255_caracteres_return_400(get_token):
-    url = Endpoint.BASE_CUSTOMER.value
+def test_crear_cliente_first_name_excede_255_caracteres_return_400(get_token, customer_teardown):
     payload = CustomerHelper.create_customer_data(first_name='Bianca Fernandez Hola Sarahi Lola Laura Ana Bianca Bianca Fernandez Hola Sarahi Lola Laura Ana Bianca Caracteres Sarahi Lola Laura Ana Bianca Caracteres en el Campo FirstName Bianca Fernandez en el Campo FirstName Bianca Fernandez Lola Campo Bianca Fernandez', last_name=None, email=None, gender=None, customer_group_id=1)
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     json_response = response.json()
+    customer_teardown.append(json_response["data"]["id"])
     assert_status_code_400(response)
 
 @pytest.mark.humo
 @pytest.mark.positivas
 @pytest.mark.crear_cliente
 def test_crear_cliente_last_name_valido_1_caracter_return_200(get_token, customer_teardown):
-    url = Endpoint.BASE_CUSTOMER.value
     payload = CustomerHelper.create_customer_data(first_name=None, last_name="L", email=None, gender=None, customer_group_id=1)
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     json_response = response.json()
     assert_status_code_200(response)
 
@@ -153,9 +143,8 @@ def test_crear_cliente_last_name_valido_1_caracter_return_200(get_token, custome
 @pytest.mark.positivas
 @pytest.mark.crear_cliente
 def test_crear_cliente_last_name_valido_255_caracteres_return_200(get_token, customer_teardown):
-    url = Endpoint.BASE_CUSTOMER.value
     payload = CustomerHelper.create_customer_data(first_name=None, last_name="L"*255, email=None, gender=None, customer_group_id=1)
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     json_response = response.json()
     assert_status_code_200(response)
     customer_teardown.append(json_response["data"]["id"])
@@ -170,20 +159,19 @@ def test_crear_cliente_last_name_valido_255_caracteres_return_200(get_token, cus
 @pytest.mark.regresion
 @pytest.mark.negativas
 @pytest.mark.crear_cliente
-def test_crear_cliente_last_name_excede_255_caracteres_return_400(get_token):
-    url = Endpoint.BASE_CUSTOMER.value
+def test_crear_cliente_last_name_excede_255_caracteres_return_400(get_token, customer_teardown):
     payload = CustomerHelper.create_customer_data(first_name=None, last_name='Fernandez Quispe Apellido Aqui Hola Mundo Hola Mundo Pytest Aqui Apellidos Apellidos Apellidos Hola Last Name Fernandez Quispe Apellido Aqui Hola Mundo Fernandez Quispe Apellido Aqui Hola MundoFernandez Quispe Apellido Aqui Hola Mundo Fernandez Quispe Apellido', email=None, gender=None, customer_group_id=1)
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     json_response = response.json()
+    customer_teardown.append(json_response["data"]["id"])
     assert_status_code_400(response)
 
 @pytest.mark.regresion
 @pytest.mark.positivas
 @pytest.mark.crear_cliente
 def test_validar_campo_name_se_genera_automaticamente_al_crear_cliente(get_token, customer_teardown):
-    url = Endpoint.BASE_CUSTOMER.value
     payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=1)
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     json_response = response.json()
     assert_status_code_200(response)
     customer_teardown.append(json_response["data"]["id"])
@@ -200,23 +188,21 @@ def test_validar_campo_name_se_genera_automaticamente_al_crear_cliente(get_token
 @pytest.mark.regresion
 @pytest.mark.crear_cliente
 @pytest.mark.negativas
-def test_crear_cliente_email_duplicado_return_400(get_token): 
-    url = Endpoint.BASE_CUSTOMER.value
+def test_crear_cliente_email_duplicado_return_400(get_token, customer_teardown): 
     payload_inicial = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=1)
-    response_inicial = BagistoRequest.post(url, json=payload_inicial, headers=get_auth_headers(get_token))
+    response_inicial = CustomerService.create_customer(get_token, payload_inicial)
     assert_status_code_200(response_inicial)
-
+    customer_teardown.append(response_inicial.json()["data"]["id"])
     payload_duplicado = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=payload_inicial["email"], gender=None, customer_group_id=1)
-    response_duplicado = BagistoRequest.post(url, json=payload_duplicado, headers=get_auth_headers(get_token))
+    response_duplicado = CustomerService.create_customer(get_token, payload_duplicado)
     assert_status_code_400(response_duplicado)
 
 @pytest.mark.regresion
 @pytest.mark.negativas
 @pytest.mark.crear_cliente
 def test_verificar_creacion_cliente_con_email_invalido_return_400(get_token):
-    url = Endpoint.BASE_CUSTOMER.value
     payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email="emailinvalido", gender=None, customer_group_id=1)
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     assert_status_code_400(response)
 
 @pytest.mark.regresion
@@ -224,16 +210,14 @@ def test_verificar_creacion_cliente_con_email_invalido_return_400(get_token):
 @pytest.mark.negativas
 def test_crear_cliente_con_grupo_inexistente_return_404(get_token):
     grupo_invalido_id = 999999
-    url = Endpoint.BASE_CUSTOMER.value
     payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=grupo_invalido_id)
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     assert_status_code_404(response)
 
 @pytest.mark.humo
 @pytest.mark.crear_cliente
 @pytest.mark.negativas
 def test_campos_obligatorios_vacios_return_400(get_token):
-    url = Endpoint.BASE_CUSTOMER.value
     payload = {
         "first_name": "",
         "last_name": "",
@@ -241,17 +225,16 @@ def test_campos_obligatorios_vacios_return_400(get_token):
         "gender": "",
         "customer_group_id": ""
     }
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     assert_status_code_400(response)
 
 @pytest.mark.regresion
 @pytest.mark.crear_cliente
 @pytest.mark.negativas
 def test_crear_clientes_payload_valido_esquema(get_token, customer_teardown):
-    url = Endpoint.BASE_CUSTOMER.value
     payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=1)
     assert_valid_schema(payload, CUSTOMER_PAYLOAD_SCHEMA)
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     assert_status_code_200(response)
     customer_teardown.append(response.json()["data"]["id"])
 
@@ -259,9 +242,8 @@ def test_crear_clientes_payload_valido_esquema(get_token, customer_teardown):
 @pytest.mark.positivas
 @pytest.mark.crear_cliente
 def test_validar_payload_crear_cliente_con_campos_opcionales(get_token, customer_teardown):
-    url = Endpoint.BASE_CUSTOMER.value
     payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, date_of_birth=None, phone=None, customer_group_id=1)
     assert_valid_schema(payload, CUSTOMER_PAYLOAD_SCHEMA)
-    response = BagistoRequest.post(url, json=payload, headers=get_auth_headers(get_token))
+    response = CustomerService.create_customer(get_token, payload)
     assert_status_code_200(response)
     customer_teardown.append(response.json()["data"]["id"])

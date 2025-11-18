@@ -1,13 +1,9 @@
-from config.config import BASE_URI
 from src.assertions.status_code_assertion import assert_status_code_200, assert_status_code_401, assert_status_code_404, assert_status_code_400
-from src.schemas.customers.customer import CUSTOMER_SCHEMA, CUSTOMER_SCHEMA_IND, CUSTOMER_POST_RESPONSE_SCHEMA, CUSTOMER_PAYLOAD_SCHEMA, CUSTOMER_EDIT_PAYLOAD_SCHEMA
-from src.bagisto_api.api_request import BagistoRequest
-from src.assertions.customer.response_assertions import assert_valid_schema, assert_response_contiene_data_y_meta, assert_content_type_es_json, assert_data_es_una_lista, assert_response_total_en_meta, assert_response_contiene_meta, assert_current_page_actual_es_1_por_defecto, assert_current_page_es, assert_response_contiene_campo, assert_content_type_es_json, assert_created_at_en_response, assert_updated_at_en_response, assert_data_no_es_nulo
-from src.bagisto_api.endpoint import Endpoint
+from src.schemas.customers.customer import CUSTOMER_SCHEMA_IND, CUSTOMER_EDIT_PAYLOAD_SCHEMA
+from src.assertions.response_assertions import assert_valid_schema, assert_content_type_es_json, assert_response_contiene_campo
 from src.helpers.customer_helper import CustomerHelper
-import requests
+from src.services.customer_service import CustomerService
 import pytest
-from src.utils.auth import get_auth_headers
 import time
 
 @pytest.mark.positivas
@@ -21,8 +17,7 @@ def test_actualizar_usuario_con_todos_los_campos_validos_return_200(get_token, c
 
     update_data = CustomerHelper.create_customer_data(first_name="Bianca", last_name="Fernandez", email=None, gender=None, customer_group_id=1)
 
-    url = f"{Endpoint.BASE_CUSTOMER.value}/{cliente_id}"
-    response = BagistoRequest.put(url, headers=get_auth_headers(get_token), json=update_data)
+    response = CustomerService.update_customer(get_token, cliente_id, update_data)
     assert_status_code_200(response)
     json_response = response.json()
     assert_response_contiene_campo(json_response, "message")
@@ -40,8 +35,7 @@ def test_actualizar_usuario_con_todos_los_campos_validos_return_200(get_token, c
 def test_actualizar_usuario_id_no_existente_return_404(get_token):
     id_inexistente = 999999
     update_data = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=1)
-    url = f"{Endpoint.BASE_CUSTOMER.value}/{id_inexistente}"
-    response = BagistoRequest.put(url, headers=get_auth_headers(get_token), json=update_data)
+    response = CustomerService.update_customer(get_token, id_inexistente, update_data)
     assert_status_code_404(response)
 
 @pytest.mark.positivas
@@ -55,8 +49,7 @@ def test_actualizar_usuario_con_datos_validos_verificar_que_created_up_se_actual
     updated_at_antes = response_create.json()["data"]["updated_at"]
     time.sleep(2)  # Esperar 2 segundos para asegurar que updated_at cambie
     update_data = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=1)
-    url = f"{Endpoint.BASE_CUSTOMER.value}/{cliente_id}"
-    response = BagistoRequest.put(url, headers=get_auth_headers(get_token), json=update_data)
+    response = CustomerService.update_customer(get_token, cliente_id, update_data)
     assert_status_code_200(response)
     json_response = response.json()
     updated_at_despues = json_response["data"]["updated_at"]
@@ -74,8 +67,7 @@ def test_actualizar_usuario_con_datos_validos_verificar_que_created_at_no_se_act
     created_at_antes = response_create.json()["data"]["created_at"]
     time.sleep(2)  # Esperar 2 segundos para asegurar que created_at no cambie
     update_data = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=1)
-    url = f"{Endpoint.BASE_CUSTOMER.value}/{cliente_id}"
-    response = BagistoRequest.put(url, headers=get_auth_headers(get_token), json=update_data)
+    response = CustomerService.update_customer(get_token, cliente_id, update_data)
     assert_status_code_200(response)
     json_response = response.json()
     created_at_despues = json_response["data"]["created_at"]
@@ -90,8 +82,7 @@ def test_actualizar_usuario_first_name_invalido_excede_255_return_400(get_token)
     assert_status_code_200(response_create)
     cliente_id = response_create.json()["data"]["id"]
     actualizar_data = CustomerHelper.create_customer_data(first_name="A"*260, last_name=None, email=None, gender=None, customer_group_id=1)
-    url = f"{Endpoint.BASE_CUSTOMER.value}/{cliente_id}"
-    response = BagistoRequest.put(url, headers=get_auth_headers(get_token), json=actualizar_data)
+    response = CustomerService.update_customer(get_token, cliente_id, actualizar_data)
     assert_valid_schema(response.json(), CUSTOMER_EDIT_PAYLOAD_SCHEMA)
     assert_status_code_400(response)
 
@@ -103,8 +94,7 @@ def test_actualizar_usuario_last_name_invalido_excede_255_return_400(get_token):
     assert_status_code_200(response_create)
     cliente_id = response_create.json()["data"]["id"]
     actualizar_data = CustomerHelper.create_customer_data(first_name=None, last_name="L"*256, email=None, gender=None, customer_group_id=1)
-    url = f"{Endpoint.BASE_CUSTOMER.value}/{cliente_id}"
-    response = BagistoRequest.put(url, headers=get_auth_headers(get_token), json=actualizar_data)
+    response = CustomerService.update_customer(get_token, cliente_id, actualizar_data)
     assert_valid_schema(response.json(), CUSTOMER_EDIT_PAYLOAD_SCHEMA)
     assert_status_code_400(response)
 
@@ -117,8 +107,7 @@ def test_actualizar_usuario_grupo_inexistente_return_404(get_token):
     cliente_id = response_create.json()["data"]["id"]
 
     actualizar_data = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=9999)
-    url = f"{Endpoint.BASE_CUSTOMER.value}/{cliente_id}"
-    response = BagistoRequest.put(url, headers=get_auth_headers(get_token), json=actualizar_data)
+    response = CustomerService.update_customer(get_token, cliente_id, actualizar_data)
     assert_status_code_404(response)
 
 @pytest.mark.negativas
@@ -134,6 +123,5 @@ def test_actualizar_usuario_email_duplicado_return_400(get_token):
     id_cliente2 = cliente2.json()["data"]["id"]
 
     update_data = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=email_cliente1, gender=None, customer_group_id=1)
-    url = f"{Endpoint.BASE_CUSTOMER.value}/{id_cliente2}"
-    response = BagistoRequest.put(url, headers=get_auth_headers(get_token), json=update_data)
+    response = CustomerService.update_customer(get_token, id_cliente2, update_data)
     assert_status_code_400(response)
