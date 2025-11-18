@@ -1,0 +1,29 @@
+INFO     conftest:conftest.py:50 Creando cliente para la prueba
+INFO     customer_helper:customer_helper.py:21 Creando cliente aleatorio con email: matthew71@example.net
+INFO     customer_service:customer_service.py:12 Empezando el proceso para crear cliente 
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-18T05:55:57.584768+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab'} | JSON: {'first_name': 'Timothy', 'last_name': 'Rodgers', 'email': 'matthew71@example.net', 'gender': 'Male', 'customer_group_id': 1}
+INFO     api_request:api_request.py:34 Status Code: 200
+DEBUG    api_request:api_request.py:35 Response Payload: {"data":{"id":3,"email":"matthew71@example.net","name":"Timothy Rodgers","first_name":"Timothy","last_name":"Rodgers","gender":"Male","date_of_birth":null,"phone":null,"status":null,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-18T05:55:57.000000Z","updated_at":"2025-11-18T05:55:57.000000Z"},"message":"Customer have been successfully added."}
+INFO     conftest:conftest.py:55 Cliente creado con ID: 3
+INFO     customer_service:customer_service.py:30 Empezando el proceso para obtener cliente con ID: 3
+INFO     api_request:api_request.py:14 Timestamp: 2025-11-18T05:55:57.693827+00:00
+INFO     api_request:api_request.py:15 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:16 Authentication: Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab
+DEBUG    api_request:api_request.py:17 Request URL: GET http://localhost:8000/api/v1/admin/customers/3 | Headers: {'Authorization': 'Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab'} | Params: None
+INFO     api_request:api_request.py:19 Status Code: 200
+DEBUG    api_request:api_request.py:20 Response Payload: {"data":{"id":3,"email":"matthew71@example.net","name":"Timothy Rodgers","first_name":"Timothy","last_name":"Rodgers","gender":"Male","date_of_birth":null,"phone":null,"status":1,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-18T05:55:57.000000Z","updated_at":"2025-11-18T05:55:57.000000Z"}}
+INFO     assertions:response_assertions.py:22 Verificando que el Content-Type sea 'application/json'.
+INFO     assertions:response_assertions.py:42 Verificando la presencia del campo 'data'.
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.
+INFO     conftest:conftest.py:59 Iniciando teardown: Eliminando el cliente con ID: 3
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-18T05:55:57.757348+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/3 | Headers: {'Authorization': 'Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab'}
+INFO     api_request:api_request.py:64 Status Code: 200
+DEBUG    api_request:api_request.py:65 Response Payload: {"message":"Customer successfully deleted"}
+INFO     conftest:conftest.py:62 Teardown completado: Cliente eliminado

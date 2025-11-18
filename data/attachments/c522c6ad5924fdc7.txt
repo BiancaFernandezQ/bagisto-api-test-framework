@@ -1,0 +1,32 @@
+INFO     customer_helper:customer_helper.py:21 Creando cliente aleatorio con email: cabreraallen@example.org
+INFO     customer_service:customer_service.py:12 Empezando el proceso para crear cliente 
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-18T05:56:08.669831+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab'} | JSON: {'first_name': 'Cheryl', 'last_name': 'Frank', 'email': 'cabreraallen@example.org', 'gender': 'Male', 'customer_group_id': 1}
+INFO     api_request:api_request.py:34 Status Code: 200
+DEBUG    api_request:api_request.py:35 Response Payload: {"data":{"id":37,"email":"cabreraallen@example.org","name":"Cheryl Frank","first_name":"Cheryl","last_name":"Frank","gender":"Male","date_of_birth":null,"phone":null,"status":null,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-18T05:56:08.000000Z","updated_at":"2025-11-18T05:56:08.000000Z"},"message":"Customer have been successfully added."}
+INFO     customer_helper:customer_helper.py:48 Construyendo cliente aleatorio con email: crussell@example.net
+INFO     customer_service:customer_service.py:24 Empezando el proceso para actualizar cliente con ID: 37
+INFO     api_request:api_request.py:44 Timestamp: 2025-11-18T05:56:08.776952+00:00
+INFO     api_request:api_request.py:45 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:46 Authentication: Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab
+DEBUG    api_request:api_request.py:47 Request URL: PUT http://localhost:8000/api/v1/admin/customers/37 | Headers: {'Authorization': 'Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab'} | JSON: {'first_name': 'Bianca', 'last_name': 'Fernandez', 'email': 'crussell@example.net', 'gender': 'Other', 'customer_group_id': 1}
+INFO     api_request:api_request.py:49 Status Code: 200
+DEBUG    api_request:api_request.py:50 Response Payload: {"data":{"id":37,"email":"crussell@example.net","name":"Bianca Fernandez","first_name":"Bianca","last_name":"Fernandez","gender":"Other","date_of_birth":null,"phone":null,"status":0,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-18T05:56:08.000000Z","updated_at":"2025-11-18T05:56:08.000000Z"},"message":"Customer updated successfully."}
+INFO     assertions:response_assertions.py:42 Verificando la presencia del campo 'message'.
+INFO     assertions:response_assertions.py:42 Verificando la presencia del campo 'data'.
+INFO     assertions:response_assertions.py:22 Verificando que el Content-Type sea 'application/json'.
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.
+INFO     conftest:conftest.py:69 Iniciando teardown: Eliminando clientes creados durante la prueba
+INFO     conftest:conftest.py:71 Eliminando cliente con ID: 37
+INFO     customer_helper:customer_helper.py:52 Eliminando cliente con ID: 37
+INFO     customer_service:customer_service.py:18 Empezando el proceso para eliminar cliente con ID: 37
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-18T05:56:08.841135+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/37 | Headers: {'Authorization': 'Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab'}
+INFO     api_request:api_request.py:64 Status Code: 200
+DEBUG    api_request:api_request.py:65 Response Payload: {"message":"Customer successfully deleted"}
+INFO     conftest:conftest.py:73 Teardown completado: Clientes eliminados

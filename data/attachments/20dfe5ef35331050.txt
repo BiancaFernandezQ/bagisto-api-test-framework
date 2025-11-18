@@ -1,0 +1,17 @@
+2025-11-18 05:55:54,805 - INFO - conftest - en: get_token:25 - 200
+2025-11-18 05:55:54,809 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: christina12@example.com
+2025-11-18 05:55:54,809 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-18 05:55:54,809 - INFO - api_request - en: post:29 - Timestamp: 2025-11-18T05:55:54.809927+00:00
+2025-11-18 05:55:54,810 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-18 05:55:54,810 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab
+2025-11-18 05:55:54,810 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab'} | JSON: {'first_name': 'Cathy', 'last_name': 'Simpson', 'email': 'christina12@example.com', 'gender': 'Female', 'customer_group_id': 1}
+2025-11-18 05:55:54,945 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-18 05:55:54,946 - DEBUG - api_request - en: post:35 - Response Payload: {"data":{"id":1,"email":"christina12@example.com","name":"Cathy Simpson","first_name":"Cathy","last_name":"Simpson","gender":"Female","date_of_birth":null,"phone":null,"status":null,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-18T05:55:54.000000Z","updated_at":"2025-11-18T05:55:54.000000Z"},"message":"Customer have been successfully added."}
+2025-11-18 05:55:55,946 - INFO - customer_service - en: delete_customer:18 - Empezando el proceso para eliminar cliente con ID: 1
+2025-11-18 05:55:55,946 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-18T05:55:55.946583+00:00
+2025-11-18 05:55:55,946 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-18 05:55:55,946 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab
+2025-11-18 05:55:55,946 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/1 | Headers: {'Authorization': 'Bearer 1|TF0BgMO4mXhsLcB0O0xh7CffPY7f2o61LcN4sJSzd2eb22ab'}
+2025-11-18 05:55:56,012 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-18 05:55:56,013 - DEBUG - api_request - en: delete:65 - Response Payload: {"message":"Customer successfully deleted"}
+2025-11-18 05:55:56,013 - INFO - assertions - en: assert_response_contiene_campo:42 - Verificando la presencia del campo 'message'.
