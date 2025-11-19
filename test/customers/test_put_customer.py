@@ -41,7 +41,7 @@ def test_actualizar_usuario_id_no_existente_return_404(get_token):
 @pytest.mark.positivas
 @pytest.mark.humo
 @pytest.mark.actualizar_cliente
-def test_actualizar_usuario_con_datos_validos_verificar_que_created_up_se_actualice(get_token, customer_teardown):
+def test_actualizar_usuario_con_datos_validos_verificar_que_updated_up_se_actualice(get_token, customer_teardown):
     response_create = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(response_create)
     cliente_id = response_create.json()["data"]["id"]
@@ -77,10 +77,11 @@ def test_actualizar_usuario_con_datos_validos_verificar_que_created_at_no_se_act
 @pytest.mark.negativas
 @pytest.mark.regresion
 @pytest.mark.actualizar_cliente
-def test_actualizar_usuario_first_name_invalido_excede_255_return_400(get_token):
+def test_actualizar_usuario_first_name_invalido_excede_255_return_400(get_token, customer_teardown):
     response_create = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(response_create)
     cliente_id = response_create.json()["data"]["id"]
+    customer_teardown.append(cliente_id)
     actualizar_data = CustomerHelper.create_customer_data(first_name="A"*260, last_name=None, email=None, gender=None, customer_group_id=1)
     response = CustomerService.update_customer(get_token, cliente_id, actualizar_data)
     assert_valid_schema(response.json(), CUSTOMER_EDIT_PAYLOAD_SCHEMA)
@@ -89,10 +90,11 @@ def test_actualizar_usuario_first_name_invalido_excede_255_return_400(get_token)
 @pytest.mark.negativas
 @pytest.mark.regresion
 @pytest.mark.actualizar_cliente
-def test_actualizar_usuario_last_name_invalido_excede_255_return_400(get_token):
+def test_actualizar_usuario_last_name_invalido_excede_255_return_400(get_token, customer_teardown):
     response_create = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(response_create)
     cliente_id = response_create.json()["data"]["id"]
+    customer_teardown.append(cliente_id)
     actualizar_data = CustomerHelper.create_customer_data(first_name=None, last_name="L"*256, email=None, gender=None, customer_group_id=1)
     response = CustomerService.update_customer(get_token, cliente_id, actualizar_data)
     assert_valid_schema(response.json(), CUSTOMER_EDIT_PAYLOAD_SCHEMA)
@@ -113,14 +115,16 @@ def test_actualizar_usuario_grupo_inexistente_return_404(get_token):
 @pytest.mark.negativas
 @pytest.mark.regresion
 @pytest.mark.actualizar_cliente
-def test_actualizar_usuario_email_duplicado_return_400(get_token):
+def test_actualizar_usuario_email_duplicado_return_400(get_token, customer_teardown):
     cliente1 = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(cliente1)
     email_cliente1 = cliente1.json()["data"]["email"]
+    customer_teardown.append(cliente1.json()["data"]["id"])
 
     cliente2 = CustomerHelper.create_random_customer(get_token)
     assert_status_code_200(cliente2)
     id_cliente2 = cliente2.json()["data"]["id"]
+    customer_teardown.append(id_cliente2)
 
     update_data = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=email_cliente1, gender=None, customer_group_id=1)
     response = CustomerService.update_customer(get_token, id_cliente2, update_data)

@@ -98,8 +98,10 @@ def test_solicitar_limit_cero_return_200(get_token):
         "limit": 0
     }
     response = GroupService.get_all_groups(get_token, params=params)
+    json_response = response.json()
     assert_status_code_200(response)
     assert_valid_schema(response.json(), GROUPS_SCHEMA_BODY)
+    assert len(json_response.get("data", [])) <= 15, "Se esperaba que se devolvieran grupos por defecto cuando limit es 0"
 
 @pytest.mark.listar_grupos
 @pytest.mark.negativas

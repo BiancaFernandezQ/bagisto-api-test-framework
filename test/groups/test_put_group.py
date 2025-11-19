@@ -94,30 +94,27 @@ def test_actualizar_grupo_payload_vacio_return_400(get_token, group_teardown):
 @pytest.mark.negativas
 @pytest.mark.regresion
 @pytest.mark.actualizar_grupo
-def test_verificar_que_no_se_actualice_grupo_si_falta_name(get_token, group_teardown):
+def test_verificar_que_no_se_actualice_grupo_si_name_vacio(get_token, group_teardown):
     grupo_creado = GroupHelper.create_random_group(get_token)
     assert_status_code_200(grupo_creado)
     time.sleep(1)
+    grupo_original = grupo_creado.json()["data"]["name"]
     grupo_id = grupo_creado.json()["data"]["id"]
     group_teardown.append(grupo_id)
     grupo_datos = {
-        "code": "NuevoCodigo"+str(int(time.time() * 1000))
+        "code": ""
     }
     response = GroupService.update_group(get_token, grupo_id, grupo_datos)
     assert_status_code_400(response)
+    grupo_consultado = GroupService.get_group_by_id(get_token, grupo_id)
+    assert_status_code_200(grupo_consultado)
+    assert grupo_consultado.json()["data"]["code"] == grupo_original
 
 @pytest.mark.negativas
 @pytest.mark.humo
 @pytest.mark.actualizar_grupo
-def test_verificar_que_no_se_actualice_grupo_si_falta_code(get_token, group_teardown):
-    grupo_creado = GroupHelper.create_random_group(get_token)
-    assert_status_code_200(grupo_creado)
-    time.sleep(1)
-
-    grupo_id = grupo_creado.json()["data"]["id"]
-    group_teardown.append(grupo_id)
-    grupo_datos = {
-        "name": "NuevoNombre"+str(int(time.time() * 1000))
-    }
+def test_verificar_que_no_se_actualice_el_grupo_por_defecto(get_token):
+    grupo_id = 1  #ID del grupo por defecto
+    grupo_datos = GroupHelper.create_grupo_data(name=None, code=None)
     response = GroupService.update_group(get_token, grupo_id, grupo_datos)
     assert_status_code_400(response)

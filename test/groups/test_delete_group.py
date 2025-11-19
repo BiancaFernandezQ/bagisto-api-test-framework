@@ -53,6 +53,7 @@ def test_eliminar_grupo_valido_dos_veces_return_404(get_token):
     segundo_delete = GroupService.delete_group(get_token, grupo_id)
     assert_status_code_404(segundo_delete)
 
+@pytest.mark.bruno
 @pytest.mark.negativas
 @pytest.mark.humo
 @pytest.mark.eliminar_grupo

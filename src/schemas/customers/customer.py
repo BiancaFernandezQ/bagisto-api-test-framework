@@ -357,10 +357,10 @@ CUSTOMER_POST_RESPONSE_SCHEMA = {
                                 "type": "string"
                             },
                             "created_at": {
-                                "type": "null"
+                                "type": ["null", "string"]
                             },
                             "updated_at": {
-                                "type": "null"
+                                "type": ["null", "string"]
                             }
                         }
                     },
