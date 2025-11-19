@@ -1,0 +1,23 @@
+2025-11-19 21:06:29,434 - INFO - group_helper - en: create_random_group:19 - Creando grupo aleatorio con code: Thousand
+2025-11-19 21:06:29,434 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'code': 'Thousand', 'name': 'Harris Ltd'}
+2025-11-19 21:06:29,435 - INFO - api_request - en: post:29 - Timestamp: 2025-11-19T21:06:29.434998+00:00
+2025-11-19 21:06:29,435 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-19 21:06:29,435 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425
+2025-11-19 21:06:29,435 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425'} | JSON: {'code': 'Thousand', 'name': 'Harris Ltd'}
+2025-11-19 21:06:29,476 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-19 21:06:29,476 - DEBUG - api_request - en: post:35 - Response Payload: {"data":{"id":6,"name":"Harris Ltd","created_at":"2025-11-19T21:06:29.000000Z","updated_at":"2025-11-19T21:06:29.000000Z"},"message":"Customer group have been successfully added."}
+2025-11-19 21:06:29,480 - INFO - customer_helper - en: create_customer_data:48 - Construyendo cliente aleatorio con email: igeorge@example.org
+2025-11-19 21:06:29,480 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-19 21:06:29,480 - INFO - api_request - en: post:29 - Timestamp: 2025-11-19T21:06:29.480399+00:00
+2025-11-19 21:06:29,480 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-19 21:06:29,480 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425
+2025-11-19 21:06:29,480 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425'} | JSON: {'first_name': 'Elizabeth', 'last_name': 'Carey', 'email': 'igeorge@example.org', 'gender': 'Other', 'customer_group_id': 6}
+2025-11-19 21:06:29,587 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-19 21:06:29,587 - DEBUG - api_request - en: post:35 - Response Payload: {"data":{"id":45,"email":"igeorge@example.org","name":"Elizabeth Carey","first_name":"Elizabeth","last_name":"Carey","gender":"Other","date_of_birth":null,"phone":null,"status":null,"group":{"id":6,"name":"Harris Ltd","created_at":"2025-11-19T21:06:29.000000Z","updated_at":"2025-11-19T21:06:29.000000Z"},"notes":[],"created_at":"2025-11-19T21:06:29.000000Z","updated_at":"2025-11-19T21:06:29.000000Z"},"message":"Customer have been successfully added."}
+2025-11-19 21:06:32,587 - INFO - group_service - en: delete_group:17 - Empezando el proceso para eliminar grupo con ID: 6
+2025-11-19 21:06:32,587 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-19T21:06:32.587869+00:00
+2025-11-19 21:06:32,587 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-19 21:06:32,588 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425
+2025-11-19 21:06:32,588 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/6 | Headers: {'Authorization': 'Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425'}
+2025-11-19 21:06:32,653 - INFO - api_request - en: delete:64 - Status Code: 400
+2025-11-19 21:06:32,653 - DEBUG - api_request - en: delete:65 - Response Payload: {"message":"This resource groups is getting used in Customers."}

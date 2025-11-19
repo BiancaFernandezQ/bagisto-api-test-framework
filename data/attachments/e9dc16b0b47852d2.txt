@@ -1,0 +1,32 @@
+2025-11-19 21:06:19,853 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: robinsonmadison@example.net
+2025-11-19 21:06:19,853 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-19 21:06:19,853 - INFO - api_request - en: post:29 - Timestamp: 2025-11-19T21:06:19.853692+00:00
+2025-11-19 21:06:19,853 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-19 21:06:19,853 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425
+2025-11-19 21:06:19,853 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425'} | JSON: {'first_name': 'Maria', 'last_name': 'Hall', 'email': 'robinsonmadison@example.net', 'gender': 'Other', 'customer_group_id': 1}
+2025-11-19 21:06:19,959 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-19 21:06:19,959 - DEBUG - api_request - en: post:35 - Response Payload: {"data":{"id":37,"email":"robinsonmadison@example.net","name":"Maria Hall","first_name":"Maria","last_name":"Hall","gender":"Other","date_of_birth":null,"phone":null,"status":null,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-19T21:06:19.000000Z","updated_at":"2025-11-19T21:06:19.000000Z"},"message":"Customer have been successfully added."}
+2025-11-19 21:06:19,961 - INFO - customer_helper - en: create_customer_data:48 - Construyendo cliente aleatorio con email: kmiller@example.com
+2025-11-19 21:06:19,961 - INFO - customer_service - en: update_customer:24 - Empezando el proceso para actualizar cliente con ID: 37
+2025-11-19 21:06:19,961 - INFO - api_request - en: put:44 - Timestamp: 2025-11-19T21:06:19.961880+00:00
+2025-11-19 21:06:19,961 - INFO - api_request - en: put:45 - Domain: http://localhost:8000
+2025-11-19 21:06:19,962 - DEBUG - api_request - en: put:46 - Authentication: Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425
+2025-11-19 21:06:19,962 - DEBUG - api_request - en: put:47 - Request URL: PUT http://localhost:8000/api/v1/admin/customers/37 | Headers: {'Authorization': 'Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425'} | JSON: {'first_name': 'Bianca', 'last_name': 'Fernandez', 'email': 'kmiller@example.com', 'gender': 'Female', 'customer_group_id': 1}
+2025-11-19 21:06:20,008 - INFO - api_request - en: put:49 - Status Code: 200
+2025-11-19 21:06:20,008 - DEBUG - api_request - en: put:50 - Response Payload: {"data":{"id":37,"email":"kmiller@example.com","name":"Bianca Fernandez","first_name":"Bianca","last_name":"Fernandez","gender":"Female","date_of_birth":null,"phone":null,"status":0,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-19T21:06:19.000000Z","updated_at":"2025-11-19T21:06:19.000000Z"},"message":"Customer updated successfully."}
+2025-11-19 21:06:20,008 - INFO - assertions - en: assert_response_contiene_campo:42 - Verificando la presencia del campo 'message'.
+2025-11-19 21:06:20,008 - INFO - assertions - en: assert_response_contiene_campo:42 - Verificando la presencia del campo 'data'.
+2025-11-19 21:06:20,008 - INFO - assertions - en: assert_content_type_es_json:22 - Verificando que el Content-Type sea 'application/json'.
+2025-11-19 21:06:20,008 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-19 21:06:20,027 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-19 21:06:20,028 - INFO - conftest - en: customer_teardown:69 - Iniciando teardown: Eliminando clientes creados durante la prueba
+2025-11-19 21:06:20,028 - INFO - conftest - en: customer_teardown:71 - Eliminando cliente con ID: 37
+2025-11-19 21:06:20,028 - INFO - customer_helper - en: delete_customer:52 - Eliminando cliente con ID: 37
+2025-11-19 21:06:20,028 - INFO - customer_service - en: delete_customer:18 - Empezando el proceso para eliminar cliente con ID: 37
+2025-11-19 21:06:20,028 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-19T21:06:20.028599+00:00
+2025-11-19 21:06:20,028 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-19 21:06:20,028 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425
+2025-11-19 21:06:20,028 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/37 | Headers: {'Authorization': 'Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425'}
+2025-11-19 21:06:20,084 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-19 21:06:20,085 - DEBUG - api_request - en: delete:65 - Response Payload: {"message":"Customer successfully deleted"}
+2025-11-19 21:06:20,085 - INFO - conftest - en: customer_teardown:73 - Teardown completado: Clientes eliminados

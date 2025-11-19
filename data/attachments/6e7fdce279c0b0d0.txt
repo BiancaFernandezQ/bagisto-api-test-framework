@@ -1,0 +1,29 @@
+2025-11-19 21:06:32,655 - INFO - conftest - en: create_group:95 - Creando grupo para la prueba
+2025-11-19 21:06:32,658 - INFO - group_helper - en: create_random_group:19 - Creando grupo aleatorio con code: Enjoy
+2025-11-19 21:06:32,658 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'code': 'Enjoy', 'name': 'Brown-Riley'}
+2025-11-19 21:06:32,658 - INFO - api_request - en: post:29 - Timestamp: 2025-11-19T21:06:32.658241+00:00
+2025-11-19 21:06:32,658 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-19 21:06:32,658 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425
+2025-11-19 21:06:32,658 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425'} | JSON: {'code': 'Enjoy', 'name': 'Brown-Riley'}
+2025-11-19 21:06:32,700 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-19 21:06:32,700 - DEBUG - api_request - en: post:35 - Response Payload: {"data":{"id":7,"name":"Brown-Riley","created_at":"2025-11-19T21:06:32.000000Z","updated_at":"2025-11-19T21:06:32.000000Z"},"message":"Customer group have been successfully added."}
+2025-11-19 21:06:32,700 - INFO - conftest - en: create_group:100 - Grupo creado con ID: 7
+2025-11-19 21:06:32,701 - INFO - group_service - en: get_group_by_id:23 - Empezando el proceso para obtener grupo con ID: 7
+2025-11-19 21:06:32,701 - INFO - api_request - en: get:14 - Timestamp: 2025-11-19T21:06:32.701139+00:00
+2025-11-19 21:06:32,701 - INFO - api_request - en: get:15 - Domain: http://localhost:8000
+2025-11-19 21:06:32,701 - DEBUG - api_request - en: get:16 - Authentication: Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425
+2025-11-19 21:06:32,701 - DEBUG - api_request - en: get:17 - Request URL: GET http://localhost:8000/api/v1/admin/customers/groups/7 | Headers: {'Authorization': 'Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425'} | Params: None
+2025-11-19 21:06:32,741 - INFO - api_request - en: get:19 - Status Code: 200
+2025-11-19 21:06:32,741 - DEBUG - api_request - en: get:20 - Response Payload: {"data":{"id":7,"name":"Brown-Riley","created_at":"2025-11-19T21:06:32.000000Z","updated_at":"2025-11-19T21:06:32.000000Z"}}
+2025-11-19 21:06:32,741 - INFO - assertions - en: assert_content_type_es_json:22 - Verificando que el Content-Type sea 'application/json'.
+2025-11-19 21:06:32,741 - INFO - assertions - en: assert_response_contiene_data:38 - Verificando la presencia del campo 'data'.
+2025-11-19 21:06:32,741 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-19 21:06:32,744 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-19 21:06:32,744 - INFO - conftest - en: create_group:104 - Iniciando teardown: Eliminando el grupo con ID: 7
+2025-11-19 21:06:32,745 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-19T21:06:32.745095+00:00
+2025-11-19 21:06:32,745 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-19 21:06:32,745 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425
+2025-11-19 21:06:32,745 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/7 | Headers: {'Authorization': 'Bearer 1|b2tQc3oXNlAWHeJ6YOAyvibnncQC6XcrnJsocXjtc4b61425'}
+2025-11-19 21:06:32,785 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-19 21:06:32,785 - DEBUG - api_request - en: delete:65 - Response Payload: {"message":"Customer group successfully deleted"}
+2025-11-19 21:06:32,785 - INFO - conftest - en: create_group:107 - Teardown completado: Grupo eliminado
