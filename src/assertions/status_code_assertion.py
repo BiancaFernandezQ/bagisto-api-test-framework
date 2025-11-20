@@ -12,3 +12,6 @@ def assert_status_code_400(response):
 
 def assert_status_code_404(response):
     assert response.status_code == 404, f"Expected status code 404, but got {response.status_code}"
+
+def assert_status_code_422(response):
+    assert response.status_code == 422, f"Expected status code 422, but got {response.status_code}"

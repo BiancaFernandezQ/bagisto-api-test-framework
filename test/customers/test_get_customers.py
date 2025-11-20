@@ -21,7 +21,7 @@ def test_autenticado_obtener_clientes_return_200(get_token, create_15_customers)
 @pytest.mark.listar_clientes
 @pytest.mark.positivas
 @pytest.mark.humo
-def test_obtener_todos_clientes_sin_filtros_ni_paginacion(get_token, create_15_customers):
+def test_obtener_max_10_clientes_si_no_hay_filtros_ni_paginacion(get_token, create_15_customers):
     response = CustomerService.get_all_customers(get_token)
     assert_status_code_200(response)
     
@@ -36,7 +36,7 @@ def test_obtener_todos_clientes_sin_filtros_ni_paginacion(get_token, create_15_c
 @pytest.mark.listar_clientes
 @pytest.mark.positivas
 @pytest.mark.regresion
-def test_obtener_clientes_con_paginacion(get_token, create_15_customers):
+def test_obtener_clientes_de_acuerdo_a_page_y_limit(get_token, create_15_customers):
     params = {
         "limit": 3,
         "page": 2  

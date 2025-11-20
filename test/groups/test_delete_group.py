@@ -53,7 +53,6 @@ def test_eliminar_grupo_valido_dos_veces_return_404(get_token):
     segundo_delete = GroupService.delete_group(get_token, grupo_id)
     assert_status_code_404(segundo_delete)
 
-@pytest.mark.bruno
 @pytest.mark.negativas
 @pytest.mark.humo
 @pytest.mark.eliminar_grupo
@@ -61,14 +60,10 @@ def test_eliminar_grupo_con_clientes_asociados_return_400(get_token):
     response_create = GroupHelper.create_random_group(get_token)
     assert_status_code_200(response_create)
     grupo_id = response_create.json()["data"]["id"]
-    
+    time.sleep(1)
     customer_payload = CustomerHelper.create_customer_data(first_name=None, last_name=None, email=None, gender=None, customer_group_id=grupo_id)
-    
     response_customer = CustomerService.create_customer(get_token, customer_payload)
-
-    time.sleep(2)
     assert_status_code_200(response_customer)
-    
     time.sleep(1) 
     response_delete = GroupService.delete_group(get_token, grupo_id)
     assert_status_code_400(response_delete)
