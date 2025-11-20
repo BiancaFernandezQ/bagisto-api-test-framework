@@ -1,0 +1,11 @@
+INFO     login_service:login_service.py:10 Iniciando proceso de login para el usuario: 
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-20T22:21:42.255280+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: No Auth
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/login | Headers: {'Content-Type': 'application/json', 'Accept': 'application/json'} | JSON: {'email': '', 'password': '', 'device_name': 'postman-test'}
+INFO     api_request:api_request.py:34 Status Code: 422
+DEBUG    api_request:api_request.py:35 Response Payload: {"message":"The email field is required. (and 1 more error)","errors":{"email":["The email field is required."],"password":["The password field is required."]}}
+INFO     assertions:response_assertions.py:42 Verificando la presencia del campo 'message'.
+INFO     assertions:response_assertions.py:42 Verificando la presencia del campo 'errors'.
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.

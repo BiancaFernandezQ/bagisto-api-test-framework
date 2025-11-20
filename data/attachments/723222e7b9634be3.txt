@@ -1,0 +1,11 @@
+INFO     login_service:login_service.py:10 Iniciando proceso de login para el usuario: email-invalido
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-20T22:21:42.113454+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: No Auth
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/login | Headers: {'Content-Type': 'application/json', 'Accept': 'application/json'} | JSON: {'email': 'email-invalido', 'password': 'admin123', 'device_name': 'postman-test'}
+INFO     api_request:api_request.py:34 Status Code: 422
+DEBUG    api_request:api_request.py:35 Response Payload: {"message":"The email field must be a valid email address.","errors":{"email":["The email field must be a valid email address."]}}
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.
+INFO     assertions:response_assertions.py:42 Verificando la presencia del campo 'message'.
+INFO     assertions:response_assertions.py:42 Verificando la presencia del campo 'errors'.
