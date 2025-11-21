@@ -23,7 +23,7 @@ def test_consultar_cliente_por_id_return_200(get_token, create_customer):
 @pytest.mark.humo
 @pytest.mark.listar_cliente_especifico
 def test_consultar_cliente_con_id_inexistente_return_404(get_token):
-    id_inexistente = 999999
+    id_inexistente = 99999999999
     response = CustomerService.get_customer_by_id(get_token, id_inexistente)
     assert_status_code_404(response)
 

@@ -26,7 +26,7 @@ def test_eliminar_cliente_id_existente_return_200(get_token):
 @pytest.mark.regresion
 @pytest.mark.eliminar_cliente
 def test_eliminar_cliente_id_no_existente_return_404(get_token):
-    id_inexistente = 999999
+    id_inexistente = 9999999999999
     response = CustomerService.delete_customer(get_token, id_inexistente)
     assert_status_code_404(response)
 
@@ -48,6 +48,9 @@ def test_eliminar_cliente_dos_veces_return_404(get_token):
 @pytest.mark.negativas
 @pytest.mark.humo
 def test_eliminar_cliente_con_token_expirado_return_401(get_token):
-    # Usamos un ID cualquiera, ya que la autenticación fallará antes.
-    response = CustomerService.delete_customer("20|65468485548484488481", 123)
+    response_create = CustomerHelper.create_random_customer(get_token)
+    assert_status_code_200(response_create)
+    cliente_id = response_create.json()["data"]["id"]
+    time.sleep(1)
+    response = CustomerService.delete_customer("20|65468485548484488481", cliente_id)
     assert_status_code_401(response)

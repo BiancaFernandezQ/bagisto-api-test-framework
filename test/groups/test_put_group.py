@@ -52,8 +52,8 @@ def test_verificar_updated_at_se_actualice_al_actualizar_grupo(get_token, group_
     assert_status_code_200(response)
     json_response = response.json()
     updated_at_despues = json_response["data"]["updated_at"]
-    assert_valid_schema(grupo_datos, GROUPS_PAYLOAD_SCHEMA) #vrificar lo que enviamos
-    assert_valid_schema(json_response, CREATE_BODY_GROUP_SCHEMA)  #verificar lo que recibimos
+    assert_valid_schema(grupo_datos, GROUPS_PAYLOAD_SCHEMA) 
+    assert_valid_schema(json_response, CREATE_BODY_GROUP_SCHEMA) 
     assert updated_at_antes != updated_at_despues, "El campo updated_at no se actualizó correctamente"
     assert_content_type_es_json(response)
 

@@ -7,7 +7,7 @@ from faker import Faker
 
 fake = Faker()
 
-from src.schemas.login.login_schema import LOGIN_SUCCESS_SCHEMA, LOGIN_ERROR_SCHEMA, LOGIN_EMAIL_INVALID_SCHEMA, LOGIN_CREDENTIALS_INCORRECT_SCHEMA
+from src.schemas.login.login_schema import LOGIN_SUCCESS_SCHEMA, LOGIN_ERROR_SCHEMA, LOGIN_EMAIL_INVALID_SCHEMA
 
 @pytest.mark.positivas
 @pytest.mark.humo
