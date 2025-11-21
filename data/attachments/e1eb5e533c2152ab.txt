@@ -1,0 +1,6 @@
+2025-11-21 14:59:11,986 - INFO - group_service - en: get_group_by_id:23 - Empezando el proceso para obtener grupo con ID: 999999
+2025-11-21 14:59:11,986 - INFO - api_request - en: get:14 - Timestamp: 2025-11-21T14:59:11.986158+00:00
+2025-11-21 14:59:11,986 - INFO - api_request - en: get:15 - Domain: http://localhost:8000
+2025-11-21 14:59:11,986 - DEBUG - api_request - en: get:16 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:11,986 - DEBUG - api_request - en: get:17 - Request URL: GET http://localhost:8000/api/v1/admin/customers/groups/999999 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | Params: None
+2025-11-21 14:59:12,029 - INFO - api_request - en: get:19 - Status Code: 404

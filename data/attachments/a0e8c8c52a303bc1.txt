@@ -1,0 +1,114 @@
+INFO     login_service:login_service.py:10 Iniciando proceso de login para el usuario: admin@example.com
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:59:22.068830+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: No Auth
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/login | Headers: {'Content-Type': 'application/json', 'Accept': 'application/json'} | JSON: {'email': 'admin@example.com', 'password': '', 'device_name': 'ci-test'}
+INFO     api_request:api_request.py:34 Status Code: 422
+INFO     assertions:response_assertions.py:42 Verificando la presencia del campo 'message'.
+INFO     assertions:response_assertions.py:42 Verificando la presencia del campo 'errors'.
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.
+INFO     conftest:conftest.py:87 Iniciando teardown: Eliminando los 5 grupos de prueba
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:22.109713+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/11 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:22.299775+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/12 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:22.478231+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/13 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:22.566060+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/14 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:22.654035+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/15 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     conftest:conftest.py:91 Teardown completado: Grupos eliminados
+INFO     conftest:conftest.py:42 Iniciando teardown: Eliminando los 15 clientes de prueba
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:22.844504+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/7 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:23.025888+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/8 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:23.230575+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/9 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:23.319225+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/10 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:23.407061+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/11 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:23.494314+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/12 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:23.581048+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/13 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:23.668816+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/14 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:23.756007+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/15 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:23.845023+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/16 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:23.934541+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/17 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:24.038124+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/18 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:24.128487+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/19 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:24.216774+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/20 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:24.304275+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/21 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 500
+INFO     conftest:conftest.py:46 Teardown completado: Clientes eliminados

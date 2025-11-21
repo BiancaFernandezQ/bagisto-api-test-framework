@@ -1,0 +1,6 @@
+2025-11-21 14:59:13,903 - INFO - group_service - en: get_all_groups:29 - Empezando el proceso para obtener todos los grupos con parámetros: {'limit': -5}
+2025-11-21 14:59:13,903 - INFO - api_request - en: get:14 - Timestamp: 2025-11-21T14:59:13.903902+00:00
+2025-11-21 14:59:13,903 - INFO - api_request - en: get:15 - Domain: http://localhost:8000
+2025-11-21 14:59:13,904 - DEBUG - api_request - en: get:16 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:13,904 - DEBUG - api_request - en: get:17 - Request URL: GET http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | Params: {'limit': -5}
+2025-11-21 14:59:14,233 - INFO - api_request - en: get:19 - Status Code: 500

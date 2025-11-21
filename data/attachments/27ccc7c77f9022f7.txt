@@ -1,0 +1,24 @@
+2025-11-21 14:58:58,970 - INFO - customer_helper - en: create_customer_data:48 - Construyendo cliente aleatorio con email: joseph09@example.org
+2025-11-21 14:58:58,970 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:58,970 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:58.970641+00:00
+2025-11-21 14:58:58,970 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:58,970 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:58,970 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'David', 'last_name': 'Morris', 'email': 'joseph09@example.org', 'gender': 'Female', 'customer_group_id': 1}
+2025-11-21 14:58:59,076 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:59,079 - INFO - customer_helper - en: create_customer_data:48 - Construyendo cliente aleatorio con email: joseph09@example.org
+2025-11-21 14:58:59,079 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:59,079 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:59.079660+00:00
+2025-11-21 14:58:59,079 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:59,079 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:59,079 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Joe', 'last_name': 'Diaz', 'email': 'joseph09@example.org', 'gender': 'Male', 'customer_group_id': 1}
+2025-11-21 14:58:59,238 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:59,244 - INFO - conftest - en: customer_teardown:69 - Iniciando teardown: Eliminando clientes creados durante la prueba
+2025-11-21 14:58:59,244 - INFO - conftest - en: customer_teardown:71 - Eliminando cliente con ID: 34
+2025-11-21 14:58:59,244 - INFO - customer_helper - en: delete_customer:52 - Eliminando cliente con ID: 34
+2025-11-21 14:58:59,244 - INFO - customer_service - en: delete_customer:18 - Empezando el proceso para eliminar cliente con ID: 34
+2025-11-21 14:58:59,244 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-21T14:58:59.244711+00:00
+2025-11-21 14:58:59,244 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-21 14:58:59,244 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:59,244 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/34 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+2025-11-21 14:58:59,285 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-21 14:58:59,285 - INFO - conftest - en: customer_teardown:73 - Teardown completado: Clientes eliminados

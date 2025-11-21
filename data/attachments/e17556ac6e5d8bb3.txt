@@ -1,0 +1,19 @@
+2025-11-21 14:59:14,458 - INFO - group_helper - en: create_grupo_data:38 - Construyendo grupo aleatorio con code: Summer_1763737154456
+2025-11-21 14:59:14,459 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'name': 'Lewis, Chung and Baker_1763737154456', 'code': 'Summer_1763737154456'}
+2025-11-21 14:59:14,459 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:59:14.459140+00:00
+2025-11-21 14:59:14,459 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:59:14,459 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:14,459 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'name': 'Lewis, Chung and Baker_1763737154456', 'code': 'Summer_1763737154456'}
+2025-11-21 14:59:14,498 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:59:14,499 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-21 14:59:14,501 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-21 14:59:14,502 - INFO - conftest - en: group_teardown:114 - Iniciando teardown: Eliminando grupos creados durante la prueba
+2025-11-21 14:59:14,502 - INFO - conftest - en: group_teardown:116 - Eliminando grupo con ID: 17
+2025-11-21 14:59:14,502 - INFO - group_helper - en: delete_group:42 - Eliminando grupo con ID: 17
+2025-11-21 14:59:14,502 - INFO - group_service - en: delete_group:17 - Empezando el proceso para eliminar grupo con ID: 17
+2025-11-21 14:59:14,502 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-21T14:59:14.502698+00:00
+2025-11-21 14:59:14,502 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-21 14:59:14,502 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:14,502 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/17 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+2025-11-21 14:59:14,544 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-21 14:59:14,544 - INFO - conftest - en: group_teardown:118 - Teardown completado: Grupos eliminados

@@ -1,0 +1,23 @@
+INFO     group_helper:groups_helper.py:19 Creando grupo aleatorio con code: church1763737160
+INFO     group_service:group_service.py:11 Empezando el proceso para crear grupo con datos: {'code': 'church1763737160', 'name': 'I'}
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:59:20.402124+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'church1763737160', 'name': 'I'}
+INFO     api_request:api_request.py:34 Status Code: 200
+INFO     group_service:group_service.py:35 Empezando el proceso para actualizar grupo con ID: 27
+INFO     api_request:api_request.py:44 Timestamp: 2025-11-21T14:59:21.443763+00:00
+INFO     api_request:api_request.py:45 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:46 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:47 Request URL: PUT http://localhost:8000/api/v1/admin/customers/groups/27 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': ''}
+INFO     api_request:api_request.py:49 Status Code: 200
+INFO     conftest:conftest.py:114 Iniciando teardown: Eliminando grupos creados durante la prueba
+INFO     conftest:conftest.py:116 Eliminando grupo con ID: 27
+INFO     group_helper:groups_helper.py:42 Eliminando grupo con ID: 27
+INFO     group_service:group_service.py:17 Empezando el proceso para eliminar grupo con ID: 27
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:21.594567+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/27 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 200
+INFO     conftest:conftest.py:118 Teardown completado: Grupos eliminados

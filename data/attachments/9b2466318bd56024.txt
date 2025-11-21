@@ -1,0 +1,25 @@
+2025-11-21 14:58:58,301 - INFO - customer_helper - en: create_customer_data:48 - Construyendo cliente aleatorio con email: whitekendra@example.org
+2025-11-21 14:58:58,301 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:58,301 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:58.301217+00:00
+2025-11-21 14:58:58,301 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:58,301 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:58,301 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Charles', 'last_name': 'L', 'email': 'whitekendra@example.org', 'gender': 'Female', 'customer_group_id': 1}
+2025-11-21 14:58:58,404 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:58,404 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-21 14:58:58,410 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-21 14:58:58,411 - INFO - assertions - en: assert_response_contiene_campo:42 - Verificando la presencia del campo 'data'.
+2025-11-21 14:58:58,411 - INFO - assertions - en: assert_response_contiene_campo:42 - Verificando la presencia del campo 'message'.
+2025-11-21 14:58:58,411 - INFO - assertions - en: assert_data_no_es_nulo:63 - Verificando que el campo 'data' no sea nulo.
+2025-11-21 14:58:58,411 - INFO - assertions - en: assert_content_type_es_json:22 - Verificando que el Content-Type sea 'application/json'.
+2025-11-21 14:58:58,411 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-21 14:58:58,414 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-21 14:58:58,414 - INFO - conftest - en: customer_teardown:69 - Iniciando teardown: Eliminando clientes creados durante la prueba
+2025-11-21 14:58:58,414 - INFO - conftest - en: customer_teardown:71 - Eliminando cliente con ID: 30
+2025-11-21 14:58:58,414 - INFO - customer_helper - en: delete_customer:52 - Eliminando cliente con ID: 30
+2025-11-21 14:58:58,415 - INFO - customer_service - en: delete_customer:18 - Empezando el proceso para eliminar cliente con ID: 30
+2025-11-21 14:58:58,415 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-21T14:58:58.415127+00:00
+2025-11-21 14:58:58,415 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-21 14:58:58,415 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:58,415 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/30 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+2025-11-21 14:58:58,457 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-21 14:58:58,457 - INFO - conftest - en: customer_teardown:73 - Teardown completado: Clientes eliminados

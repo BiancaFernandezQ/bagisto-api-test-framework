@@ -1,0 +1,47 @@
+2025-11-21 14:59:12,856 - INFO - conftest - en: create_5_groups:78 - Iniciando creación de 5 grupos para las pruebas
+2025-11-21 14:59:12,858 - INFO - group_helper - en: create_random_group:19 - Creando grupo aleatorio con code: color1763737152
+2025-11-21 14:59:12,858 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'code': 'color1763737152', 'name': 'expert'}
+2025-11-21 14:59:12,859 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:59:12.859037+00:00
+2025-11-21 14:59:12,859 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:59:12,859 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:12,859 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'color1763737152', 'name': 'expert'}
+2025-11-21 14:59:12,897 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:59:12,900 - INFO - group_helper - en: create_random_group:19 - Creando grupo aleatorio con code: follow1763737152
+2025-11-21 14:59:12,900 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'code': 'follow1763737152', 'name': 'guess'}
+2025-11-21 14:59:12,900 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:59:12.900195+00:00
+2025-11-21 14:59:12,900 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:59:12,900 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:12,900 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'follow1763737152', 'name': 'guess'}
+2025-11-21 14:59:12,939 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:59:12,941 - INFO - group_helper - en: create_random_group:19 - Creando grupo aleatorio con code: law1763737152
+2025-11-21 14:59:12,941 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'code': 'law1763737152', 'name': 'environment'}
+2025-11-21 14:59:12,941 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:59:12.941476+00:00
+2025-11-21 14:59:12,941 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:59:12,941 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:12,941 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'law1763737152', 'name': 'environment'}
+2025-11-21 14:59:12,979 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:59:12,981 - INFO - group_helper - en: create_random_group:19 - Creando grupo aleatorio con code: money1763737152
+2025-11-21 14:59:12,981 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'code': 'money1763737152', 'name': 'boy'}
+2025-11-21 14:59:12,981 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:59:12.981782+00:00
+2025-11-21 14:59:12,981 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:59:12,981 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:12,981 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'money1763737152', 'name': 'boy'}
+2025-11-21 14:59:13,025 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:59:13,027 - INFO - group_helper - en: create_random_group:19 - Creando grupo aleatorio con code: two1763737153
+2025-11-21 14:59:13,027 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'code': 'two1763737153', 'name': 'message'}
+2025-11-21 14:59:13,027 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:59:13.027413+00:00
+2025-11-21 14:59:13,027 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:59:13,027 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:13,027 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'two1763737153', 'name': 'message'}
+2025-11-21 14:59:13,067 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:59:13,068 - INFO - group_service - en: get_all_groups:29 - Empezando el proceso para obtener todos los grupos con parámetros: None
+2025-11-21 14:59:13,068 - INFO - api_request - en: get:14 - Timestamp: 2025-11-21T14:59:13.068233+00:00
+2025-11-21 14:59:13,068 - INFO - api_request - en: get:15 - Domain: http://localhost:8000
+2025-11-21 14:59:13,068 - DEBUG - api_request - en: get:16 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:13,068 - DEBUG - api_request - en: get:17 - Request URL: GET http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | Params: None
+2025-11-21 14:59:13,107 - INFO - api_request - en: get:19 - Status Code: 200
+2025-11-21 14:59:13,107 - INFO - assertions - en: assert_response_contiene_data_y_meta:17 - Verificando la presencia de 'data' y 'meta' en la respuesta.
+2025-11-21 14:59:13,107 - INFO - assertions - en: assert_response_contiene_meta:34 - Verificando la presencia del campo 'meta'.
+2025-11-21 14:59:13,107 - INFO - assertions - en: assert_response_contiene_data:38 - Verificando la presencia del campo 'data'.
+2025-11-21 14:59:13,107 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-21 14:59:13,116 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.

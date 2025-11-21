@@ -1,0 +1,6 @@
+INFO     customer_service:customer_service.py:36 Empezando el proceso para obtener todos los clientes con parámetros: None
+INFO     api_request:api_request.py:14 Timestamp: 2025-11-21T14:58:55.019886+00:00
+INFO     api_request:api_request.py:15 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:16 Authentication: Bearer 95|JU9nP77BVdVL5HfpV0UTNP4ZbvZ4VkrLeURmY8pjd
+DEBUG    api_request:api_request.py:17 Request URL: GET http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 95|JU9nP77BVdVL5HfpV0UTNP4ZbvZ4VkrLeURmY8pjd'} | Params: None
+INFO     api_request:api_request.py:19 Status Code: 500

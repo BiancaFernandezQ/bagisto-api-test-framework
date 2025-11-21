@@ -1,0 +1,19 @@
+INFO     customer_helper:customer_helper.py:48 Construyendo cliente aleatorio con email: caitlin97@example.net
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.
+INFO     customer_service:customer_service.py:12 Empezando el proceso para crear cliente 
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:59:00.046331+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Michael', 'last_name': 'Davis', 'email': 'caitlin97@example.net', 'gender': 'Other', 'customer_group_id': 1}
+INFO     api_request:api_request.py:34 Status Code: 200
+INFO     conftest:conftest.py:69 Iniciando teardown: Eliminando clientes creados durante la prueba
+INFO     conftest:conftest.py:71 Eliminando cliente con ID: 37
+INFO     customer_helper:customer_helper.py:52 Eliminando cliente con ID: 37
+INFO     customer_service:customer_service.py:18 Empezando el proceso para eliminar cliente con ID: 37
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:00.167963+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/37 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 200
+INFO     conftest:conftest.py:73 Teardown completado: Clientes eliminados

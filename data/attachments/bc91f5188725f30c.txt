@@ -1,0 +1,7 @@
+INFO     group_helper:groups_helper.py:38 Construyendo grupo aleatorio con code: Despite_1763737155778
+INFO     group_service:group_service.py:35 Empezando el proceso para actualizar grupo con ID: 999999
+INFO     api_request:api_request.py:44 Timestamp: 2025-11-21T14:59:15.781193+00:00
+INFO     api_request:api_request.py:45 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:46 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:47 Request URL: PUT http://localhost:8000/api/v1/admin/customers/groups/999999 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'name': 'Hurst-Petersen_1763737155778', 'code': 'Despite_1763737155778'}
+INFO     api_request:api_request.py:49 Status Code: 404

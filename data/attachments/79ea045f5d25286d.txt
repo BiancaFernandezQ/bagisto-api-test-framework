@@ -1,0 +1,31 @@
+2025-11-21 14:59:15,648 - INFO - group_helper - en: create_random_group:19 - Creando grupo aleatorio con code: leave1763737155
+2025-11-21 14:59:15,648 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'code': 'leave1763737155', 'name': 'rest'}
+2025-11-21 14:59:15,648 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:59:15.648733+00:00
+2025-11-21 14:59:15,648 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:59:15,648 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:15,648 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'leave1763737155', 'name': 'rest'}
+2025-11-21 14:59:15,688 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:59:15,690 - INFO - group_helper - en: create_grupo_data:38 - Construyendo grupo aleatorio con code: All_1763737155688
+2025-11-21 14:59:15,690 - INFO - group_service - en: update_group:35 - Empezando el proceso para actualizar grupo con ID: 23
+2025-11-21 14:59:15,690 - INFO - api_request - en: put:44 - Timestamp: 2025-11-21T14:59:15.690973+00:00
+2025-11-21 14:59:15,691 - INFO - api_request - en: put:45 - Domain: http://localhost:8000
+2025-11-21 14:59:15,691 - DEBUG - api_request - en: put:46 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:15,691 - DEBUG - api_request - en: put:47 - Request URL: PUT http://localhost:8000/api/v1/admin/customers/groups/23 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'name': 'Sellers-Hodges_1763737155688', 'code': 'All_1763737155688'}
+2025-11-21 14:59:15,732 - INFO - api_request - en: put:49 - Status Code: 200
+2025-11-21 14:59:15,732 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-21 14:59:15,733 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-21 14:59:15,733 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-21 14:59:15,736 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-21 14:59:15,736 - INFO - assertions - en: assert_response_contiene_campo:42 - Verificando la presencia del campo 'message'.
+2025-11-21 14:59:15,736 - INFO - assertions - en: assert_response_contiene_campo:42 - Verificando la presencia del campo 'data'.
+2025-11-21 14:59:15,736 - INFO - assertions - en: assert_content_type_es_json:22 - Verificando que el Content-Type sea 'application/json'.
+2025-11-21 14:59:15,737 - INFO - conftest - en: group_teardown:114 - Iniciando teardown: Eliminando grupos creados durante la prueba
+2025-11-21 14:59:15,737 - INFO - conftest - en: group_teardown:116 - Eliminando grupo con ID: 23
+2025-11-21 14:59:15,737 - INFO - group_helper - en: delete_group:42 - Eliminando grupo con ID: 23
+2025-11-21 14:59:15,737 - INFO - group_service - en: delete_group:17 - Empezando el proceso para eliminar grupo con ID: 23
+2025-11-21 14:59:15,737 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-21T14:59:15.737803+00:00
+2025-11-21 14:59:15,737 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-21 14:59:15,737 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:15,738 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/23 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+2025-11-21 14:59:15,776 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-21 14:59:15,777 - INFO - conftest - en: group_teardown:118 - Teardown completado: Grupos eliminados

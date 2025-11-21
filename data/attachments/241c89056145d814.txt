@@ -1,0 +1,15 @@
+2025-11-21 14:59:13,118 - INFO - group_service - en: get_all_groups:29 - Empezando el proceso para obtener todos los grupos con parámetros: None
+2025-11-21 14:59:13,118 - INFO - api_request - en: get:14 - Timestamp: 2025-11-21T14:59:13.118958+00:00
+2025-11-21 14:59:13,119 - INFO - api_request - en: get:15 - Domain: http://localhost:8000
+2025-11-21 14:59:13,119 - DEBUG - api_request - en: get:16 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:13,119 - DEBUG - api_request - en: get:17 - Request URL: GET http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | Params: None
+2025-11-21 14:59:13,157 - INFO - api_request - en: get:19 - Status Code: 200
+2025-11-21 14:59:13,157 - INFO - group_service - en: get_all_groups:29 - Empezando el proceso para obtener todos los grupos con parámetros: {'pagination': 0}
+2025-11-21 14:59:13,157 - INFO - api_request - en: get:14 - Timestamp: 2025-11-21T14:59:13.157356+00:00
+2025-11-21 14:59:13,157 - INFO - api_request - en: get:15 - Domain: http://localhost:8000
+2025-11-21 14:59:13,157 - DEBUG - api_request - en: get:16 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:13,157 - DEBUG - api_request - en: get:17 - Request URL: GET http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | Params: {'pagination': 0}
+2025-11-21 14:59:13,195 - INFO - api_request - en: get:19 - Status Code: 200
+2025-11-21 14:59:13,195 - INFO - assertions - en: assert_response_contiene_data:38 - Verificando la presencia del campo 'data'.
+2025-11-21 14:59:13,195 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-21 14:59:13,198 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.

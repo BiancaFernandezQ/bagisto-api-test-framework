@@ -1,0 +1,6 @@
+2025-11-21 14:58:54,809 - INFO - customer_service - en: get_all_customers:36 - Empezando el proceso para obtener todos los clientes con parámetros: None
+2025-11-21 14:58:54,810 - INFO - api_request - en: get:14 - Timestamp: 2025-11-21T14:58:54.810040+00:00
+2025-11-21 14:58:54,810 - INFO - api_request - en: get:15 - Domain: http://localhost:8000
+2025-11-21 14:58:54,810 - DEBUG - api_request - en: get:16 - Authentication: Bearer None
+2025-11-21 14:58:54,810 - DEBUG - api_request - en: get:17 - Request URL: GET http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer None'} | Params: None
+2025-11-21 14:58:55,012 - INFO - api_request - en: get:19 - Status Code: 500

@@ -1,0 +1,15 @@
+2025-11-21 14:58:54,522 - INFO - customer_service - en: get_all_customers:36 - Empezando el proceso para obtener todos los clientes con parámetros: None
+2025-11-21 14:58:54,522 - INFO - api_request - en: get:14 - Timestamp: 2025-11-21T14:58:54.522281+00:00
+2025-11-21 14:58:54,522 - INFO - api_request - en: get:15 - Domain: http://localhost:8000
+2025-11-21 14:58:54,522 - DEBUG - api_request - en: get:16 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:54,522 - DEBUG - api_request - en: get:17 - Request URL: GET http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | Params: None
+2025-11-21 14:58:54,582 - INFO - api_request - en: get:19 - Status Code: 200
+2025-11-21 14:58:54,582 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-21 14:58:54,596 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-21 14:58:54,596 - INFO - assertions - en: assert_response_contiene_data_y_meta:17 - Verificando la presencia de 'data' y 'meta' en la respuesta.
+2025-11-21 14:58:54,596 - INFO - assertions - en: assert_response_contiene_meta:34 - Verificando la presencia del campo 'meta'.
+2025-11-21 14:58:54,596 - INFO - assertions - en: assert_response_contiene_data:38 - Verificando la presencia del campo 'data'.
+2025-11-21 14:58:54,596 - INFO - assertions - en: assert_current_page_es:50 - Verificando que 'current_page' sea 1.
+2025-11-21 14:58:54,596 - INFO - assertions - en: assert_current_page_actual_es_1_por_defecto:46 - Verificando que 'current_page' sea 1 por defecto.
+2025-11-21 14:58:54,596 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-21 14:58:54,610 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.

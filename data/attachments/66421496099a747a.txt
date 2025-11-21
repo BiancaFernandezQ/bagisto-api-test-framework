@@ -1,0 +1,47 @@
+INFO     conftest:conftest.py:78 Iniciando creación de 5 grupos para las pruebas
+INFO     group_helper:groups_helper.py:19 Creando grupo aleatorio con code: color1763737152
+INFO     group_service:group_service.py:11 Empezando el proceso para crear grupo con datos: {'code': 'color1763737152', 'name': 'expert'}
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:59:12.859037+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'color1763737152', 'name': 'expert'}
+INFO     api_request:api_request.py:34 Status Code: 200
+INFO     group_helper:groups_helper.py:19 Creando grupo aleatorio con code: follow1763737152
+INFO     group_service:group_service.py:11 Empezando el proceso para crear grupo con datos: {'code': 'follow1763737152', 'name': 'guess'}
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:59:12.900195+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'follow1763737152', 'name': 'guess'}
+INFO     api_request:api_request.py:34 Status Code: 200
+INFO     group_helper:groups_helper.py:19 Creando grupo aleatorio con code: law1763737152
+INFO     group_service:group_service.py:11 Empezando el proceso para crear grupo con datos: {'code': 'law1763737152', 'name': 'environment'}
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:59:12.941476+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'law1763737152', 'name': 'environment'}
+INFO     api_request:api_request.py:34 Status Code: 200
+INFO     group_helper:groups_helper.py:19 Creando grupo aleatorio con code: money1763737152
+INFO     group_service:group_service.py:11 Empezando el proceso para crear grupo con datos: {'code': 'money1763737152', 'name': 'boy'}
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:59:12.981782+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'money1763737152', 'name': 'boy'}
+INFO     api_request:api_request.py:34 Status Code: 200
+INFO     group_helper:groups_helper.py:19 Creando grupo aleatorio con code: two1763737153
+INFO     group_service:group_service.py:11 Empezando el proceso para crear grupo con datos: {'code': 'two1763737153', 'name': 'message'}
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:59:13.027413+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'two1763737153', 'name': 'message'}
+INFO     api_request:api_request.py:34 Status Code: 200
+INFO     group_service:group_service.py:29 Empezando el proceso para obtener todos los grupos con parámetros: None
+INFO     api_request:api_request.py:14 Timestamp: 2025-11-21T14:59:13.068233+00:00
+INFO     api_request:api_request.py:15 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:16 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:17 Request URL: GET http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | Params: None
+INFO     api_request:api_request.py:19 Status Code: 200
+INFO     assertions:response_assertions.py:17 Verificando la presencia de 'data' y 'meta' en la respuesta.
+INFO     assertions:response_assertions.py:34 Verificando la presencia del campo 'meta'.
+INFO     assertions:response_assertions.py:38 Verificando la presencia del campo 'data'.
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.

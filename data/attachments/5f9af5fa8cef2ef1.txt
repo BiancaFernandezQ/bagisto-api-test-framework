@@ -1,0 +1,7 @@
+2025-11-21 14:59:15,135 - INFO - group_helper - en: create_grupo_data:38 - Construyendo grupo aleatorio con code: code con spaces1763737155
+2025-11-21 14:59:15,135 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'name': 'Grupo con Espacios1763737155', 'code': 'code con spaces1763737155'}
+2025-11-21 14:59:15,135 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:59:15.135487+00:00
+2025-11-21 14:59:15,135 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:59:15,135 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:15,135 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'name': 'Grupo con Espacios1763737155', 'code': 'code con spaces1763737155'}
+2025-11-21 14:59:15,295 - INFO - api_request - en: post:34 - Status Code: 200

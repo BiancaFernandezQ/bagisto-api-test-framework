@@ -1,0 +1,120 @@
+2025-11-21 14:58:50,847 - INFO - conftest - en: create_15_customers:33 - Iniciando creación de 15 clientes para las pruebas
+2025-11-21 14:58:50,851 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: douglasadams@example.net
+2025-11-21 14:58:50,851 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:50,851 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:50.851305+00:00
+2025-11-21 14:58:50,851 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:50,851 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:50,851 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Stephanie', 'last_name': 'Barnett', 'email': 'douglasadams@example.net', 'gender': 'Other', 'customer_group_id': 1}
+2025-11-21 14:58:50,959 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:50,962 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: karen71@example.net
+2025-11-21 14:58:50,962 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:50,963 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:50.963070+00:00
+2025-11-21 14:58:50,963 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:50,963 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:50,963 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Susan', 'last_name': 'Larson', 'email': 'karen71@example.net', 'gender': 'Other', 'customer_group_id': 1}
+2025-11-21 14:58:51,070 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:51,074 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: gaustin@example.net
+2025-11-21 14:58:51,074 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:51,075 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:51.075016+00:00
+2025-11-21 14:58:51,075 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:51,075 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:51,075 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Denise', 'last_name': 'Johnson', 'email': 'gaustin@example.net', 'gender': 'Female', 'customer_group_id': 1}
+2025-11-21 14:58:51,196 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:51,200 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: rschultz@example.org
+2025-11-21 14:58:51,200 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:51,200 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:51.200866+00:00
+2025-11-21 14:58:51,200 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:51,201 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:51,201 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Jamie', 'last_name': 'Chavez', 'email': 'rschultz@example.org', 'gender': 'Female', 'customer_group_id': 1}
+2025-11-21 14:58:51,307 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:51,310 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: lvilla@example.org
+2025-11-21 14:58:51,310 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:51,311 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:51.311058+00:00
+2025-11-21 14:58:51,311 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:51,311 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:51,311 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Timothy', 'last_name': 'Anderson', 'email': 'lvilla@example.org', 'gender': 'Other', 'customer_group_id': 1}
+2025-11-21 14:58:51,416 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:51,420 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: hdecker@example.com
+2025-11-21 14:58:51,420 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:51,420 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:51.420373+00:00
+2025-11-21 14:58:51,420 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:51,420 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:51,420 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Emily', 'last_name': 'Jackson', 'email': 'hdecker@example.com', 'gender': 'Other', 'customer_group_id': 1}
+2025-11-21 14:58:51,526 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:51,529 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: michael24@example.com
+2025-11-21 14:58:51,529 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:51,530 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:51.530044+00:00
+2025-11-21 14:58:51,530 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:51,530 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:51,530 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Jamie', 'last_name': 'Sims', 'email': 'michael24@example.com', 'gender': 'Other', 'customer_group_id': 1}
+2025-11-21 14:58:51,643 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:51,646 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: blandry@example.net
+2025-11-21 14:58:51,646 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:51,647 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:51.647069+00:00
+2025-11-21 14:58:51,647 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:51,647 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:51,647 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Christopher', 'last_name': 'Strickland', 'email': 'blandry@example.net', 'gender': 'Other', 'customer_group_id': 1}
+2025-11-21 14:58:52,286 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:52,290 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: mariomelton@example.com
+2025-11-21 14:58:52,290 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:52,290 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:52.290616+00:00
+2025-11-21 14:58:52,290 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:52,290 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:52,290 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Doris', 'last_name': 'Smith', 'email': 'mariomelton@example.com', 'gender': 'Male', 'customer_group_id': 1}
+2025-11-21 14:58:52,403 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:52,407 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: howilliam@example.com
+2025-11-21 14:58:52,407 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:52,407 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:52.407907+00:00
+2025-11-21 14:58:52,407 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:52,408 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:52,408 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Aaron', 'last_name': 'Walker', 'email': 'howilliam@example.com', 'gender': 'Other', 'customer_group_id': 1}
+2025-11-21 14:58:53,290 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:53,294 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: meganjones@example.com
+2025-11-21 14:58:53,294 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:53,294 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:53.294365+00:00
+2025-11-21 14:58:53,294 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:53,294 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:53,294 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Anthony', 'last_name': 'Walker', 'email': 'meganjones@example.com', 'gender': 'Other', 'customer_group_id': 1}
+2025-11-21 14:58:53,407 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:53,411 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: michaelturner@example.org
+2025-11-21 14:58:53,411 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:53,411 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:53.411388+00:00
+2025-11-21 14:58:53,411 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:53,411 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:53,411 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Matthew', 'last_name': 'Cherry', 'email': 'michaelturner@example.org', 'gender': 'Other', 'customer_group_id': 1}
+2025-11-21 14:58:53,526 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:53,530 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: tannerjohnny@example.org
+2025-11-21 14:58:53,530 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:53,530 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:53.530273+00:00
+2025-11-21 14:58:53,530 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:53,530 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:53,530 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Angel', 'last_name': 'Wallace', 'email': 'tannerjohnny@example.org', 'gender': 'Other', 'customer_group_id': 1}
+2025-11-21 14:58:53,652 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:53,656 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: christopherobrien@example.org
+2025-11-21 14:58:53,656 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:53,656 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:53.656278+00:00
+2025-11-21 14:58:53,656 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:53,656 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:53,656 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Tara', 'last_name': 'Nguyen', 'email': 'christopherobrien@example.org', 'gender': 'Other', 'customer_group_id': 1}
+2025-11-21 14:58:54,323 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:54,326 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: emilylamb@example.net
+2025-11-21 14:58:54,327 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:54,327 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:54.327163+00:00
+2025-11-21 14:58:54,327 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:54,327 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:54,327 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'John', 'last_name': 'Summers', 'email': 'emilylamb@example.net', 'gender': 'Male', 'customer_group_id': 1}
+2025-11-21 14:58:54,441 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:54,442 - INFO - customer_service - en: get_all_customers:36 - Empezando el proceso para obtener todos los clientes con parámetros: None
+2025-11-21 14:58:54,442 - INFO - api_request - en: get:14 - Timestamp: 2025-11-21T14:58:54.442500+00:00
+2025-11-21 14:58:54,442 - INFO - api_request - en: get:15 - Domain: http://localhost:8000
+2025-11-21 14:58:54,442 - DEBUG - api_request - en: get:16 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:54,442 - DEBUG - api_request - en: get:17 - Request URL: GET http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | Params: None
+2025-11-21 14:58:54,504 - INFO - api_request - en: get:19 - Status Code: 200
+2025-11-21 14:58:54,505 - INFO - assertions - en: assert_content_type_es_json:22 - Verificando que el Content-Type sea 'application/json'.
+2025-11-21 14:58:54,505 - INFO - assertions - en: assert_response_contiene_data_y_meta:17 - Verificando la presencia de 'data' y 'meta' en la respuesta.
+2025-11-21 14:58:54,505 - INFO - assertions - en: assert_response_contiene_meta:34 - Verificando la presencia del campo 'meta'.
+2025-11-21 14:58:54,505 - INFO - assertions - en: assert_response_contiene_data:38 - Verificando la presencia del campo 'data'.
+2025-11-21 14:58:54,505 - INFO - assertions - en: assert_data_es_una_lista:26 - Verificando que el campo 'data' sea una lista.
+2025-11-21 14:58:54,505 - INFO - assertions - en: assert_response_total_en_meta:30 - Verificando la presencia de 'total' en 'meta'.
+2025-11-21 14:58:54,505 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-21 14:58:54,519 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.

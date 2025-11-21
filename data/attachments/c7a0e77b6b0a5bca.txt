@@ -1,0 +1,7 @@
+2025-11-21 14:59:00,433 - INFO - customer_helper - en: create_customer_data:48 - Construyendo cliente aleatorio con email: dterrell@example.net
+2025-11-21 14:59:00,433 - INFO - customer_service - en: update_customer:24 - Empezando el proceso para actualizar cliente con ID: 999999
+2025-11-21 14:59:00,433 - INFO - api_request - en: put:44 - Timestamp: 2025-11-21T14:59:00.433654+00:00
+2025-11-21 14:59:00,433 - INFO - api_request - en: put:45 - Domain: http://localhost:8000
+2025-11-21 14:59:00,433 - DEBUG - api_request - en: put:46 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:00,433 - DEBUG - api_request - en: put:47 - Request URL: PUT http://localhost:8000/api/v1/admin/customers/999999 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Stephen', 'last_name': 'Ramirez', 'email': 'dterrell@example.net', 'gender': 'Male', 'customer_group_id': 1}
+2025-11-21 14:59:00,478 - INFO - api_request - en: put:49 - Status Code: 404

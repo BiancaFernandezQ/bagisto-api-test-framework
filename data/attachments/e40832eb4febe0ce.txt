@@ -1,0 +1,25 @@
+INFO     customer_helper:customer_helper.py:21 Creando cliente aleatorio con email: collinsdavid@example.com
+INFO     customer_service:customer_service.py:12 Empezando el proceso para crear cliente 
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:59:02.689622+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Debra', 'last_name': 'Grant', 'email': 'collinsdavid@example.com', 'gender': 'Male', 'customer_group_id': 1}
+INFO     api_request:api_request.py:34 Status Code: 200
+INFO     customer_helper:customer_helper.py:48 Construyendo cliente aleatorio con email: vicki21@example.net
+INFO     customer_service:customer_service.py:24 Empezando el proceso para actualizar cliente con ID: 40
+INFO     api_request:api_request.py:44 Timestamp: 2025-11-21T14:59:04.797775+00:00
+INFO     api_request:api_request.py:45 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:46 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:47 Request URL: PUT http://localhost:8000/api/v1/admin/customers/40 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Michael', 'last_name': 'Palmer', 'email': 'vicki21@example.net', 'gender': 'Male', 'customer_group_id': 1}
+INFO     api_request:api_request.py:49 Status Code: 200
+INFO     assertions:response_assertions.py:22 Verificando que el Content-Type sea 'application/json'.
+INFO     conftest:conftest.py:69 Iniciando teardown: Eliminando clientes creados durante la prueba
+INFO     conftest:conftest.py:71 Eliminando cliente con ID: 40
+INFO     customer_helper:customer_helper.py:52 Eliminando cliente con ID: 40
+INFO     customer_service:customer_service.py:18 Empezando el proceso para eliminar cliente con ID: 40
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:04.868867+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/40 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 200
+INFO     conftest:conftest.py:73 Teardown completado: Clientes eliminados

@@ -1,0 +1,24 @@
+2025-11-21 14:59:15,405 - INFO - group_helper - en: create_grupo_data:38 - Construyendo grupo aleatorio con code: Structure_1763737155403
+2025-11-21 14:59:15,405 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'name': 'Lane and Sons_1763737155403', 'code': 'Structure_1763737155403'}
+2025-11-21 14:59:15,405 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:59:15.405377+00:00
+2025-11-21 14:59:15,405 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:59:15,405 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:15,405 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'name': 'Lane and Sons_1763737155403', 'code': 'Structure_1763737155403'}
+2025-11-21 14:59:15,445 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:59:15,445 - INFO - group_helper - en: create_grupo_data:38 - Construyendo grupo aleatorio con code: Structure_1763737155403
+2025-11-21 14:59:15,445 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'name': 'Grupo Duplicado 1763737155', 'code': 'Structure_1763737155403'}
+2025-11-21 14:59:15,445 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:59:15.445611+00:00
+2025-11-21 14:59:15,445 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:59:15,445 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:15,445 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'name': 'Grupo Duplicado 1763737155', 'code': 'Structure_1763737155403'}
+2025-11-21 14:59:15,598 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:59:15,602 - INFO - conftest - en: group_teardown:114 - Iniciando teardown: Eliminando grupos creados durante la prueba
+2025-11-21 14:59:15,603 - INFO - conftest - en: group_teardown:116 - Eliminando grupo con ID: 22
+2025-11-21 14:59:15,603 - INFO - group_helper - en: delete_group:42 - Eliminando grupo con ID: 22
+2025-11-21 14:59:15,603 - INFO - group_service - en: delete_group:17 - Empezando el proceso para eliminar grupo con ID: 22
+2025-11-21 14:59:15,603 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-21T14:59:15.603239+00:00
+2025-11-21 14:59:15,603 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-21 14:59:15,603 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:15,603 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/22 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+2025-11-21 14:59:15,644 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-21 14:59:15,644 - INFO - conftest - en: group_teardown:118 - Teardown completado: Grupos eliminados

@@ -1,0 +1,6 @@
+INFO     customer_service:customer_service.py:30 Empezando el proceso para obtener cliente con ID: abc#
+INFO     api_request:api_request.py:14 Timestamp: 2025-11-21T14:58:49.979709+00:00
+INFO     api_request:api_request.py:15 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:16 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:17 Request URL: GET http://localhost:8000/api/v1/admin/customers/abc# | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | Params: None
+INFO     api_request:api_request.py:19 Status Code: 500

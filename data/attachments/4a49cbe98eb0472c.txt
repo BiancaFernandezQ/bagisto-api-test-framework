@@ -1,0 +1,14 @@
+2025-11-21 14:59:05,338 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: omoore@example.net
+2025-11-21 14:59:05,339 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:59:05,339 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:59:05.339151+00:00
+2025-11-21 14:59:05,339 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:59:05,339 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:05,339 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Jennifer', 'last_name': 'Gonzalez', 'email': 'omoore@example.net', 'gender': 'Other', 'customer_group_id': 1}
+2025-11-21 14:59:05,445 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:59:05,450 - INFO - customer_helper - en: create_customer_data:48 - Construyendo cliente aleatorio con email: danielgonzalez@example.com
+2025-11-21 14:59:05,450 - INFO - customer_service - en: update_customer:24 - Empezando el proceso para actualizar cliente con ID: 43
+2025-11-21 14:59:05,450 - INFO - api_request - en: put:44 - Timestamp: 2025-11-21T14:59:05.450433+00:00
+2025-11-21 14:59:05,450 - INFO - api_request - en: put:45 - Domain: http://localhost:8000
+2025-11-21 14:59:05,450 - DEBUG - api_request - en: put:46 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:05,450 - DEBUG - api_request - en: put:47 - Request URL: PUT http://localhost:8000/api/v1/admin/customers/43 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Joshua', 'last_name': 'Mcknight', 'email': 'danielgonzalez@example.com', 'gender': 'Male', 'customer_group_id': 9999}
+2025-11-21 14:59:05,757 - INFO - api_request - en: put:49 - Status Code: 500

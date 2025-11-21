@@ -1,0 +1,22 @@
+2025-11-21 14:59:12,554 - INFO - conftest - en: create_group:95 - Creando grupo para la prueba
+2025-11-21 14:59:12,556 - INFO - group_helper - en: create_random_group:19 - Creando grupo aleatorio con code: situation1763737152
+2025-11-21 14:59:12,556 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'code': 'situation1763737152', 'name': 'people'}
+2025-11-21 14:59:12,556 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:59:12.556531+00:00
+2025-11-21 14:59:12,556 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:59:12,556 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:12,556 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'situation1763737152', 'name': 'people'}
+2025-11-21 14:59:12,596 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:59:12,597 - INFO - conftest - en: create_group:100 - Grupo creado con ID: 9
+2025-11-21 14:59:12,597 - INFO - group_service - en: get_group_by_id:23 - Empezando el proceso para obtener grupo con ID: 9
+2025-11-21 14:59:12,597 - INFO - api_request - en: get:14 - Timestamp: 2025-11-21T14:59:12.597838+00:00
+2025-11-21 14:59:12,597 - INFO - api_request - en: get:15 - Domain: http://localhost:8000
+2025-11-21 14:59:12,597 - DEBUG - api_request - en: get:16 - Authentication: Bearer 95|JU9nP77BVdVL5HfpV0UTNP4ZbvZ4VkrLeURmY8pjd
+2025-11-21 14:59:12,598 - DEBUG - api_request - en: get:17 - Request URL: GET http://localhost:8000/api/v1/admin/customers/groups/9 | Headers: {'Authorization': 'Bearer 95|JU9nP77BVdVL5HfpV0UTNP4ZbvZ4VkrLeURmY8pjd'} | Params: None
+2025-11-21 14:59:12,684 - INFO - api_request - en: get:19 - Status Code: 500
+2025-11-21 14:59:12,687 - INFO - conftest - en: create_group:104 - Iniciando teardown: Eliminando el grupo con ID: 9
+2025-11-21 14:59:12,687 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-21T14:59:12.687898+00:00
+2025-11-21 14:59:12,687 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-21 14:59:12,688 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:12,688 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/9 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+2025-11-21 14:59:12,729 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-21 14:59:12,729 - INFO - conftest - en: create_group:107 - Teardown completado: Grupo eliminado

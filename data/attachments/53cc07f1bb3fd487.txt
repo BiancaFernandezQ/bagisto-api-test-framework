@@ -1,0 +1,8 @@
+INFO     customer_service:customer_service.py:36 Empezando el proceso para obtener todos los clientes con parámetros: {'limit': 10000}
+INFO     api_request:api_request.py:14 Timestamp: 2025-11-21T14:58:55.743166+00:00
+INFO     api_request:api_request.py:15 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:16 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:17 Request URL: GET http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | Params: {'limit': 10000}
+INFO     api_request:api_request.py:19 Status Code: 200
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.

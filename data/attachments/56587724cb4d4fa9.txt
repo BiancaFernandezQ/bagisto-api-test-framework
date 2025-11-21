@@ -1,0 +1,19 @@
+2025-11-21 14:58:47,139 - INFO - customer_helper - en: create_random_customer:21 - Creando cliente aleatorio con email: staylor@example.org
+2025-11-21 14:58:47,139 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 14:58:47,139 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:58:47.139962+00:00
+2025-11-21 14:58:47,140 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:58:47,140 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:47,140 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Gregory', 'last_name': 'Trevino', 'email': 'staylor@example.org', 'gender': 'Female', 'customer_group_id': 1}
+2025-11-21 14:58:47,252 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:58:48,252 - INFO - customer_service - en: delete_customer:18 - Empezando el proceso para eliminar cliente con ID: 2
+2025-11-21 14:58:48,252 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-21T14:58:48.252719+00:00
+2025-11-21 14:58:48,252 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-21 14:58:48,252 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:48,252 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/2 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+2025-11-21 14:58:48,310 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-21 14:58:48,310 - INFO - customer_service - en: delete_customer:18 - Empezando el proceso para eliminar cliente con ID: 2
+2025-11-21 14:58:48,310 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-21T14:58:48.310817+00:00
+2025-11-21 14:58:48,310 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-21 14:58:48,310 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:58:48,311 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/2 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+2025-11-21 14:58:48,353 - INFO - api_request - en: delete:64 - Status Code: 404

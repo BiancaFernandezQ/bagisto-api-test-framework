@@ -1,0 +1,22 @@
+INFO     conftest:conftest.py:50 Creando cliente para la prueba
+INFO     customer_helper:customer_helper.py:21 Creando cliente aleatorio con email: joshua78@example.org
+INFO     customer_service:customer_service.py:12 Empezando el proceso para crear cliente 
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:58:50.498214+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Cassandra', 'last_name': 'Russell', 'email': 'joshua78@example.org', 'gender': 'Male', 'customer_group_id': 1}
+INFO     api_request:api_request.py:34 Status Code: 200
+INFO     conftest:conftest.py:55 Cliente creado con ID: 6
+INFO     customer_service:customer_service.py:30 Empezando el proceso para obtener cliente con ID: 6
+INFO     api_request:api_request.py:14 Timestamp: 2025-11-21T14:58:50.605687+00:00
+INFO     api_request:api_request.py:15 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:16 Authentication: Bearer 95|JU9nP77BVdVL5HfpV0UTNP4ZbvZ4VkrLeURmY8pjd
+DEBUG    api_request:api_request.py:17 Request URL: GET http://localhost:8000/api/v1/admin/customers/6 | Headers: {'Authorization': 'Bearer 95|JU9nP77BVdVL5HfpV0UTNP4ZbvZ4VkrLeURmY8pjd'} | Params: None
+INFO     api_request:api_request.py:19 Status Code: 500
+INFO     conftest:conftest.py:59 Iniciando teardown: Eliminando el cliente con ID: 6
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:58:50.802073+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/6 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 200
+INFO     conftest:conftest.py:62 Teardown completado: Cliente eliminado

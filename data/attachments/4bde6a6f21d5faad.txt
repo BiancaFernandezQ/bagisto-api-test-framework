@@ -1,0 +1,15 @@
+2025-11-21 14:59:06,236 - INFO - group_helper - en: create_random_group:19 - Creando grupo aleatorio con code: ability1763737146
+2025-11-21 14:59:06,237 - INFO - group_service - en: create_group:11 - Empezando el proceso para crear grupo con datos: {'code': 'ability1763737146', 'name': 'worry'}
+2025-11-21 14:59:06,237 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T14:59:06.237170+00:00
+2025-11-21 14:59:06,237 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 14:59:06,237 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:06,237 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'ability1763737146', 'name': 'worry'}
+2025-11-21 14:59:06,279 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 14:59:08,279 - INFO - group_service - en: delete_group:17 - Empezando el proceso para eliminar grupo con ID: 4
+2025-11-21 14:59:08,280 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-21T14:59:08.280075+00:00
+2025-11-21 14:59:08,280 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-21 14:59:08,280 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+2025-11-21 14:59:08,280 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/4 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+2025-11-21 14:59:08,366 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-21 14:59:08,366 - INFO - assertions - en: assert_response_contiene_campo:42 - Verificando la presencia del campo 'message'.
+2025-11-21 14:59:08,366 - INFO - assertions - en: assert_content_type_es_json:22 - Verificando que el Content-Type sea 'application/json'.

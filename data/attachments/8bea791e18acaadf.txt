@@ -1,0 +1,6 @@
+INFO     group_service:group_service.py:17 Empezando el proceso para eliminar grupo con ID: 123
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:08.415087+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 20|65468485548484488481
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/123 | Headers: {'Authorization': 'Bearer 20|65468485548484488481'}
+INFO     api_request:api_request.py:64 Status Code: 500

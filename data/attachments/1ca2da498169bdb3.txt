@@ -1,0 +1,29 @@
+INFO     group_helper:groups_helper.py:19 Creando grupo aleatorio con code: social1763737157
+INFO     group_service:group_service.py:11 Empezando el proceso para crear grupo con datos: {'code': 'social1763737157', 'name': 'since'}
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:59:17.985047+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'social1763737157', 'name': 'since'}
+INFO     api_request:api_request.py:34 Status Code: 200
+INFO     group_helper:groups_helper.py:38 Construyendo grupo aleatorio con code: Wide_1763737160034
+INFO     group_service:group_service.py:35 Empezando el proceso para actualizar grupo con ID: 25
+INFO     api_request:api_request.py:44 Timestamp: 2025-11-21T14:59:20.037118+00:00
+INFO     api_request:api_request.py:45 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:46 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:47 Request URL: PUT http://localhost:8000/api/v1/admin/customers/groups/25 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'name': 'Friedman-Gay_1763737160034', 'code': 'Wide_1763737160034'}
+INFO     api_request:api_request.py:49 Status Code: 200
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.
+INFO     assertions:response_assertions.py:22 Verificando que el Content-Type sea 'application/json'.
+INFO     conftest:conftest.py:114 Iniciando teardown: Eliminando grupos creados durante la prueba
+INFO     conftest:conftest.py:116 Eliminando grupo con ID: 25
+INFO     group_helper:groups_helper.py:42 Eliminando grupo con ID: 25
+INFO     group_service:group_service.py:17 Empezando el proceso para eliminar grupo con ID: 25
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:20.117615+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/25 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 200
+INFO     conftest:conftest.py:118 Teardown completado: Grupos eliminados

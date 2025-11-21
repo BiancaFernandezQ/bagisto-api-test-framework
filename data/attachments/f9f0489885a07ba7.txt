@@ -1,0 +1,13 @@
+INFO     customer_helper:customer_helper.py:21 Creando cliente aleatorio con email: donnavasquez@example.org
+INFO     customer_service:customer_service.py:12 Empezando el proceso para crear cliente 
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:58:48.359737+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Sylvia', 'last_name': 'Knox', 'email': 'donnavasquez@example.org', 'gender': 'Male', 'customer_group_id': 1}
+INFO     api_request:api_request.py:34 Status Code: 200
+INFO     customer_service:customer_service.py:18 Empezando el proceso para eliminar cliente con ID: 3
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:58:49.465855+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 20|65468485548484488481
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/3 | Headers: {'Authorization': 'Bearer 20|65468485548484488481'}
+INFO     api_request:api_request.py:64 Status Code: 500

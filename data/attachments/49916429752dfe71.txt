@@ -1,0 +1,27 @@
+INFO     customer_helper:customer_helper.py:48 Construyendo cliente aleatorio con email: patrickrhodes@example.org
+INFO     customer_service:customer_service.py:12 Empezando el proceso para crear cliente 
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:58:56.949906+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'first_name': 'Jennifer', 'last_name': 'Edwards', 'email': 'patrickrhodes@example.org', 'gender': 'Other', 'customer_group_id': 1}
+INFO     api_request:api_request.py:34 Status Code: 200
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.
+INFO     assertions:response_assertions.py:42 Verificando la presencia del campo 'data'.
+INFO     assertions:response_assertions.py:42 Verificando la presencia del campo 'message'.
+INFO     assertions:response_assertions.py:63 Verificando que el campo 'data' no sea nulo.
+INFO     assertions:response_assertions.py:55 Verificando la presencia del campo 'created_at' en la respuesta.
+INFO     assertions:response_assertions.py:59 Verificando la presencia del campo 'updated_at' en la respuesta.
+INFO     assertions:response_assertions.py:22 Verificando que el Content-Type sea 'application/json'.
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.
+INFO     conftest:conftest.py:69 Iniciando teardown: Eliminando clientes creados durante la prueba
+INFO     conftest:conftest.py:71 Eliminando cliente con ID: 22
+INFO     customer_helper:customer_helper.py:52 Eliminando cliente con ID: 22
+INFO     customer_service:customer_service.py:18 Empezando el proceso para eliminar cliente con ID: 22
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:58:57.072289+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/22 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 200
+INFO     conftest:conftest.py:73 Teardown completado: Clientes eliminados

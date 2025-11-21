@@ -1,0 +1,19 @@
+INFO     group_helper:groups_helper.py:19 Creando grupo aleatorio con code: car1763737148
+INFO     group_service:group_service.py:11 Empezando el proceso para crear grupo con datos: {'code': 'car1763737148', 'name': 'manage'}
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T14:59:08.510719+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers/groups | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'} | JSON: {'code': 'car1763737148', 'name': 'manage'}
+INFO     api_request:api_request.py:34 Status Code: 200
+INFO     group_service:group_service.py:17 Empezando el proceso para eliminar grupo con ID: 5
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:09.552312+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/5 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 200
+INFO     group_service:group_service.py:17 Empezando el proceso para eliminar grupo con ID: 5
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T14:59:09.596168+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/groups/5 | Headers: {'Authorization': 'Bearer 1|A3UY0YWpRXAPj0eVjI09xa4es7UQw6Pne0jBDENy2e35350b'}
+INFO     api_request:api_request.py:64 Status Code: 404
