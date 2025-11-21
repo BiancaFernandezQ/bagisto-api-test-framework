@@ -17,7 +17,7 @@ class BagistoRequest:
             logger.debug(f"Request URL: GET {url} | Headers: {headers} | Params: {params}") #Debug de la URL, headers y params
             response = requests.get(url, headers=headers, params=params)
             logger.info(f"Status Code: {response.status_code}") #Info del status code
-            logger.debug(f"Response Payload: {response.text}") #Debug del payload de la respuesta
+            #logger.debug(f"Response Payload: {response.text}") #Debug del payload de la respuesta
             return response
         except requests.exceptions.RequestException as e:
             logger.error(f"GET Request failed: {e}") #Error en caso de fallo en la request
@@ -32,7 +32,7 @@ class BagistoRequest:
             logger.debug(f"Request URL: POST {url} | Headers: {headers} | JSON: {json}")
             response = requests.post(url, headers=headers, data=data, json=json)
             logger.info(f"Status Code: {response.status_code}")
-            logger.debug(f"Response Payload: {response.text}")
+            #logger.debug(f"Response Payload: {response.text}")
             return response
         except requests.exceptions.RequestException as e:
             logger.error(f"POST Request failed: {e}")
@@ -47,7 +47,7 @@ class BagistoRequest:
             logger.debug(f"Request URL: PUT {url} | Headers: {headers} | JSON: {json}")
             response = requests.put(url, headers=headers, json=json)
             logger.info(f"Status Code: {response.status_code}")
-            logger.debug(f"Response Payload: {response.text}")
+            #logger.debug(f"Response Payload: {response.text}")
             return response
         except requests.exceptions.RequestException as e:
             logger.error(f"PUT Request failed: {e}")
@@ -62,7 +62,7 @@ class BagistoRequest:
             logger.debug(f"Request URL: DELETE {url} | Headers: {headers}")
             response = requests.delete(url, headers=headers, data=data)
             logger.info(f"Status Code: {response.status_code}")
-            logger.debug(f"Response Payload: {response.text}")
+            #logger.debug(f"Response Payload: {response.text}")
             return response
         except requests.exceptions.RequestException as e:
             logger.error(f"DELETE Request failed: {e}")

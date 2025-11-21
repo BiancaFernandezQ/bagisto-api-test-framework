@@ -13,8 +13,8 @@ class GroupHelper:
     @staticmethod
     def create_random_group(token):
         group_data = {
-            "code": Faker().unique.word().capitalize(),
-            "name": Faker().company(),
+            "code": f"{Faker().unique.word()}{int(time.time())}",
+            "name": Faker().unique.word()
         }
         logger.info(f"Creando grupo aleatorio con code: {group_data['code']}")
         return GroupService.create_group(token, group_data)
