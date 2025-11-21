@@ -1,0 +1,21 @@
+2025-11-21 12:08:02,075 - INFO - customer_helper - en: create_customer_data:48 - Construyendo cliente aleatorio con email: melaniegregory@example.org
+2025-11-21 12:08:02,075 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-21 12:08:02,078 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.
+2025-11-21 12:08:02,078 - INFO - customer_service - en: create_customer:12 - Empezando el proceso para crear cliente 
+2025-11-21 12:08:02,079 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T12:08:02.078989+00:00
+2025-11-21 12:08:02,079 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 12:08:02,079 - DEBUG - api_request - en: post:31 - Authentication: Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e
+2025-11-21 12:08:02,079 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e'} | JSON: {'first_name': 'Elizabeth', 'last_name': 'Orr', 'email': 'melaniegregory@example.org', 'gender': 'Female', 'customer_group_id': 1}
+2025-11-21 12:08:02,186 - INFO - api_request - en: post:34 - Status Code: 200
+2025-11-21 12:08:02,186 - DEBUG - api_request - en: post:35 - Response Payload: {"data":{"id":37,"email":"melaniegregory@example.org","name":"Elizabeth Orr","first_name":"Elizabeth","last_name":"Orr","gender":"Female","date_of_birth":null,"phone":null,"status":null,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-21T12:08:02.000000Z","updated_at":"2025-11-21T12:08:02.000000Z"},"message":"Customer have been successfully added."}
+2025-11-21 12:08:02,187 - INFO - conftest - en: customer_teardown:69 - Iniciando teardown: Eliminando clientes creados durante la prueba
+2025-11-21 12:08:02,187 - INFO - conftest - en: customer_teardown:71 - Eliminando cliente con ID: 37
+2025-11-21 12:08:02,187 - INFO - customer_helper - en: delete_customer:52 - Eliminando cliente con ID: 37
+2025-11-21 12:08:02,187 - INFO - customer_service - en: delete_customer:18 - Empezando el proceso para eliminar cliente con ID: 37
+2025-11-21 12:08:02,187 - INFO - api_request - en: delete:59 - Timestamp: 2025-11-21T12:08:02.187863+00:00
+2025-11-21 12:08:02,187 - INFO - api_request - en: delete:60 - Domain: http://localhost:8000
+2025-11-21 12:08:02,188 - DEBUG - api_request - en: delete:61 - Authentication: Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e
+2025-11-21 12:08:02,188 - DEBUG - api_request - en: delete:62 - Request URL: DELETE http://localhost:8000/api/v1/admin/customers/37 | Headers: {'Authorization': 'Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e'}
+2025-11-21 12:08:02,231 - INFO - api_request - en: delete:64 - Status Code: 200
+2025-11-21 12:08:02,231 - DEBUG - api_request - en: delete:65 - Response Payload: {"message":"Customer successfully deleted"}
+2025-11-21 12:08:02,231 - INFO - conftest - en: customer_teardown:73 - Teardown completado: Clientes eliminados

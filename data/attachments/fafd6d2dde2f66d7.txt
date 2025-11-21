@@ -1,0 +1,8 @@
+2025-11-21 12:08:23,951 - INFO - group_helper - en: create_grupo_data:38 - Construyendo grupo aleatorio con code: Bit_1763726903949
+2025-11-21 12:08:23,951 - INFO - group_service - en: update_group:35 - Empezando el proceso para actualizar grupo con ID: 1
+2025-11-21 12:08:23,952 - INFO - api_request - en: put:44 - Timestamp: 2025-11-21T12:08:23.952062+00:00
+2025-11-21 12:08:23,952 - INFO - api_request - en: put:45 - Domain: http://localhost:8000
+2025-11-21 12:08:23,952 - DEBUG - api_request - en: put:46 - Authentication: Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e
+2025-11-21 12:08:23,952 - DEBUG - api_request - en: put:47 - Request URL: PUT http://localhost:8000/api/v1/admin/customers/groups/1 | Headers: {'Authorization': 'Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e'} | JSON: {'name': 'Knight and Sons_1763726903949', 'code': 'Bit_1763726903949'}
+2025-11-21 12:08:23,995 - INFO - api_request - en: put:49 - Status Code: 200
+2025-11-21 12:08:23,995 - DEBUG - api_request - en: put:50 - Response Payload: {"data":{"id":1,"name":"Knight and Sons_1763726903949","created_at":null,"updated_at":"2025-11-21T12:08:23.000000Z"},"message":"Customer group updated successfully."}

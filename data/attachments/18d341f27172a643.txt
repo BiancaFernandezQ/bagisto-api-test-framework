@@ -1,0 +1,29 @@
+INFO     customer_helper:customer_helper.py:21 Creando cliente aleatorio con email: lauren54@example.net
+INFO     customer_service:customer_service.py:12 Empezando el proceso para crear cliente 
+INFO     api_request:api_request.py:29 Timestamp: 2025-11-21T12:08:07.187786+00:00
+INFO     api_request:api_request.py:30 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:31 Authentication: Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e
+DEBUG    api_request:api_request.py:32 Request URL: POST http://localhost:8000/api/v1/admin/customers | Headers: {'Authorization': 'Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e'} | JSON: {'first_name': 'Dean', 'last_name': 'Kelley', 'email': 'lauren54@example.net', 'gender': 'Male', 'customer_group_id': 1}
+INFO     api_request:api_request.py:34 Status Code: 200
+DEBUG    api_request:api_request.py:35 Response Payload: {"data":{"id":42,"email":"lauren54@example.net","name":"Dean Kelley","first_name":"Dean","last_name":"Kelley","gender":"Male","date_of_birth":null,"phone":null,"status":null,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-21T12:08:07.000000Z","updated_at":"2025-11-21T12:08:07.000000Z"},"message":"Customer have been successfully added."}
+INFO     customer_helper:customer_helper.py:48 Construyendo cliente aleatorio con email: rochakristen@example.com
+INFO     customer_service:customer_service.py:24 Empezando el proceso para actualizar cliente con ID: 42
+INFO     api_request:api_request.py:44 Timestamp: 2025-11-21T12:08:07.299599+00:00
+INFO     api_request:api_request.py:45 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:46 Authentication: Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e
+DEBUG    api_request:api_request.py:47 Request URL: PUT http://localhost:8000/api/v1/admin/customers/42 | Headers: {'Authorization': 'Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e'} | JSON: {'first_name': 'Melissa', 'last_name': 'LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL', 'email': 'rochakristen@example.com', 'gender': 'Female', 'customer_group_id': 1}
+INFO     api_request:api_request.py:49 Status Code: 200
+DEBUG    api_request:api_request.py:50 Response Payload: {"data":{"id":42,"email":"rochakristen@example.com","name":"Melissa LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL","first_name":"Melissa","last_name":"LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL","gender":"Female","date_of_birth":null,"phone":null,"status":0,"group":{"id":1,"name":"Guest","created_at":null,"updated_at":null},"notes":[],"created_at":"2025-11-21T12:08:07.000000Z","updated_at":"2025-11-21T12:08:07.000000Z"},"message":"Customer updated successfully."}
+INFO     assertions:response_assertions.py:8 Validando esquema JSON.
+INFO     assertions:response_assertions.py:11 El esquema JSON es válido.
+INFO     conftest:conftest.py:69 Iniciando teardown: Eliminando clientes creados durante la prueba
+INFO     conftest:conftest.py:71 Eliminando cliente con ID: 42
+INFO     customer_helper:customer_helper.py:52 Eliminando cliente con ID: 42
+INFO     customer_service:customer_service.py:18 Empezando el proceso para eliminar cliente con ID: 42
+INFO     api_request:api_request.py:59 Timestamp: 2025-11-21T12:08:07.359035+00:00
+INFO     api_request:api_request.py:60 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:61 Authentication: Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e
+DEBUG    api_request:api_request.py:62 Request URL: DELETE http://localhost:8000/api/v1/admin/customers/42 | Headers: {'Authorization': 'Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e'}
+INFO     api_request:api_request.py:64 Status Code: 200
+DEBUG    api_request:api_request.py:65 Response Payload: {"message":"Customer successfully deleted"}
+INFO     conftest:conftest.py:73 Teardown completado: Clientes eliminados

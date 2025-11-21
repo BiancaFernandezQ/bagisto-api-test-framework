@@ -1,0 +1,8 @@
+INFO     group_helper:groups_helper.py:38 Construyendo grupo aleatorio con code: Bit_1763726903949
+INFO     group_service:group_service.py:35 Empezando el proceso para actualizar grupo con ID: 1
+INFO     api_request:api_request.py:44 Timestamp: 2025-11-21T12:08:23.952062+00:00
+INFO     api_request:api_request.py:45 Domain: http://localhost:8000
+DEBUG    api_request:api_request.py:46 Authentication: Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e
+DEBUG    api_request:api_request.py:47 Request URL: PUT http://localhost:8000/api/v1/admin/customers/groups/1 | Headers: {'Authorization': 'Bearer 1|vg6apiRKWYemyMbPcG6dGnYDqFnoZdjRVLvBWAzlc6096d1e'} | JSON: {'name': 'Knight and Sons_1763726903949', 'code': 'Bit_1763726903949'}
+INFO     api_request:api_request.py:49 Status Code: 200
+DEBUG    api_request:api_request.py:50 Response Payload: {"data":{"id":1,"name":"Knight and Sons_1763726903949","created_at":null,"updated_at":"2025-11-21T12:08:23.000000Z"},"message":"Customer group updated successfully."}
