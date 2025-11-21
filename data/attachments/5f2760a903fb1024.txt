@@ -1,0 +1,11 @@
+2025-11-21 04:56:13,735 - INFO - login_service - en: login_admin:10 - Iniciando proceso de login para el usuario: 
+2025-11-21 04:56:13,735 - INFO - api_request - en: post:29 - Timestamp: 2025-11-21T04:56:13.735807+00:00
+2025-11-21 04:56:13,735 - INFO - api_request - en: post:30 - Domain: http://localhost:8000
+2025-11-21 04:56:13,735 - DEBUG - api_request - en: post:31 - Authentication: No Auth
+2025-11-21 04:56:13,736 - DEBUG - api_request - en: post:32 - Request URL: POST http://localhost:8000/api/v1/admin/login | Headers: {'Content-Type': 'application/json', 'Accept': 'application/json'} | JSON: {'email': '', 'password': 'admin123', 'device_name': 'ci-test'}
+2025-11-21 04:56:13,774 - INFO - api_request - en: post:34 - Status Code: 422
+2025-11-21 04:56:13,774 - DEBUG - api_request - en: post:35 - Response Payload: {"message":"The email field is required.","errors":{"email":["The email field is required."]}}
+2025-11-21 04:56:13,774 - INFO - assertions - en: assert_response_contiene_campo:42 - Verificando la presencia del campo 'message'.
+2025-11-21 04:56:13,774 - INFO - assertions - en: assert_response_contiene_campo:42 - Verificando la presencia del campo 'errors'.
+2025-11-21 04:56:13,774 - INFO - assertions - en: assert_valid_schema:8 - Validando esquema JSON.
+2025-11-21 04:56:13,776 - INFO - assertions - en: assert_valid_schema:11 - El esquema JSON es válido.

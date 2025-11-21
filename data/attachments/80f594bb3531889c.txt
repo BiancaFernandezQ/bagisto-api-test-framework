@@ -1,0 +1,8 @@
+2025-11-21 04:56:13,348 - INFO - group_helper - en: create_grupo_data:38 - Construyendo grupo aleatorio con code: Sometimes_1763700973347
+2025-11-21 04:56:13,349 - INFO - group_service - en: update_group:35 - Empezando el proceso para actualizar grupo con ID: 1
+2025-11-21 04:56:13,349 - INFO - api_request - en: put:44 - Timestamp: 2025-11-21T04:56:13.349159+00:00
+2025-11-21 04:56:13,349 - INFO - api_request - en: put:45 - Domain: http://localhost:8000
+2025-11-21 04:56:13,349 - DEBUG - api_request - en: put:46 - Authentication: Bearer 1|8wQCMrwTzMKZ87Q586iRmoq92KAvueRjpgdCv26L5396eb2f
+2025-11-21 04:56:13,349 - DEBUG - api_request - en: put:47 - Request URL: PUT http://localhost:8000/api/v1/admin/customers/groups/1 | Headers: {'Authorization': 'Bearer 1|8wQCMrwTzMKZ87Q586iRmoq92KAvueRjpgdCv26L5396eb2f'} | JSON: {'name': 'Davis LLC_1763700973347', 'code': 'Sometimes_1763700973347'}
+2025-11-21 04:56:13,394 - INFO - api_request - en: put:49 - Status Code: 200
+2025-11-21 04:56:13,394 - DEBUG - api_request - en: put:50 - Response Payload: {"data":{"id":1,"name":"Davis LLC_1763700973347","created_at":null,"updated_at":"2025-11-21T04:56:13.000000Z"},"message":"Customer group updated successfully."}

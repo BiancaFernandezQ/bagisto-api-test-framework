@@ -1,8 +1,0 @@
-INFO     group_helper:groups_helper.py:38 Construyendo grupo aleatorio con code: Prove_1763677301906
-INFO     group_service:group_service.py:35 Empezando el proceso para actualizar grupo con ID: 1
-INFO     api_request:api_request.py:44 Timestamp: 2025-11-20T22:21:41.908736+00:00
-INFO     api_request:api_request.py:45 Domain: http://localhost:8000
-DEBUG    api_request:api_request.py:46 Authentication: Bearer 1|fPS1AgFANWi9I8ij9ds4TUPJgBt2zystqYOTXkDM4dba398e
-DEBUG    api_request:api_request.py:47 Request URL: PUT http://localhost:8000/api/v1/admin/customers/groups/1 | Headers: {'Authorization': 'Bearer 1|fPS1AgFANWi9I8ij9ds4TUPJgBt2zystqYOTXkDM4dba398e'} | JSON: {'name': 'Marshall, Roberts and Mendoza_1763677301906', 'code': 'Prove_1763677301906'}
-INFO     api_request:api_request.py:49 Status Code: 200
-DEBUG    api_request:api_request.py:50 Response Payload: {"data":{"id":1,"name":"Marshall, Roberts and Mendoza_1763677301906","created_at":null,"updated_at":"2025-11-20T22:21:41.000000Z"},"message":"Customer group updated successfully."}
